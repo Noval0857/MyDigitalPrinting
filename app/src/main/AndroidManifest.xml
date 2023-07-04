@@ -16,6 +16,9 @@
             android:name=".login.LoginActivity"
             android:exported="true" />
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -27,7 +30,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="false">
-        </activity>
     </application>
 
 </manifest>

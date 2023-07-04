@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="maron">#B31312</color>
     <color name="pink">#FFE5E5</color>
+    <color name="lightPink">#FFE5E5</color>
+    <color name="darkRed">#B31312</color>
+    <color name="blue">#2A0AEE</color>
 </resources>

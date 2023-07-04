@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This linear layout is used to show elements
+	in vertical or in horizontal linear manner -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="30dp"
+    android:backgroundTint="@color/white">
+
+
+    <!-- This TextView indicates new fragment is open -->
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="register your account"
+        android:textSize="14sp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/lightPink"
+        android:paddingLeft="10dp"
+        android:hint="Enter your fullname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt1" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/lightPink"
+        android:paddingLeft="10dp"
+        android:hint="Enter your email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/lightPink"
+        android:paddingLeft="10dp"
+        android:hint="Address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/lightPink"
+        android:paddingLeft="10dp"
+        android:hint="Create password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
+
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/lightPink"
+        android:paddingLeft="10dp"
+        android:hint="Confirm password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password1" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:width="300dp"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"
+        android:text="Register"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Already have an account?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Login"
+        android:textColor="@color/blue"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
