@@ -1,7 +1,8 @@
-package umbjm.ft.inf.mydigitalprinting
+package umbjm.ft.inf.mydigitalprinting.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import umbjm.ft.inf.mydigitalprinting.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
