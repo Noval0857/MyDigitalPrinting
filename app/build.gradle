@@ -9,7 +9,9 @@ android {
 
     defaultConfig {
         applicationId "umbjm.ft.inf.mydigitalprinting"
-        minSdk 28
+
+        minSdk 21
+
         targetSdk 33
         versionCode 1
         versionName "1.0"
