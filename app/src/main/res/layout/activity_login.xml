@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
+    tools:context=".login.LoginActivity"
     android:fitsSystemWindows="true">
 
     <RelativeLayout
@@ -31,9 +33,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="-20dp"
                 android:text="Sign in to your account"
                 android:textColor="@color/black"
-                android:textSize="19sp" />
+                android:textSize="20sp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -54,11 +57,11 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@color/pink"
                     app:boxCornerRadiusBottomEnd="20dp"
                     app:boxCornerRadiusBottomStart="20dp"
                     app:boxCornerRadiusTopEnd="20dp"
                     app:boxCornerRadiusTopStart="20dp"
-                    app:boxBackgroundColor="@color/pink"
                     app:boxStrokeColor="@color/black"
                     app:hintTextColor="@color/black">
 
@@ -83,13 +86,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
+                    app:boxBackgroundColor="@color/pink"
                     app:boxCornerRadiusBottomEnd="20dp"
                     app:boxCornerRadiusBottomStart="20dp"
                     app:boxCornerRadiusTopEnd="20dp"
                     app:boxCornerRadiusTopStart="20dp"
                     app:boxStrokeColor="@color/black"
                     app:hintTextColor="@color/black"
-                    app:boxBackgroundColor="@color/pink"
                     app:passwordToggleEnabled="true"
                     app:passwordToggleTint="@color/black">
 
@@ -121,33 +124,36 @@
                     android:textStyle="bold" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnLogin"
+                    android:id="@+id/btnS"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="50dp"
                     android:layout_marginBottom="10dp"
-                    android:backgroundTint="@android:color/holo_red_light"
+                    android:backgroundTint="@color/maron"
                     android:text="Sign In"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     app:cornerRadius="20dp"
                     app:elevation="5dp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Don't have an account?"
-                        android:layout_marginLeft="90dp"/>
+                        android:layout_marginLeft="90dp"
+                        android:text="Don't have an account?" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Create"
                         android:layout_marginLeft="5dp"
-                        android:textStyle="bold"/>
+                        android:text="Create"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </androidx.appcompat.widget.LinearLayoutCompat>

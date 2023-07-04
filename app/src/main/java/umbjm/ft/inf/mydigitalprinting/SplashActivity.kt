@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import umbjm.ft.inf.mydigitalprinting.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             //Menjalankan MainActivity
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             //Menghentikan SplashActivity
             finish()
         }, 1000) //set Durasi Splash Screen
