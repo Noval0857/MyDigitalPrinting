@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_pesanan"
+        android:title="Pesanan saya"/>
+
+    <item
+        android:id="@+id/nav_dekorasi"
+        android:title="Dekorasi" />
+
+    <item
+        android:id="@+id/nav_event"
+        android:title="Event" />
+    <item
+        android:id="@+id/nav_kemasan"
+        android:title="Kemasan" />
+
+    <item
+        android:id="@+id/nav_stationery"
+        android:title="Stationery" />
+
+    <item
+        android:id="@+id/nav_promosi"
+        android:title="Promosi" />
+    <item
+        android:id="@+id/nav_sd"
+        android:title="Signage &amp; Display" />
+
+    <item
+        android:id="@+id/nav_tekstil"
+        android:title="Tekstil" />
+</menu>
