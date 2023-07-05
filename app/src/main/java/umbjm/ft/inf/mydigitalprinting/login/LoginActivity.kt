@@ -1,6 +1,8 @@
 package umbjm.ft.inf.mydigitalprinting.login
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.button.MaterialButton
@@ -96,5 +98,9 @@ class LoginActivity : AppCompatActivity() {
     private fun performSignIn(email: String, password: String) {
         // Implementasikan logika sign in di sini, seperti membuat request ke server, dll.
         // Anda juga dapat menavigasi ke halaman berikutnya setelah berhasil sign in.
+    }
+    fun onCreateAccountClick(view: View) {
+        val intent = Intent(this, Registrasi::class.java)
+        startActivity(intent)
     }
 }
