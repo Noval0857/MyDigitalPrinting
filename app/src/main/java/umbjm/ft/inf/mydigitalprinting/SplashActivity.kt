@@ -16,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             //Menjalankan MainActivity
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             //Menghentikan SplashActivity
             finish()
         }, 1000) //set Durasi Splash Screen
