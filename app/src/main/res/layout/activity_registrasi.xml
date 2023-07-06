@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    tools:context=".login.LoginActivity"
+    tools:context=".login.Registrasi"
     android:fitsSystemWindows="true">
 
     <RelativeLayout
@@ -206,7 +206,7 @@
 
                 <!---->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnS"
+                    android:id="@+id/btnR"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"

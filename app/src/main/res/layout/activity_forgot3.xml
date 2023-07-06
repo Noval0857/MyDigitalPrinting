@@ -54,7 +54,6 @@
         android:layout_height="50dp"
         android:layout_marginLeft="125dp"
         android:layout_marginTop="0dp"
-        android:fontFamily="@font/concert_one"
         android:text="Log Out"
         android:textSize="20dp"
         android:backgroundTint="#B31312"

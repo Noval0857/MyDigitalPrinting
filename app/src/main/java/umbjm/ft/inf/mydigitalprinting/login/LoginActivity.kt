@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.utils.SessionLogin
 
@@ -94,10 +95,10 @@ class LoginActivity : AppCompatActivity() {
         return password.length >= 6
     }
 
-    // Fungsi untuk melakukan sign in (implementasikan sesuai kebutuhan aplikasi Anda)
+    // Fungsi untuk melakukan sign in
     private fun performSignIn(email: String, password: String) {
-        // Implementasikan logika sign in di sini, seperti membuat request ke server, dll.
-        // Anda juga dapat menavigasi ke halaman berikutnya setelah berhasil sign in.
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
     fun onCreateAccountClick(view: View) {
         val intent = Intent(this, Registrasi::class.java)

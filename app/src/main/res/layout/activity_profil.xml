@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profil.ProfilActivity"
+    tools:context=".profil.ProfileActivity"
     android:orientation="vertical">
 
 
@@ -31,7 +31,7 @@
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="300dp"
+                android:layout_marginStart="300dp"
                 android:backgroundTint="#B31312"
                 app:srcCompat="@drawable/setting" />
 
@@ -178,11 +178,11 @@
             android:layout_height="50dp"
             android:layout_marginLeft="125dp"
             android:layout_marginTop="40dp"
-            android:fontFamily="@font/concert_one"
             android:text="Log Out"
             android:textSize="20dp"
             android:backgroundTint="#B31312"
             android:textStyle="normal" />
+<!--        android:fontFamily="@font/concert_one"-->
     </RelativeLayout>
 </LinearLayout>
 
