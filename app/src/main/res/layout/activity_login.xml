@@ -77,7 +77,8 @@
                         android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:background="@drawable/sudut"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,7 +109,8 @@
                         android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:background="@drawable/sudut"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
