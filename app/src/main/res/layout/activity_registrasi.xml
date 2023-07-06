@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    tools:context=".login.Registrasi"
+    tools:context=".login.LoginActivity"
     android:fitsSystemWindows="true">
 
     <RelativeLayout
@@ -19,24 +19,27 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="50sp"
-                android:text="HELLO"
                 android:textAllCaps="true"
+                android:text="HELLO"
                 android:textColor="@color/black"
                 android:textSize="68sp"
                 android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="-5dp"
-                android:layout_marginTop="-20dp"
-                android:text= "Register your account"
+                android:text= "Register Your Account?"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textAlignment="center"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -49,164 +52,90 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="100dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="vertical">
 
-                <!--UNTUK NAMA-->
+                <!--UNTUK NAME-->
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:boxBackgroundColor="@color/pink"
-                    app:boxCornerRadiusBottomEnd="20dp"
-                    app:boxCornerRadiusBottomStart="20dp"
-                    app:boxCornerRadiusTopEnd="20dp"
-                    app:boxCornerRadiusTopStart="20dp"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black">
+                    app:startIconDrawable="@drawable/person">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/nama"
+                        android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:hint="Nama"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="18sp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-                <!-- UNTUK EMAIL -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:boxBackgroundColor="@color/pink"
-                    app:boxCornerRadiusBottomEnd="20dp"
-                    app:boxCornerRadiusBottomStart="20dp"
-                    app:boxCornerRadiusTopEnd="20dp"
-                    app:boxCornerRadiusTopStart="20dp"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/inputEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:hint="Email"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="18sp" />
+                        android:background="@drawable/sudut"
+                        android:hint="Name" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- UNTUK ADDRESS -->
+                <!--UNTUK EMAIL-->
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:boxBackgroundColor="@color/pink"
-                    app:boxCornerRadiusBottomEnd="20dp"
-                    app:boxCornerRadiusBottomStart="20dp"
-                    app:boxCornerRadiusTopEnd="20dp"
-                    app:boxCornerRadiusTopStart="20dp"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black">
+                    android:layout_marginTop="10dp"
+                    app:startIconDrawable="@drawable/mail">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/sudut"
+                        android:hint="Email" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--UNTUK ADDRESS-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:startIconDrawable="@drawable/address">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:hint="Address"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="18sp" />
+                        android:background="@drawable/sudut"
+                        android:hint="Address" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Password -->
+                <!--UNTUK PASSWORD-->
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:boxBackgroundColor="@color/pink"
-                    app:boxCornerRadiusBottomEnd="20dp"
-                    app:boxCornerRadiusBottomStart="20dp"
-                    app:boxCornerRadiusTopEnd="20dp"
-                    app:boxCornerRadiusTopStart="20dp"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    app:passwordToggleEnabled="true"
-                    app:passwordToggleTint="@color/black">
+                    android:layout_marginTop="10dp"
+                    app:startIconDrawable="@drawable/gembok">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/inputPassword"
+                        android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:hint="Password"
-                        android:imeOptions="actionDone"
-                        android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="18sp" />
+                        android:background="@drawable/sudut"
+                        android:hint="Password" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- CONFIRM PASSWORD -->
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:boxBackgroundColor="@color/pink"
-                    app:boxCornerRadiusBottomEnd="20dp"
-                    app:boxCornerRadiusBottomStart="20dp"
-                    app:boxCornerRadiusTopEnd="20dp"
-                    app:boxCornerRadiusTopStart="20dp"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black">
+                    android:layout_marginTop="10dp"
+                    app:startIconDrawable="@drawable/key">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/confirmPassword"
+                        android:id="@+id/confirmpassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:hint="Confirm Password"
-                        android:imeOptions="actionDone"
-                        android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="18sp" />
+                        android:background="@drawable/sudut"
+                        android:hint="Confirm Password" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!---->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnR"
+                    android:id="@+id/btnS"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -214,7 +143,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="10dp"
                     android:backgroundTint="@color/maron"
-                    android:text="Register"
+                    android:text="Registrasi"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     app:cornerRadius="20dp"
@@ -224,20 +153,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="90dp"
-                        android:text="Already have an account?" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:text="Login"
-                        android:textColor="@color/blue"
-                        android:textStyle="bold" />
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="90dp"
+                    android:text="Already have an account?"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-20dp"
+                    android:layout_marginLeft="255dp"
+                    android:text="Log in"
+                    android:onClick="onCreateAccountClick"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
