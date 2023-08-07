@@ -20,8 +20,8 @@ class SessionRegister(context: Context) {
         set(value) = sharedPreferences.edit().putString(KEY_PASSWORD, value).apply()
 
     var nama: String?
-        get() = sharedPreferences.getString(KEY_NAME, null)
-        set(value) = sharedPreferences.edit().putString(KEY_NAME, value).apply()
+        get() = sharedPreferences.getString(KEY_NAMA, null)
+        set(value) = sharedPreferences.edit().putString(KEY_NAMA, value).apply()
 
     var address: String?
         get() = sharedPreferences.getString(KEY_ADDRESS, null)
@@ -41,7 +41,7 @@ class SessionRegister(context: Context) {
 
     companion object {
         private const val PREF_NAME = "RegistrationSession"
-        private const val KEY_NAME = "nama"
+        private const val KEY_NAMA = "nama"
         private const val KEY_ADDRESS = "address"
         private const val KEY_EMAIL = "email"
         private const val KEY_PASSWORD = "password"

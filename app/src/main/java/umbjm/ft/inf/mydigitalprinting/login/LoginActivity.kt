@@ -101,7 +101,7 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun onCreateAccountClick(view: View) {
-        val intent = Intent(this, Registrasi::class.java)
+        val intent = Intent(this, RegistrasiActivity::class.java)
         startActivity(intent)
     }
 }

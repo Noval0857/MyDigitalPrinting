@@ -2,4 +2,6 @@
     <string name="app_name">MyDigitalPrinting</string>
     <string name="empty_field_error">empty_field_error</string>
     <string name="password_mismatch_error">password_mismatch_error</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
