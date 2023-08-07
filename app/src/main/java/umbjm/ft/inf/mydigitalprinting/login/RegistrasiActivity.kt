@@ -1,5 +1,6 @@
 package umbjm.ft.inf.mydigitalprinting.login
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +12,7 @@ import com.google.android.material.textfield.TextInputLayout
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.utils.SessionRegister
 
-class Registrasi : AppCompatActivity() {
+class RegistrasiActivity : AppCompatActivity() {
 
     private lateinit var btnRegistrasi: MaterialButton
     private lateinit var inputNama: TextInputEditText
@@ -21,16 +22,17 @@ class Registrasi : AppCompatActivity() {
     private lateinit var inputConfirmPassword: TextInputEditText
     private lateinit var SessionRegister: SessionRegister
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrasi)
 
         btnRegistrasi = findViewById(R.id.btnR)
         inputNama = findViewById(R.id.nama)
-        inputEmail = findViewById(R.id.inputEmail)
+        inputEmail = findViewById(R.id.email)
         inputAddress = findViewById(R.id.address)
-        inputPassword = findViewById(R.id.inputPassword)
-        inputConfirmPassword = findViewById(R.id.confirmPassword)
+        inputPassword = findViewById(R.id.password)
+        inputConfirmPassword = findViewById(R.id.confirmpassword)
         SessionRegister = SessionRegister(this)
 
         btnRegistrasi.setOnClickListener {
