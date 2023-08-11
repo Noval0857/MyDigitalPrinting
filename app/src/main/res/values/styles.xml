@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BoldText">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ItalicText">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="BoldTextItalicText">
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+</resources>
