@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".produk.PosterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/nav_header1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="68dp">
+
+            <!--Bagian untuk Nama Project-->
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Nama project"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="370dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                />
+
+            <!--Bagian untuk CheckBox-->
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Desain"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:text="desain satu sisi"
+                />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="-35dp"
+                android:layout_marginLeft="190dp"
+                android:text="desain dua sisi"
+                />
+
+            <!--Bagian untuk Nama Jabatan-->
+            <TextView
+                android:layout_width="330dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="30dp"
+                android:text="Nama dan Jabatan (sisi Depan)\n*tanda koma (,) untuk jabatan/lain sebagainya dan berikan tanda titik koma  (;) untuk membedakan nama yang lebih dari 1 orang Contoh : aulia,ketua,68667; Budi,anggota,7678;..........."
+                android:textSize="10sp"
+                style="@style/BoldTextItalicText"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="370dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                />
+
+            <!--Bagian untuk Sisi Belakang-->
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Sisi belakang"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="370dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                />
+
+            <!--Bagian Upload Foto-->
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Upload foto*"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="370dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                android:src="@android:drawable/ic_menu_camera" />
+
+            <!--Bagian untuk Keterangan tambahan-->
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Keterangan tambahan"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                />
+
+            <!--Bagian untuk Desain akan dikirim-->
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="30dp"
+                android:text="*Desain Akan Dikirim dalam kuran waktu 24 jam"
+                android:textSize="9sp"
+                style="@style/BoldTextItalicText"/>
+
+
+            <!--Bagian Pembayaran-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnS1"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/maron"
+                android:text="Pembayaran"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:cornerRadius="20dp"
+                app:elevation="5dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
