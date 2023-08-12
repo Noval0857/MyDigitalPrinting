@@ -19,13 +19,13 @@
             android:orientation="vertical"
             android:paddingTop="68dp">
 
-            <!--Bagian untuk Nama-->
+            <!--Bagian untuk Nama Project-->
             <TextView
                 android:layout_width="90dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Nama*"
+                android:text="Nama project"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
@@ -36,125 +36,82 @@
                 android:background="@drawable/block_pesanan"
                 />
 
-            <!--Bagian untuk Email-->
+            <!--Bagian untuk CheckBox Desain-->
             <TextView
                 android:layout_width="90dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Email*"
+                android:text="Desain"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="370dp"
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
+                android:text="desain satu sisi"
                 />
 
-            <!--Bagian untuk Whatsapp-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="-35dp"
+                android:layout_marginLeft="190dp"
+                android:text="desain dua sisi"
+                />
+
+            <!--Bagian untuk CheckBox Ukuran-->
             <TextView
                 android:layout_width="90dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="No WhatsApp*"
+                android:text="Ukuran Id Card"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="370dp"
+            <!--Bagian Ukuran B1-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
                 android:layout_height="35dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
+                android:text="B1"
                 />
 
-            <!--Bagian untuk Nama Project Cetakan-->
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Nama Project Cetakan"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="370dp"
+            <!--Bagian Ukuran B2-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
+                android:text="B2"
                 />
 
-            <!--Bagian mengatur spesifikasi-->
+            <!--Ukuran B3-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="-69dp"
+                android:layout_marginLeft="190dp"
+                android:text="B3"
+                />
+
+            <!--Ukuran B4-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="-dp"
+                android:layout_marginLeft="190dp"
+                android:text="B4"
+                />
+            <!--Bagian Upload Foto-->
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Spesifikasi*"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                />
-
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="-20dp"
-                android:layout_marginLeft="140dp"
-                android:text="Panjang"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                />
-
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="-20dp"
-                android:layout_marginLeft="140dp"
-                android:text="Lebar"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
-
-            <!--Jumlah Yang Ingin Dipesan-->
-            <TextView
-                android:layout_width="180dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Jumlah yang ingin dipesanan*"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="200dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                />
-
-            <!--Bagian untuk Upload File-->
-            <TextView
-                android:layout_width="230dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Upload File Cetakan atau Desain Anda*"
+                android:text="Upload foto*"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
@@ -166,24 +123,66 @@
                 android:background="@drawable/block_pesanan"
                 android:src="@android:drawable/ic_menu_upload" />
 
-            <!--Bagian Teks Nominal-->
+            <!--Bagian untuk Quantity-->
             <TextView
-                android:layout_width="230dp"
+                android:layout_width="50dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Nominal*"
+                android:text="Quantity"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:text="*minimal order 10pcs"
+                android:textSize="9sp"
+                style="@style/BoldTextItalicText"/>
+
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="110dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="30dp"
                 android:background="@drawable/block_pesanan"
                 />
 
+            <!--Bagian untuk Harga Satuan-->
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Harga satuan"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                />
+
+            <!--Bagian untuk Total Harga-->
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Total harga"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                />
+
+            <!--Bagian Pembayaran-->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnS1"
                 style="@style/Widget.MaterialComponents.Button"
@@ -191,7 +190,7 @@
                 android:layout_height="40dp"
                 android:layout_marginRight="20dp"
                 android:layout_gravity="right"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/maron"
                 android:text="Pembayaran"
