@@ -39,46 +39,25 @@ class RegistrasiActivity : AppCompatActivity() {
 
         btnRegistrasi.setOnClickListener {
             register()
-//            sendRegistrationData()
         }
     }
 
     private fun register() {
         val nama = inputNama.text.toString()
         val email = inputEmail.text.toString()
-        val address = inputAddress.text.toString()
         val password = inputPassword.text.toString()
-        val confirmPassword = inputConfirmPassword.text.toString()
+        ApiRetrofit().endpoint.register(nama, email, password)
+            .enqueue(object : Callback<SubmitModel>{
+                override fun onResponse(call: Call<SubmitModel>, response: Response<SubmitModel>) {
 
-        // Validasi input
-        if (nama.isEmpty() || email.isEmpty() || address.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            // Menampilkan pesan kesalahan jika ada input yang kosong
-            SessionRegister.error = getString(R.string.empty_field_error)
-            return
-        }
+                }
 
-        if (password != confirmPassword) {
-            // Menampilkan pesan kesalahan jika password tidak cocok
-            SessionRegister.error = getString(R.string.password_mismatch_error)
-            return
-        }
+                override fun onFailure(call: Call<SubmitModel>, t: Throwable) {
 
-
-        // Data registrasi valid, lakukan tindakan selanjutnya
-        // Misalnya, kirim data registrasi ke server
-        // Contoh: Pindah ke aktivitas Login setelah berhasil mendaftar
+                }
+            })
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
-        finish() // Menutup aktivitas Registrasi agar pengguna tidak dapat kembali ke halaman ini
+        finish()
     }
-
-////    private fun sendRegistrationData() {
-////        // Implementasikan logika untuk mengirim data registrasi ke server di sini
-////        // Anda dapat menggunakan Retrofit, Volley, atau metode pengiriman data lainnya
-////
-////        // Setelah berhasil mendaftar, Anda dapat membuka aktivitas lain
-////        val intent = Intent(this, LoginActivity::class.java)
-////        startActivity(intent)
-////        finish() // Opsional, menutup aktivitas saat ini setelah beralih ke aktivitas berikutnya
-//    }
 }

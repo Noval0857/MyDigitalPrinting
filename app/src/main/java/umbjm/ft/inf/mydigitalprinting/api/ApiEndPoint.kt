@@ -20,10 +20,10 @@ interface ApiEndPoint {
         @Field("password") password: String,
     ): Call<SubmitModel>
 
-
-    @GET("login.php")
+    @FormUrlEncoded
+    @POST("login.php")
     fun login(
-        @Query("email") email: String,
-        @Query("password") password: String,
+        @Field("email") email: String,
+        @Field("password") password: String,
     ): Call<ResponseLogin>
 }
