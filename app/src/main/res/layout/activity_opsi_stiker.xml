@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produk.PosterActivity">
+    tools:context=".produk.StickerActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,18 +22,18 @@
 
             <ImageView
                 android:layout_width="350dp"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/id_card" />
+                android:layout_marginTop="25dp"
+                android:src="@drawable/logo_opsi" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="310dp"
+                android:layout_width="350dp"
                 android:layout_height="58dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="-70dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="-32dp"
                 android:background="@drawable/opsi_sudut"
-                android:text="Jasa Desain\nDikenakan biaya Rp.20.000"
+                android:text="Jasa Desain Stiker\nDikenakan biaya Rp.15.000/jam"
                 android:textSize="20sp"
                 android:textAlignment="center"
                 style="@style/BoldText"/>
@@ -42,19 +42,19 @@
                 android:layout_width="350dp"
                 android:layout_height="250dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/id_card" />
+                android:layout_marginTop="20dp"
+                android:src="@drawable/logo_opsi" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="310dp"
+                android:layout_width="350dp"
                 android:layout_height="58dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="-70dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="-32dp"
                 android:background="@drawable/opsi_sudut"
-                android:text="Kirim Desain"
+                android:text="Kirim desain"
                 android:textSize="20sp"
-                style="@style/BoldText"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                style="@style/BoldText"/>
         </LinearLayout>
 
     </RelativeLayout>
