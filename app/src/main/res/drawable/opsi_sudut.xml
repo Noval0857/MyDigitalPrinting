@@ -1,7 +1,7 @@
 <shape xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:ignore="ExtraText">
-    <solid android:color="#FFE5E5" /> <!-- Ganti dengan warna latar belakang yang diinginkan -->
+    <solid android:color="#FFC0C0" /> <!-- Ganti dengan warna latar belakang yang diinginkan -->
     <corners
         android:topLeftRadius="0dp"
         android:topRightRadius="0dp"

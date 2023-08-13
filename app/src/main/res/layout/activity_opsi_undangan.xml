@@ -24,16 +24,16 @@
                 android:layout_width="350dp"
                 android:layout_height="250dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/id_card" />
+                android:layout_marginTop="5dp"
+                android:src="@drawable/undangan" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="310dp"
+                android:layout_width="350dp"
                 android:layout_height="58dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="-70dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="-32dp"
                 android:background="@drawable/opsi_sudut"
-                android:text="Jasa Desain\nDikenakan biaya Rp.20.000"
+                android:text="Jasa Desain Undangan\nDikenakan biaya Rp.30.000/jam"
                 android:textSize="20sp"
                 android:textAlignment="center"
                 style="@style/BoldText"/>
@@ -42,19 +42,20 @@
                 android:layout_width="350dp"
                 android:layout_height="250dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/id_card" />
+                android:layout_marginTop="20dp"
+                android:src="@drawable/undangan" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="310dp"
+                android:layout_width="350dp"
                 android:layout_height="58dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="-70dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="-32dp"
                 android:background="@drawable/opsi_sudut"
-                android:text="Kirim Desain"
+                android:text="Kirim desain"
                 android:textSize="20sp"
-                style="@style/BoldText"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                style="@style/BoldText"/>
+
         </LinearLayout>
 
     </RelativeLayout>
