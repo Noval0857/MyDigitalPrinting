@@ -52,7 +52,7 @@
                 android:layout_marginLeft="30dp"
                 android:text="desain satu sisi"
                 style="@style/BoldTextItalicText"/>
-                />
+            />
 
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:layout_width="140dp"
@@ -61,7 +61,7 @@
                 android:layout_marginLeft="190dp"
                 android:text="desain dua sisi"
                 style="@style/BoldTextItalicText"/>
-                />
+            />
 
             <!--Bagian untuk CheckBox Ukuran-->
             <TextView
@@ -100,26 +100,62 @@
                 android:text="Costum"
                 style="@style/BoldTextItalicText"/>
 
-            <!--Bagian untuk Jenis Undangan-->
+            <!--Bagian untuk Jenis Kertas Undangan-->
             <TextView
-                android:layout_width="110dp"
+                android:layout_width="150dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Jenis Undangan"
+                android:text="Jenis Kertas Undangan"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
+            <!--Bagian Jenis Kertas Art-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
+                android:text="Kertas art cartoon"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian Ukuran HVS-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:text="Hvs"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Kertas Blues White-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="-70dp"
+                android:layout_marginLeft="230dp"
+                android:text="Kertas blues white"
+                style="@style/BoldTextItalicText"/>
+
+            <!--COSTUME-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="230dp"
+                android:text="Costum"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian untuk jumlah pesanan-->
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="160dp"
                 android:layout_height="20dp"
                 android:layout_marginLeft="30dp"
-                android:text="*Misal Jenis Undangan Ulang tahun, Aqiqah dan Tasmiyah, dll.."
-                android:textSize="9sp"
+                android:text="Jumlah yang ingin dipesan*"
+                android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="370dp"
+                android:layout_width="190dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
                 android:background="@drawable/block_pesanan"
@@ -129,7 +165,6 @@
             <TextView
                 android:layout_width="110dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
                 android:text="Custom"
                 android:textSize="13sp"
@@ -150,30 +185,13 @@
                 android:background="@drawable/block_pesanan"
                 />
 
-            <!--Bagian untuk Keterangan-->
-            <TextView
-                android:layout_width="270dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Tambahkan keterangan lainnya jika diperlukan"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="370dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                />
-
             <!--Bagian Upload Desain-->
             <TextView
-                android:layout_width="120dp"
+                android:layout_width="230dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Upload Desain*"
+                android:text="Upload File Cetakan atau Desain Anda*"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
@@ -185,6 +203,22 @@
                 android:background="@drawable/block_pesanan"
                 android:src="@android:drawable/ic_menu_upload" />
 
+            <!--Bagian untuk jumlah pesanan-->
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:text="Nominal*"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="180dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                />
+
             <!--Bagian Pembayaran-->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnS1"
@@ -193,7 +227,7 @@
                 android:layout_height="40dp"
                 android:layout_marginRight="20dp"
                 android:layout_gravity="right"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="-10dp"
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/maron"
                 android:text="Pembayaran"
