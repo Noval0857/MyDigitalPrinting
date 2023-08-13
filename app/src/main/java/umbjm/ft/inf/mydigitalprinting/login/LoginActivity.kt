@@ -2,6 +2,7 @@ package umbjm.ft.inf.mydigitalprinting.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
@@ -15,6 +16,7 @@ import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.api.ApiRetrofit
 import umbjm.ft.inf.mydigitalprinting.model.ResponseLogin
 import umbjm.ft.inf.mydigitalprinting.utils.SessionLogin
+import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
 
@@ -50,23 +52,7 @@ class LoginActivity : AppCompatActivity() {
                 sessionLogin.saveLoginDetails(email, password)
 
                 // Implementasikan logika sign in di sini
-                ApiRetrofit().endpoint.login(
-                    email, password
-                ).enqueue(object : Callback<ResponseLogin> {
-                    override fun onResponse(
-                        call: Call<ResponseLogin>,
-                        response: Response<ResponseLogin>
-                    ) {
-                        if (response.body()?.kode==200){
-                            performSignIn(email, password)
-                        }
-                    }
-
-                    override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
-
-                    }
-
-                })
+                performSignIn()
 
             } else {
                 // Tampilkan pesan kesalahan jika email atau password tidak valid
@@ -78,38 +64,11 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-
-        // Menambahkan doOnTextChanged listener untuk validasi real-time
-        inputEmail.doOnTextChanged { text, _, _, _ ->
-            val email = text.toString()
-            if (email.isNotEmpty()) {
-                if (!validateEmail(email)) {
-                    inputEmail.error = "Invalid email"
-                } else {
-                    inputEmail.error = null
-                }
-            } else {
-                inputEmail.error = null
-            }
-        }
-
-        inputPassword.doOnTextChanged { text, _, _, _ ->
-            val password = text.toString()
-            if (password.isNotEmpty()) {
-                if (!validatePassword(password)) {
-                    inputPassword.error = "Invalid password"
-                } else {
-                    inputPassword.error = null
-                }
-            } else {
-                inputPassword.error = null
-            }
-        }
     }
 
     // Fungsi untuk validasi email
     private fun validateEmail(email: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     // Fungsi untuk validasi password
@@ -118,7 +77,23 @@ class LoginActivity : AppCompatActivity() {
     }
 
     // Fungsi untuk melakukan sign in
-    private fun performSignIn(email: String, password: String) {
+    private fun performSignIn() {
+        val email = inputEmail.text.toString()
+        val password = inputPassword.text.toString()
+        ApiRetrofit().endpoint.login(email, password)
+            .enqueue(object : Callback<ResponseLogin>{
+                override fun onResponse(
+                    call: Call<ResponseLogin>,
+                    response: Response<ResponseLogin>
+                ) {
+
+                }
+
+                override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
+
+                }
+
+            })
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
