@@ -79,7 +79,6 @@
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:layout_width="140dp"
                 android:layout_height="35dp"
-                android:layout_marginTop="-dp"
                 android:layout_marginLeft="190dp"
                 android:text="Costum"
                 style="@style/BoldTextItalicText"

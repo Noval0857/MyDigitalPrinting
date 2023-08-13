@@ -4,12 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import androidx.core.widget.doOnTextChanged
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import umbjm.ft.inf.mydigitalprinting.R
+import umbjm.ft.inf.mydigitalprinting.SubmitModel
+import umbjm.ft.inf.mydigitalprinting.api.ApiRetrofit
 import umbjm.ft.inf.mydigitalprinting.utils.SessionRegister
 
 class RegistrasiActivity : AppCompatActivity() {
@@ -61,9 +63,9 @@ class RegistrasiActivity : AppCompatActivity() {
             return
         }
 
+
         // Data registrasi valid, lakukan tindakan selanjutnya
         // Misalnya, kirim data registrasi ke server
-
         // Contoh: Pindah ke aktivitas Login setelah berhasil mendaftar
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
