@@ -7,8 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.R
+import umbjm.ft.inf.mydigitalprinting.api.ApiRetrofit
+import umbjm.ft.inf.mydigitalprinting.model.ResponseLogin
 import umbjm.ft.inf.mydigitalprinting.utils.SessionLogin
 
 class LoginActivity : AppCompatActivity() {
@@ -45,7 +50,24 @@ class LoginActivity : AppCompatActivity() {
                 sessionLogin.saveLoginDetails(email, password)
 
                 // Implementasikan logika sign in di sini
-                performSignIn(email, password)
+                ApiRetrofit().endpoint.login(
+                    email, password
+                ).enqueue(object : Callback<ResponseLogin> {
+                    override fun onResponse(
+                        call: Call<ResponseLogin>,
+                        response: Response<ResponseLogin>
+                    ) {
+                        if (response.body()?.kode==200){
+                            performSignIn(email, password)
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
+
+                    }
+
+                })
+
             } else {
                 // Tampilkan pesan kesalahan jika email atau password tidak valid
                 if (!validateEmail(email)) {

@@ -14,7 +14,7 @@ class ApiRetrofit {
     val endpoint:ApiEndPoint
         get() {
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://192.168.103.138/MyDigitalPrinting/")
+                .baseUrl("https://192.168.1.36/MyDigitalPrinting/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
 

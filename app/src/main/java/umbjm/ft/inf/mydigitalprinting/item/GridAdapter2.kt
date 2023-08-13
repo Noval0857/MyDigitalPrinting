@@ -17,27 +17,28 @@ import umbjm.ft.inf.mydigitalprinting.produk.SertifikatActivity
 import umbjm.ft.inf.mydigitalprinting.produk.StickerActivity
 import umbjm.ft.inf.mydigitalprinting.produk.UndanganActivity
 
-class GridAdapter(private val gridList:ArrayList<GridItem>) : RecyclerView.Adapter<GridAdapter.GridViewHolder>(){
+class GridAdapter2(private val gridlist2:ArrayList<GridItem2>) : RecyclerView.Adapter<GridAdapter2.GridViewHolder2>(){
 
-    class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class GridViewHolder2(itemView: View) : RecyclerView.ViewHolder(itemView){
         val image_grid: ImageView = itemView.findViewById(R.id.image_grid)
         val text_grid: TextView = itemView.findViewById(R.id.text_grid)
-
+        val harga_grid: TextView = itemView.findViewById(R.id.harga_grid)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.grid_item, parent, false)
-        return GridViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewHolder2 {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.grid_item2, parent, false)
+        return GridViewHolder2(view)
     }
 
     override fun getItemCount(): Int {
-        return gridList.size
+        return gridlist2.size
     }
 
-    override fun onBindViewHolder(holder: GridViewHolder, position: Int) {
-        val grid = gridList[position]
+    override fun onBindViewHolder(holder: GridViewHolder2, position: Int) {
+        val grid = gridlist2[position]
         holder.image_grid.setImageResource(grid.image)
         holder.text_grid.text = grid.name
+        holder.harga_grid.text = grid.harga
 
         holder.itemView.setOnClickListener {
 

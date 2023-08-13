@@ -36,62 +36,86 @@
                 android:background="@drawable/block_pesanan"
                 />
 
-            <!--Bagian untuk CheckBox Bentuk-->
+            <!--Bagian untuk CheckBox Desain-->
             <TextView
                 android:layout_width="90dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Bentuk"
+                android:text="Desain"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
-            <!--Bagian Bentuk Kotak-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="30dp"
+                android:text="desain satu sisi"
+                style="@style/BoldTextItalicText"/>
+                />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="-26dp"
+                android:layout_marginLeft="190dp"
+                android:text="desain dua sisi"
+                style="@style/BoldTextItalicText"/>
+                />
+
+            <!--Bagian untuk CheckBox Ukuran-->
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Ukuran Undangan"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian Ukuran A4-->
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:layout_width="140dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
-                android:text="Kotak"
-                style="@style/BoldTextItalicText"
-                />
+                android:text="A4"
+                style="@style/BoldTextItalicText"/>
 
-            <!--Bagian Bentuk Oval-->
+            <!--Bagian Ukuran A5-->
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:layout_width="140dp"
                 android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:text="Oval"
-                style="@style/BoldTextItalicText"
-                />
+                android:layout_marginTop="-35dp"
+                android:layout_marginLeft="150dp"
+                android:text="A5"
+                style="@style/BoldTextItalicText"/>
 
-            <!--Bagian Bulat-->
+            <!--Ukuran COSTUME-->
             <androidx.appcompat.widget.AppCompatCheckBox
-                android:layout_width="140dp"
+                android:layout_width="100dp"
                 android:layout_height="35dp"
-                android:layout_marginTop="-70dp"
-                android:layout_marginLeft="190dp"
-                android:text="Bulat"
-                style="@style/BoldTextItalicText"
-                />
+                android:layout_marginTop="-35dp"
+                android:layout_marginLeft="270dp"
+                android:text="Costume"
+                style="@style/BoldTextItalicText"/>
 
-            <!--Bagian Costume-->
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:layout_width="140dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="190dp"
-                android:text="Costum"
-                style="@style/BoldTextItalicText"
-                />
-
-            <!--Bagian untuk Nama Merek-->
+            <!--Bagian untuk Jenis Undangan-->
             <TextView
-                android:layout_width="90dp"
+                android:layout_width="110dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Nama Merek"
+                android:text="Jenis Undangan"
                 android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:text="*Misal Jenis Undangan Ulang tahun, Aqiqah dan Tasmiyah, dll.."
+                android:textSize="9sp"
                 style="@style/BoldTextItalicText"/>
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -101,30 +125,55 @@
                 android:background="@drawable/block_pesanan"
                 />
 
-            <!--Bagian untuk KETERANGAN-->
+            <!--Bagian untuk Custom-->
             <TextView
-                android:layout_width="90dp"
+                android:layout_width="110dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Keterangan"
+                android:text="Custom"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <TextView
+                android:layout_width="290dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="30dp"
+                android:text="*Misal ukuran undangan : 21,6 cm x 23 cm ; Jenis kertas : Kertas Fancy Constellation Snow"
+                android:textSize="9sp"
+                style="@style/BoldTextItalicText"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="370dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                />
+
+            <!--Bagian untuk Keterangan-->
+            <TextView
+                android:layout_width="270dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Tambahkan keterangan lainnya jika diperlukan"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="370dp"
-                android:layout_height="90dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="30dp"
                 android:background="@drawable/block_pesanan"
                 />
 
-            <!--Bagian Upload Foto-->
+            <!--Bagian Upload Desain-->
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Upload foto/Logo*"
+                android:text="Upload Desain*"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
@@ -136,57 +185,6 @@
                 android:background="@drawable/block_pesanan"
                 android:src="@android:drawable/ic_menu_upload" />
 
-            <!--Bagian untuk Ukuran-->
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Ukuran"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                android:hint="Panjang"
-                android:textAlignment="center"
-                style="@style/BoldTextItalicText"
-                />
-
-            <TextView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginTop="-25dp"
-                android:layout_marginLeft="200dp"
-                android:text="X"
-                style="@style/BoldTextItalicText"
-                />
-
-            <!--Bagian untuk Lebar-->
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="-20dp"
-                android:layout_marginLeft="230dp"
-                android:background="@drawable/block_pesanan"
-                android:hint="Lebar"
-                android:textAlignment="center"
-                style="@style/BoldTextItalicText"
-                />
-
-            <!--Bagian untuk Desain akan dikirim-->
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="13dp"
-                android:layout_marginLeft="30dp"
-                android:text="*Desain Akan Dikirim dalam kuran waktu 24 jam"
-                android:textSize="9sp"
-                style="@style/BoldTextItalicText"/>
-
             <!--Bagian Pembayaran-->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnS1"
@@ -195,7 +193,7 @@
                 android:layout_height="40dp"
                 android:layout_marginRight="20dp"
                 android:layout_gravity="right"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/maron"
                 android:text="Pembayaran"
@@ -203,7 +201,6 @@
                 android:textColor="@color/white"
                 app:cornerRadius="20dp"
                 app:elevation="5dp" />
-
         </LinearLayout>
 
     </RelativeLayout>

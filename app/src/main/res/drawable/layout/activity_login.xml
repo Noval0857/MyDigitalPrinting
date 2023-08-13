@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    tools:context=".login.LoginActivity"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50sp"
+                android:text="HELLO"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="68sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-20dp"
+                android:text="Sign in to your account"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@color/pink"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:hint="Email"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="18sp"
+                        android:background="@drawable/sudut"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    app:boxBackgroundColor="@color/pink"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:hint="Password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="18sp"
+                        android:background="@drawable/sudut"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:text="Forgot Password?"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnS"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/maron"
+                    android:text="Sign In"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:cornerRadius="20dp"
+                    app:elevation="5dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="90dp"
+                        android:text="Don't have an account?" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:onClick="onCreateAccountClick"
+                        android:text="Create"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
