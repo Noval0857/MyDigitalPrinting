@@ -16,6 +16,42 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".produk.cetak.CetakstikerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.cetak.CetakundanganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.cetak.CetakidcardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.cetak.CetakdesainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.opsi.OpsipesananActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.opsi.OpsiundanganActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.opsi.OpsistickerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.opsi.OpsiidcardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.spesifikasi.SpecstickerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.spesifikasi.SpecidcardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.spesifikasi.SpecdesainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.spesifikasi.SpecundanganActivity"
+            android:exported="false" />
+        <activity
             android:name=".produk.PosterActivity"
             android:exported="false" />
         <activity
@@ -38,7 +74,7 @@
             android:exported="false" />
         <activity
             android:name=".login.RegistrasiActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
