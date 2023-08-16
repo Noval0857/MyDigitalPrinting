@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produk.opsi.OpsiundanganActivity">
+    tools:context=".produk.opsi.OpsisertifikatActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,10 +22,11 @@
 
             <ImageView
                 android:layout_width="350dp"
-                android:layout_height="250dp"
+                android:layout_height="230dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/undangan" />
+                android:layout_marginTop="25dp"
+                android:background="@drawable/sudut_sertifikat"
+                android:src="@drawable/sertifikat1" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="350dp"
@@ -33,17 +34,18 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="-32dp"
                 android:background="@drawable/opsi_sudut"
-                android:text="Jasa Desain Undangan\nDikenakan biaya Rp.30.000/jam"
+                android:text="Jasa Desain Sertifikat\nDikenakan biaya Rp.15.000/jam"
                 android:textSize="20sp"
                 android:textAlignment="center"
                 style="@style/BoldText"/>
 
             <ImageView
                 android:layout_width="350dp"
-                android:layout_height="250dp"
+                android:layout_height="230dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/undangan" />
+                android:background="@drawable/sudut_sertifikat"
+                android:src="@drawable/sertifikat1" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="350dp"
@@ -55,7 +57,6 @@
                 android:textSize="20sp"
                 android:textAlignment="center"
                 style="@style/BoldText"/>
-
         </LinearLayout>
 
     </RelativeLayout>

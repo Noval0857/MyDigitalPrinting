@@ -16,6 +16,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".produk.cetak.CetakActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.opsi.OpsisertifikatActivity"
+            android:exported="false" />
+        <activity
             android:name=".produk.cetak.CetakstikerActivity"
             android:exported="false" />
         <activity
