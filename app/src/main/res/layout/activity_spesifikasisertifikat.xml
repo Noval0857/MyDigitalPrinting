@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produk.PosterActivity">
+    tools:context=".produk.spesifikasi.SpecundanganActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -36,101 +36,9 @@
                 android:background="@drawable/block_pesanan"
                 />
 
-            <!--Bagian untuk CheckBox Bentuk-->
+            <!--Bagian untuk CheckBox Ukuran-->
             <TextView
-                android:layout_width="90dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Bentuk"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
-
-            <!--Bagian Bentuk Kotak-->
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:layout_width="140dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="30dp"
-                android:text="Kotak"
-                style="@style/BoldTextItalicText"
-                />
-
-            <!--Bagian Bentuk Oval-->
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:layout_width="140dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:text="Oval"
-                style="@style/BoldTextItalicText"
-                />
-
-            <!--Bagian Bulat-->
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:layout_width="140dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="-70dp"
-                android:layout_marginLeft="190dp"
-                android:text="Bulat"
-                style="@style/BoldTextItalicText"
-                />
-
-            <!--Bagian Costume-->
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:layout_width="140dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="-0dp"
-                android:layout_marginLeft="190dp"
-                android:text="Costum"
-                style="@style/BoldTextItalicText"
-                />
-
-            <!--Bagian Upload Desain-->
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Upload Desain*"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
-
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="370dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                android:src="@android:drawable/ic_menu_upload" />
-
-            <!--Bagian untuk Quantity-->
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Quantity"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
-
-            <TextView
-                android:layout_width="250dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="30dp"
-                android:text="*minimal order 100pcs"
-                android:textSize="9sp"
-                style="@style/BoldTextItalicText"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                />
-
-            <!--Bagian untuk Ukuran-->
-            <TextView
-                android:layout_width="50dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
@@ -138,70 +46,161 @@
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="150dp"
-                android:layout_height="30dp"
+            <!--Bagian Ukuran A4-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                android:hint="Panjang"
-                android:textAlignment="center"
-                style="@style/BoldTextItalicText"
-                />
+                android:text="A4"
+                style="@style/BoldTextItalicText"/>
 
+            <!--Bagian Ukuran F5-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="-35dp"
+                android:layout_marginLeft="195dp"
+                android:text="F5"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian untuk CheckBox Bentuk-->
             <TextView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginTop="-25dp"
-                android:layout_marginLeft="200dp"
-                android:text="X"
-                style="@style/BoldTextItalicText"
-                />
-
-            <!--Bagian untuk Lebar-->
-            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="-20dp"
-                android:layout_marginLeft="230dp"
-                android:background="@drawable/block_pesanan"
-                android:hint="Lebar"
-                android:textAlignment="center"
-                style="@style/BoldTextItalicText"
-                />
-
-            <!--Bagian untuk Harga Satuan-->
-            <TextView
-                android:layout_width="90dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
-                android:text="Harga satuan"
+                android:text="Bentuk"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian Bentuk Potrait-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
+                android:text="Potrait"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian Ukuran Landscape-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="-35dp"
+                android:layout_marginLeft="195dp"
+                android:text="Landscape"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian untuk CheckBox Jenis Pengharga-->
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:text="Jenis Penghargaan"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian Jenis undangan Sertifikat-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
+                android:text="Sertifikat"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian Jenis Undangan Piagam Penghargaan-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="170dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
+                android:text="Piagam penghargaan"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian Ukuran Penghargaan-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="-75dp"
+                android:layout_marginLeft="195dp"
+                android:text="Penghargaan"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian Ukuran Penghargaan-->
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="195dp"
+                android:text="Costum"
+                style="@style/BoldTextItalicText"/>
+
+            <!--Bagian untuk Costum-->
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:text="*Costum"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="150dp"
-                android:layout_height="30dp"
+                android:layout_width="370dp"
+                android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
                 android:background="@drawable/block_pesanan"
                 />
 
-            <!--Bagian untuk Total Harga-->
+            <!--Bagian untuk Keterangan-->
             <TextView
-                android:layout_width="90dp"
+                android:layout_width="270dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
-                android:text="Total harga"
+                android:text="keterangan"
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="150dp"
-                android:layout_height="30dp"
+                android:layout_width="370dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="30dp"
                 android:background="@drawable/block_pesanan"
                 />
+
+            <!--Bagian Upload Desain-->
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:text="Upload Desain*"
+                android:textSize="13sp"
+                style="@style/BoldTextItalicText"/>
+
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="370dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                android:src="@android:drawable/ic_menu_upload" />
+
+            <!--Bagian Upload Nama Peserta-->
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:text="Upload Nama peserta*"
+                style="@style/BoldTextItalicText"/>
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="370dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/block_pesanan"
+                android:src="@android:drawable/ic_menu_upload" />
 
             <!--Bagian Pembayaran-->
             <com.google.android.material.button.MaterialButton
@@ -211,7 +210,7 @@
                 android:layout_height="40dp"
                 android:layout_marginRight="20dp"
                 android:layout_gravity="right"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/maron"
                 android:text="Pembayaran"
@@ -219,7 +218,6 @@
                 android:textColor="@color/white"
                 app:cornerRadius="20dp"
                 app:elevation="5dp" />
-
         </LinearLayout>
 
     </RelativeLayout>
