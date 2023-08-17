@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/padding"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+
+    <include layout="@layout/nav_header1"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="431dp"
+        android:layout_marginTop="76dp"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+
+            <TextView
+                android:id="@+id/barang"
+                android:layout_width="197dp"
+                android:layout_height="70dp"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toEndOf="@+id/image"
+                android:hint="nama Barang"
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/ukuran"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/barang"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toEndOf="@+id/image"
+                android:hint="ukuran"
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/ukuran"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toEndOf="@+id/image"
+                android:hint="quantity"
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:id="@+id/garis"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/quantity"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#000000" />
+
+            <TextView
+                android:id="@+id/harga"
+                android:layout_width="148dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/garis"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:padding="10dp"
+                android:text="Harga  "
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/nominal"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/garis"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toEndOf="@id/harga"
+                android:hint="Rp."
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/ongkir"
+                android:layout_width="148dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/harga"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:padding="10dp"
+                android:text="Ongkir  "
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/nominal1"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/nominal"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toEndOf="@id/harga"
+                android:hint="Rp."
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/hargatotal"
+                android:layout_width="148dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/nominal1"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:padding="10dp"
+                android:text="Total  "
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/nominal2"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/nominal1"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toEndOf="@id/hargatotal"
+                android:hint="Rp."
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:id="@+id/garis2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/nominal2"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#000000" />
+
+            <TextView
+                android:id="@+id/kete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/garis2"
+                android:hint="keterangan pemesanan"
+                android:textColor="#78C1F3" />
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/kete"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#000000" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
