@@ -16,10 +16,28 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".profil.AlamatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.PembayaranActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profil.DataalamatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.ChangepasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.opsi.OpsikalenderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profil.MyprofileActivity"
+            android:exported="false" />
+        <activity
             android:name=".produk.spesifikasi.SpesifikasisertifikatActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.cetak.CetakActivity"
+            android:name=".produk.cetak.CetakdesainActivity"
             android:exported="false" />
         <activity
             android:name=".produk.opsi.OpsisertifikatActivity"
@@ -32,9 +50,6 @@
             android:exported="false" />
         <activity
             android:name=".produk.cetak.CetakidcardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".produk.cetak.CetakdesainActivity"
             android:exported="false" />
         <activity
             android:name=".produk.opsi.OpsipesananActivity"

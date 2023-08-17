@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profil.DataalamatActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/backprofil"
+                android:layout_height="match_parent"
+                android:layout_width="20dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/kembali"
+                />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="-7dp"
+                android:text="Alamat Saya"
+                android:textSize="16sp">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginStart="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ALAMAT"
+                android:textSize="16sp"
+                android:textStyle="bold">
+            </TextView>
+        </LinearLayout>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:layout_marginStart="5dp"
+            android:text="Alamat 1">
+        </RadioButton>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="120dp">
+        </ListView>
+
+        <Button
+            android:id="@+id/hapus_alamat"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/_dynamic"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="59dp"
+            android:layout_marginTop="19dp"
+            android:backgroundTint="#D9D9D9"
+            android:elevation="4dp"
+            android:text="Tambah Alamat"
+            android:textColor="#B31312"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/kirim"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="590dp"
+            android:backgroundTint="#B31312"
+            android:elevation="4dp"
+            android:text="Kirim"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+</LinearLayout>
