@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/padding"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+    <include layout="@layout/nav_header1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="752dp"
+        android:layout_marginTop="76dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:hint="Status Pesanan"
+            android:padding="10dp"
+            android:textColorHint="#757575"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#000000" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tes"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:text="No.Pemesanan"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/resi"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="180dp"
+            android:hint="resi"
+            android:textSize="20sp" />
+        </RelativeLayout>
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#000000" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="295dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:text="Metode Pembayaran"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/jenispembayaran"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="15dp"
+                android:hint="metode"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/jenispembayaran"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#000000" />
+
+
+            <TextView
+                android:id="@+id/tes2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@id/jenispembayaran"
+                android:layout_marginTop="10dp"
+                android:text="Rincian Pesanan"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/barang"
+                android:layout_width="197dp"
+                android:layout_height="70dp"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/tes2"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:hint="nama Barang"
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/ukuran"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/barang"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+
+                android:hint="ukuran"
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_below="@id/ukuran"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:hint="quantity"
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/quantity"
+                android:layout_marginBottom="8dp"
+                android:background="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@id/quantity"
+                android:layout_marginTop="10dp"
+                android:text="Waktu Pembayaran"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/waktupemesanan"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/quantity"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="10dp"
+                android:hint="Time"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="8dp"
+            android:background="#000000" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:text="Biaya Desain"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/hargadesain"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="180dp"
+                android:hint="Rp. 0000"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/hargadesain"
+                android:text="Biaya Cetak"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/hargacetak"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/hargadesain"
+                android:layout_marginLeft="180dp"
+                android:hint="Rp. 0000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/hargacetak"
+                android:text="Biaya Kirim"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/hargakirim"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/hargacetak"
+                android:layout_marginLeft="180dp"
+                android:hint="Rp. 0000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/totalharga"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/hargakirim"
+                android:layout_marginLeft="180dp"
+                android:hint="Rp. 0000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/hargakirim"
+                android:text="Total Harga"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/totalharga"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#000000" />
+
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/totalharga"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#000000" />
+
+
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="cetak Resi"
+            android:backgroundTint="@color/maron"
+            android:layout_marginLeft="120dp"/>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

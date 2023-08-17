@@ -16,6 +16,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".produk.ResiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.PemesananActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.FakturActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.DikirimActivity"
+            android:exported="false" />
+        <activity
+            android:name=".produk.DikemasActivity"
+            android:exported="false" />
+        <activity
             android:name=".produk.RevisiActivity"
             android:exported="false" />
         <activity

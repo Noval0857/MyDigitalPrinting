@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/padding"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+    <include layout="@layout/nav_header1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="422dp"
+        android:layout_marginTop="76dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:hint="Status Pesanan"
+            android:padding="10dp"
+            android:textColorHint="#757575"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#000000" />
+            <TextView
+                android:id="@+id/nomor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:padding="10dp"
+                android:text="Nomor Resi  :"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/resi"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toEndOf="@id/nomor"
+                android:hint="nomor resi"
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+        </RelativeLayout>
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#000000" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/jam"
+                android:layout_width="79dp"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:hint="jam"
+                android:padding="10dp"
+                android:textColorHint="#757575"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText"
+                android:textStyle="bold"/>
+
+            <View
+                android:id="@+id/garis"
+                android:layout_width="2dp"
+                android:layout_height="90dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_toEndOf="@id/jam"
+                android:background="#000000" />
+
+            <TextView
+                android:id="@+id/keterangan1"
+                android:layout_width="272dp"
+                android:layout_height="40dp"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_toEndOf="@id/garis"
+                android:hint="keterangan"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/keterangan2"
+                android:layout_width="272dp"
+                android:layout_height="40dp"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_toEndOf="@id/garis"
+                android:layout_below="@id/keterangan1"
+                android:hint="keterangan"
+                android:padding="10dp"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
