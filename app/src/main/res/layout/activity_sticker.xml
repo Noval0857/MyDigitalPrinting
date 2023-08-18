@@ -29,6 +29,74 @@
                 app:iconifiedByDefault="false">
             </androidx.appcompat.widget.SearchView>
 
+            <!-- row 2 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="8dp"
+                android:weightSum="3">
+
+                <!-- col 1 -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/stikertransparan"
+                        android:layout_width="111dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/stikertransparan" />
+
+                    <ImageView
+                        android:id="@+id/stikerhvs"
+                        android:layout_marginTop="18dp"
+                        android:layout_width="111dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/stiker_hvs" />
+                </LinearLayout>
+                <!-- col 1 end -->
+                <!-- col 2 -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/Stiker_vinly"
+                        android:layout_width="116dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/stiker_vinyl"/>
+
+                </LinearLayout>
+                <!-- col 2 end -->
+                <!-- col 3 -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/stiker_chromo"
+                        android:layout_width="116dp"
+                        android:layout_height="109dp"
+                        android:src="@drawable/stiker_chromo" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <!-- col 3 end -->
+
         </LinearLayout>
 
     </RelativeLayout>
