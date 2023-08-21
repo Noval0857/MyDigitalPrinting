@@ -4,4 +4,4 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 
-class ResponseLogin (val kode:Int)
+class ResponseLogin (val status:Int, val error:Boolean, val  message:String)
