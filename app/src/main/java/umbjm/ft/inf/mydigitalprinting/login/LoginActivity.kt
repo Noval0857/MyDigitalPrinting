@@ -64,6 +64,9 @@ class LoginActivity : AppCompatActivity(), LoginView {
             sessionLogin.createLoginSession(UserModel())
             login.login(email, password)
 
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
 
             /*ApiRetrofit().endpoint.login(email, password).enqueue(object : Callback<ResponseLogin>{
                 override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {

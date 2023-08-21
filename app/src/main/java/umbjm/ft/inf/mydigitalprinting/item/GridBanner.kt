@@ -8,16 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.produk.BannerActivity
-import umbjm.ft.inf.mydigitalprinting.produk.BrosurActivity
-import umbjm.ft.inf.mydigitalprinting.produk.IdCardActivity
-import umbjm.ft.inf.mydigitalprinting.produk.KalenderActivity
-import umbjm.ft.inf.mydigitalprinting.produk.PosterActivity
-import umbjm.ft.inf.mydigitalprinting.produk.SertifikatActivity
-import umbjm.ft.inf.mydigitalprinting.produk.StickerActivity
-import umbjm.ft.inf.mydigitalprinting.produk.UndanganActivity
+import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsipesananActivity
 
-class GridAdapter2(private val gridlist2:ArrayList<GridItem2>) : RecyclerView.Adapter<GridAdapter2.GridViewHolder2>(){
+class GridBanner(private val listbanner:ArrayList<GridItem2>) : RecyclerView.Adapter<GridBanner.GridViewHolder2>(){
 
     class GridViewHolder2(itemView: View) : RecyclerView.ViewHolder(itemView){
         val image_grid: ImageView = itemView.findViewById(R.id.image_grid)
@@ -31,11 +24,11 @@ class GridAdapter2(private val gridlist2:ArrayList<GridItem2>) : RecyclerView.Ad
     }
 
     override fun getItemCount(): Int {
-        return gridlist2.size
+        return listbanner.size
     }
 
     override fun onBindViewHolder(holder: GridViewHolder2, position: Int) {
-        val grid = gridlist2[position]
+        val grid = listbanner[position]
         holder.image_grid.setImageResource(grid.image)
         holder.text_grid.text = grid.name
         holder.harga_grid.text = grid.harga
@@ -43,38 +36,43 @@ class GridAdapter2(private val gridlist2:ArrayList<GridItem2>) : RecyclerView.Ad
         holder.itemView.setOnClickListener {
 
             when (grid.name) {
-                "Banner" -> {
-                    val intent = Intent(holder.itemView.context, BannerActivity::class.java)
+                "Rollbanner 80 x 200" -> {
+                    val intent = Intent(holder.itemView.context, OpsipesananActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
-                "Sticker" -> {
-                    val intent = Intent(holder.itemView.context, StickerActivity::class.java)
+                "Rollbanner 60 x 160" -> {
+                    val intent = Intent(holder.itemView.context, OpsipesananActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
-                "Brosur" -> {
-                    val intent = Intent(holder.itemView.context, BrosurActivity::class.java)
+                "Spanduk" -> {
+                    val intent = Intent(holder.itemView.context, OpsipesananActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
-                "Id Card" -> {
-                    val intent = Intent(holder.itemView.context, IdCardActivity::class.java)
+                "X-Banner" -> {
+                    val intent = Intent(holder.itemView.context, OpsipesananActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
-                "Sertifikat" -> {
-                    val intent = Intent(holder.itemView.context, SertifikatActivity::class.java)
+                "Y-Banner" -> {
+                    val intent = Intent(holder.itemView.context, OpsipesananActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
-                "Kalender" -> {
-                    val intent = Intent(holder.itemView.context, KalenderActivity::class.java)
+                "Tripod Banner" -> {
+                    val intent = Intent(holder.itemView.context, OpsipesananActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
-                "Poster" -> {
-                    val intent = Intent(holder.itemView.context, PosterActivity::class.java)
+                "Roll Up Banner" -> {
+                    val intent = Intent(holder.itemView.context, OpsipesananActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
-                "Undangan" -> {
-                    val intent = Intent(holder.itemView.context, UndanganActivity::class.java)
+                "Event Desk" -> {
+                    val intent = Intent(holder.itemView.context, OpsipesananActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
+                "Door Frame Banner" -> {
+                    val intent = Intent(holder.itemView.context, OpsipesananActivity::class.java)
+                    holder.itemView.context.startActivity(intent)
+                }
+
 
             }
         }
