@@ -16,9 +16,7 @@ class SessionLogin(context: Context) {
     private val sharedPreferences: SharedPreferences =
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
     private val editor: SharedPreferences.Editor
-        get() {
-            TODO()
-        }
+        get() = sharedPreferences.edit()
 
     var id: String?
         get() = sharedPreferences.getString(ID, null)
@@ -43,11 +41,12 @@ class SessionLogin(context: Context) {
     }
 
     fun createLoginSession(user: UserModel) {
+        val editor = sharedPreferences.edit()
         editor.putBoolean(IS_LOGGED_IN, true)
         user.id?.let { editor.putInt(ID, it) }
         editor.putString(PASSWORD, user.password)
         editor.putString(EMAIL, user.email)
-        editor.commit()
+        editor.apply()
     }
 
     fun clearLoginDetails() {

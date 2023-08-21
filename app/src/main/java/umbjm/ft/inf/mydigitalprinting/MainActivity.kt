@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init(){
-        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView = findViewById(R.id.recylerView)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
@@ -47,5 +47,10 @@ class MainActivity : AppCompatActivity() {
         gridList.add(GridItem(R.drawable.id_card, "Id Card"))
         gridList.add(GridItem(R.drawable.brosur, "Brosur"))
         gridList.add(GridItem(R.drawable.sticker, "Sticker"))
+        gridList.add(GridItem(R.drawable.banner, "Undangan"))
+        gridList.add(GridItem(R.drawable.id_card, "Sertifikat"))
+        gridList.add(GridItem(R.drawable.brosur, "Kalender"))
+        gridList.add(GridItem(R.drawable.sticker, "Poster"))
+        gridList.add(GridItem(R.drawable.sticker, "Spanduk"))
     }
 }

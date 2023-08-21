@@ -29,7 +29,7 @@ class BannerActivity : AppCompatActivity() {
     }
 
     private fun init(){
-        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView = findViewById(R.id.rvBanner)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
