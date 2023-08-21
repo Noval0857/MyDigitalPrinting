@@ -29,6 +29,11 @@
                 app:iconifiedByDefault="false">
             </androidx.appcompat.widget.SearchView>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvIdcard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
         </LinearLayout>
 
     </RelativeLayout>
