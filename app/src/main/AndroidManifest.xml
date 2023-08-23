@@ -118,6 +118,9 @@
             android:name=".login.RegistrasiActivity"
             android:exported="false" />
         <activity
+            android:name=".produk.UndanganActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>

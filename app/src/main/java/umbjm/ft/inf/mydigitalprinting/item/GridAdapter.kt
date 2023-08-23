@@ -16,6 +16,7 @@ import umbjm.ft.inf.mydigitalprinting.produk.PosterActivity
 import umbjm.ft.inf.mydigitalprinting.produk.SertifikatActivity
 import umbjm.ft.inf.mydigitalprinting.produk.StickerActivity
 import umbjm.ft.inf.mydigitalprinting.produk.UndanganActivity
+import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsisertifikatActivity
 
 class GridAdapter(private val gridList:ArrayList<GridItem>) : RecyclerView.Adapter<GridAdapter.GridViewHolder>(){
 
@@ -58,8 +59,12 @@ class GridAdapter(private val gridList:ArrayList<GridItem>) : RecyclerView.Adapt
                     val intent = Intent(holder.itemView.context, IdCardActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
+                "Undangan" -> {
+                    val intent = Intent(holder.itemView.context, UndanganActivity::class.java)
+                    holder.itemView.context.startActivity(intent)
+                }
                 "Sertifikat" -> {
-                    val intent = Intent(holder.itemView.context, SertifikatActivity::class.java)
+                    val intent = Intent(holder.itemView.context, OpsisertifikatActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
                 "Kalender" -> {
@@ -70,11 +75,6 @@ class GridAdapter(private val gridList:ArrayList<GridItem>) : RecyclerView.Adapt
                     val intent = Intent(holder.itemView.context, PosterActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
-                "Undangan" -> {
-                    val intent = Intent(holder.itemView.context, UndanganActivity::class.java)
-                    holder.itemView.context.startActivity(intent)
-                }
-
             }
         }
     }

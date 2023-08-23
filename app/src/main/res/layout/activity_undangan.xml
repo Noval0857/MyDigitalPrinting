@@ -29,7 +29,12 @@
                 app:iconifiedByDefault="false">
             </androidx.appcompat.widget.SearchView>
 
-            <!-- row 2 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUndangan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <!-- row 2
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -39,7 +44,7 @@
                 android:layout_marginTop="8dp"
                 android:weightSum="3">
 
-                <!-- col 1 -->
+                 col 1
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -60,8 +65,8 @@
                         android:layout_height="110dp"
                         android:src="@drawable/undangana4_lipatdua" />
                 </LinearLayout>
-                <!-- col 1 end -->
-                <!-- col 2 -->
+                 col 1 end
+                 col 2
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -83,8 +88,8 @@
                         android:src="@drawable/undanganlipat3" />
 
                 </LinearLayout>
-                <!-- col 2 end -->
-                <!-- col 3 -->
+                 col 2 end
+                 col 3
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -102,7 +107,7 @@
 
 
             </LinearLayout>
-            <!-- col 3 end -->
+             col 3 end -->
 
         </LinearLayout>
 

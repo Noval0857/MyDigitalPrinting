@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsiidcardActivity
 import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsipesananActivity
+import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsistickerActivity
+import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsiundanganActivity
 
-class GridIdcard(private val listidcard:ArrayList<GridItem2>) : RecyclerView.Adapter<GridIdcard.GridViewHolder2>(){
+class GridUndangan(private val listundangan:ArrayList<GridItem2>) : RecyclerView.Adapter<GridUndangan.GridViewHolder2>(){
 
     class GridViewHolder2(itemView: View) : RecyclerView.ViewHolder(itemView){
         val image_grid: ImageView = itemView.findViewById(R.id.image_grid)
@@ -25,11 +27,11 @@ class GridIdcard(private val listidcard:ArrayList<GridItem2>) : RecyclerView.Ada
     }
 
     override fun getItemCount(): Int {
-        return listidcard.size
+        return listundangan.size
     }
 
     override fun onBindViewHolder(holder: GridViewHolder2, position: Int) {
-        val grid = listidcard[position]
+        val grid = listundangan[position]
         holder.image_grid.setImageResource(grid.image)
         holder.text_grid.text = grid.name
         holder.harga_grid.text = grid.harga
@@ -37,28 +39,12 @@ class GridIdcard(private val listidcard:ArrayList<GridItem2>) : RecyclerView.Ada
         holder.itemView.setOnClickListener {
 
             when (grid.name) {
-                "Kartu Nama" -> {
-                    val intent = Intent(holder.itemView.context, OpsiidcardActivity::class.java)
+                "Single Board (A5)" -> {
+                    val intent = Intent(holder.itemView.context, OpsiundanganActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
-                "Kartu Nama Lipat" -> {
-                    val intent = Intent(holder.itemView.context, OpsiidcardActivity::class.java)
-                    holder.itemView.context.startActivity(intent)
-                }
-                "Id Card" -> {
-                    val intent = Intent(holder.itemView.context, OpsiidcardActivity::class.java)
-                    holder.itemView.context.startActivity(intent)
-                }
-                "Thanks Card" -> {
-                    val intent = Intent(holder.itemView.context, OpsiidcardActivity::class.java)
-                    holder.itemView.context.startActivity(intent)
-                }
-                "Birthday Card" -> {
-                    val intent = Intent(holder.itemView.context, OpsiidcardActivity::class.java)
-                    holder.itemView.context.startActivity(intent)
-                }
-                "Voucher" -> {
-                    val intent = Intent(holder.itemView.context, OpsiidcardActivity::class.java)
+                "Double Board (A5)" -> {
+                    val intent = Intent(holder.itemView.context, OpsiundanganActivity::class.java)
                     holder.itemView.context.startActivity(intent)
                 }
             }

@@ -31,20 +31,26 @@
                 app:iconifiedByDefault="false">
             </androidx.appcompat.widget.SearchView>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvKalender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
 
             <!-- row 2 -->
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="8dp"
-                android:weightSum="3">
+                android:weightSum="3">-->
 
                 <!-- col 1 -->
 
-                <LinearLayout
+            <!--    <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -58,8 +64,8 @@
 
 
                 </LinearLayout>
-                <!-- col 1 end -->
-                <!-- col 2 -->
+                &lt;!&ndash; col 1 end &ndash;&gt;
+                &lt;!&ndash; col 2 &ndash;&gt;
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -76,8 +82,8 @@
 
 
                 </LinearLayout>
-                <!-- col 2 end -->
-                <!-- col 3 -->
+                &lt;!&ndash; col 2 end &ndash;&gt;
+                &lt;!&ndash; col 3 &ndash;&gt;
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -94,7 +100,7 @@
                 </LinearLayout>
 
 
-            </LinearLayout>
+            </LinearLayout>-->
             <!-- col 3 end -->
 
 
