@@ -70,6 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:background="@drawable/sudut"
                         android:hint="Email"
                         android:imeOptions="actionNext"
                         android:inputType="text"
@@ -77,8 +78,7 @@
                         android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
-                        android:textSize="18sp"
-                        android:background="@drawable/sudut"/>
+                        android:textSize="18sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,6 +102,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:background="@drawable/sudut"
                         android:hint="Password"
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
@@ -109,8 +110,7 @@
                         android:singleLine="true"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
-                        android:textSize="18sp"
-                        android:background="@drawable/sudut"/>
+                        android:textSize="18sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,7 +126,7 @@
                     android:textStyle="bold" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnS"
+                    android:id="@+id/btnLogin"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -151,6 +151,7 @@
                         android:text="Don't have an account?" />
 
                     <TextView
+                        android:id="@+id/Registrasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"

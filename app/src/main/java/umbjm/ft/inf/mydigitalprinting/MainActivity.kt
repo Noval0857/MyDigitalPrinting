@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 
         init()
 
-        val drawerLayout:DrawerLayout = findViewById(R.id.drawerLayout)
-        val navigationView:NavigationView = findViewById(R.id.navigationView)
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
+        val navigationView: NavigationView = findViewById(R.id.navigationView)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, 0, 0)
         drawerLayout.addDrawerListener(toggle)
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun init(){
+    private fun init() {
         recyclerView = findViewById(R.id.recylerView)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = gridAdapter
     }
 
-    private fun addDataToList(){
+    private fun addDataToList() {
         gridList.add(GridItem(R.drawable.banner, "Banner"))
         gridList.add(GridItem(R.drawable.id_card, "Id Card"))
         gridList.add(GridItem(R.drawable.brosur, "Brosur"))
