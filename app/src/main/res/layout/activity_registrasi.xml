@@ -63,7 +63,7 @@
                     app:startIconDrawable="@drawable/person">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/nama"
+                        android:id="@+id/Rnama"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/sudut"
@@ -79,27 +79,11 @@
                     app:startIconDrawable="@drawable/mail">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/email"
+                        android:id="@+id/Remail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/sudut"
                         android:hint="Email" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!--UNTUK ADDRESS-->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:startIconDrawable="@drawable/address">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/address"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/sudut"
-                        android:hint="Address" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,7 +95,7 @@
                     app:startIconDrawable="@drawable/gembok">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/password"
+                        android:id="@+id/Rpassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/sudut"
@@ -119,23 +103,8 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:startIconDrawable="@drawable/key">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/confirmpassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/sudut"
-                        android:hint="Confirm Password" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnR"
+                    android:id="@+id/btnRegis"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -163,12 +132,13 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="-20dp"
                     android:layout_marginLeft="255dp"
-                    android:text="Log in"
+                    android:layout_marginTop="-20dp"
                     android:onClick="onCreateAccountClick"
+                    android:text="Log in"
                     android:textColor="@color/blue"
                     android:textStyle="bold" />
 

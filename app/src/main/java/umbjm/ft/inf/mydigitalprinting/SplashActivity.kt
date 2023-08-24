@@ -7,18 +7,18 @@ import android.os.Handler
 import umbjm.ft.inf.mydigitalprinting.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
+
+    private val splashTimeOut: Long = 3000 // Durasi splash screen dalam milidetik (3 detik)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        // Menyembunyikan Action
-        supportActionBar?.hide()
-
+        // Menggunakan Handler untuk menunda pindah ke aktivitas login
         Handler().postDelayed({
-            //Menjalankan MainActivity
-            startActivity(Intent(this, LoginActivity::class.java))
-            //Menghentikan SplashActivity
-            finish()
-        }, 1000) //set Durasi Splash Screen
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish() // Menutup aktivitas splash screen
+        }, splashTimeOut)
     }
 }
