@@ -29,6 +29,12 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // fungsi untuk pindah ke halaman forgot password
+        binding.tvForgotPassword.setOnClickListener {
+            val intent = Intent(this, NewPassword::class.java)
+            startActivity(intent)
+        }
+
         // Fungsi untuk Login
         binding.btnLogin.setOnClickListener {
             // Variabel untuk menampung data pada id
