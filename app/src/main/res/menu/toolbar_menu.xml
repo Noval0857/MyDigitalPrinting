@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/keranjang"
+        android:title="Keranjang"
+        android:icon="@drawable/ic_keranjang"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/Tolprofile"
+        android:title="Profile"
+        android:icon="@drawable/ic_person"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/Tolsetting"
+        android:title="Setting"
+        android:icon="@drawable/setting"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/Tolpesanan"
+        android:title="Pesanan"
+        app:showAsAction="never"
+        />
+</menu>
