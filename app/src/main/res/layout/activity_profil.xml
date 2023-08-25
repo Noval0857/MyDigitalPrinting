@@ -31,7 +31,7 @@
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="300dp"
+                android:layout_marginStart="290dp"
                 android:backgroundTint="#B31312"
                 app:srcCompat="@drawable/setting" />
 
@@ -174,10 +174,11 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/btnKeluar"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_marginLeft="125dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="3dp"
             android:text="Log Out"
             android:textSize="20dp"
             android:backgroundTint="#B31312"

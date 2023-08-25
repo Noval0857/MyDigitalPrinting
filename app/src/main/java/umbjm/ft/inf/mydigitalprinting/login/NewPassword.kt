@@ -11,6 +11,7 @@ import umbjm.ft.inf.mydigitalprinting.databinding.ActivityForgot1Binding
 
 class NewPassword : AppCompatActivity() {
 
+    // Mengambil Fungsi Library
     lateinit var binding: ActivityForgot1Binding
     lateinit var auth: FirebaseAuth
 
@@ -19,22 +20,26 @@ class NewPassword : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        // Memberikan aksi ke btnSend
         binding.btnSend.setOnClickListener {
             val email = binding.edtemail.text.toString()
             val edtemail = binding.edtemail
 
+            // Jika email kosong maka akan menampilkan pesan error
             if (email.isEmpty()){
                 binding.edtemail.error = "Email tidak boleh kosong"
                 binding.edtemail.requestFocus()
                 return@setOnClickListener
             }
 
+            // Jika pengisian email tidak sesuai dengan format email maka akan menampilkan pesanan error
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 binding.edtemail.error = "Email tidak sesuai dengan format email"
                 binding.edtemail.requestFocus()
                 return@setOnClickListener
             }
 
+            // Fungsi untuk memberikan reset password dengan cara mengirim link reset password ke email pengguna
             FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener {
                 if (it.isSuccessful){
                     Toast.makeText(this, "Reset email berhasil dikirim", Toast.LENGTH_SHORT).show()
@@ -46,6 +51,5 @@ class NewPassword : AppCompatActivity() {
                 }
             }
         }
-
     }
 }

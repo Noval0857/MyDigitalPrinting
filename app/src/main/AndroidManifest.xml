@@ -46,6 +46,9 @@
             android:name=".profil.DataalamatActivity"
             android:exported="false" />
         <activity
+            android:name=".profil.ProfileActivity"
+            android:exported="false"/>
+        <activity
             android:name=".login.ChangepasswordActivity"
             android:exported="false" />
         <activity
