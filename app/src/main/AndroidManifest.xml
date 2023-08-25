@@ -40,6 +40,9 @@
             android:name=".produk.PembayaranActivity"
             android:exported="false" />
         <activity
+            android:name=".login.NewPassword"
+            android:exported="false"/>
+        <activity
             android:name=".profil.DataalamatActivity"
             android:exported="false" />
         <activity

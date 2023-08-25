@@ -121,6 +121,7 @@
                     android:layout_gravity="end"
                     android:layout_marginTop="10dp"
                     android:text="Forgot Password?"
+                    android:onClick="onCreateAccountClick"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
