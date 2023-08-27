@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityProfilBinding
+import umbjm.ft.inf.mydigitalprinting.login.ChangepasswordActivity
 import umbjm.ft.inf.mydigitalprinting.login.LoginActivity
 
 class ProfileActivity : AppCompatActivity() {
@@ -18,6 +19,13 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfilBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        // Untuk pindah ke halaman change password
+        binding.changepassword.setOnClickListener {
+            val intent = Intent(this, ChangepasswordActivity::class.java)
+            startActivity(intent)
+            return@setOnClickListener
+        }
 
         // Memberikan Aksi ke btnkeluar
         binding.btnKeluar.setOnClickListener {
