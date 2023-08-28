@@ -30,7 +30,7 @@
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="370dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
@@ -142,7 +142,7 @@
                 android:textSize="9sp"
                 style="@style/BoldTextItalicText"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="30dp"
@@ -159,7 +159,7 @@
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="30dp"
@@ -176,7 +176,7 @@
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="30dp"
