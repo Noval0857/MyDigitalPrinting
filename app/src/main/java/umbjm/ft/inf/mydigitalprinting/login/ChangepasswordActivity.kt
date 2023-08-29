@@ -1,101 +1,162 @@
 package umbjm.ft.inf.mydigitalprinting.login
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import umbjm.ft.inf.mydigitalprinting.R
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import umbjm.ft.inf.mydigitalprinting.databinding.ActivityChangePasswordBinding
+import umbjm.ft.inf.mydigitalprinting.profil.ProfileActivity
 
-// Digunakan untuk memanggil library
-private lateinit var firebaseAuth: FirebaseAuth
-private var currentUser: FirebaseUser? = null
-
-// Digunakan untuk variable ID YANG ADA PADA XML
-private lateinit var oldPasswordInputLayout: TextInputLayout
-private lateinit var oldPasswordEditText: TextInputEditText
-private lateinit var verifyPasswordButton: MaterialButton
-private lateinit var newPasswordInputLayout: TextInputLayout
-private lateinit var newPasswordEditText: TextInputEditText
-private lateinit var confirmPasswordInputLayout: TextInputLayout
-private lateinit var confirmPasswordEditText: TextInputEditText
-private lateinit var savePassword: MaterialButton
-
+// Memanggil library dan ditampung kedalam variable
+lateinit var binding: ActivityChangePasswordBinding
+lateinit var auth: FirebaseAuth
 
 class ChangepasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivityChangePasswordBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_change_password)
+        setContentView(binding.root)
 
-        // Memanggil semua Variabel yang sudah terindikasi dengan ID di XML
-        oldPasswordInputLayout = findViewById(R.id.oldPasswordInput)
-        oldPasswordEditText = findViewById(R.id.oldPasswordEdit)
-        verifyPasswordButton = findViewById(R.id.verifikasiPassword)
-        newPasswordInputLayout = findViewById(R.id.newPasswordInput)
-        newPasswordEditText = findViewById(R.id.newPasswordEdit)
-        confirmPasswordInputLayout = findViewById(R.id.ConfirmNewPasswordInput)
-        confirmPasswordEditText = findViewById(R.id.ConfirmNewPasswordEdit)
-        savePassword = findViewById(R.id.SavePassowrd)
+        // mengambil variable library
+        auth = FirebaseAuth.getInstance()
+        // menampung variable auth didalam variable user
+        val user = auth.currentUser
 
-        // Digunakan untuk memanggil variabel yang sudah terkoneksi dengan library
-        firebaseAuth = FirebaseAuth.getInstance()
-        currentUser = firebaseAuth.currentUser
+        // binding button savePassword di nonaktifkan jika belum terverifikasi
+        binding.SavePassowrd.isEnabled = false
 
-        // Digunakan untuk password verifikasi, dan button untuk save password baru tidak akan bisa diklik jika tidak melakukan verifikasi
-        savePassword.isEnabled = false
-
-        // menarik fungsi untuk Verifikasi
-        verifyPasswordButton.setOnClickListener {
-                verifikasi()
-            }
-
-        savePassword.setOnClickListener {
-//                SimpanPasswordBaru()
-            }
+        // mengarahkan button kembali ke halaman profile
+        binding.backprofil.setOnClickListener backprofil@{
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+            return@backprofil
         }
 
-    // Fungsi untuk Verifikasi
-    private fun verifikasi() {
-        // Variable
-        val oldPassword = oldPasswordEditText.text.toString()
-        val newPassword = newPasswordEditText.text.toString()
-        val confirmpassword = confirmPasswordEditText.text.toString()
-        // Variable untuk melakukan pengecekan ulang terhadap user, CurrentUser adalah data pengguna yang ada pada firebase dan akan diambil sebagai pengecekan ulang
-        val credential = EmailAuthProvider.getCredential(currentUser?.email ?: "", oldPassword)
-        // Pengcekan data user, dan pengkondisian
-        currentUser?.reauthenticate(credential)?.addOnSuccessListener {
-            // jika sukses akan menampilkan pesan seperti ini
-            Toast.makeText(this@ChangepasswordActivity, "Password Berhasil di Verifikasi", Toast.LENGTH_SHORT).show()
-            // dan button untuk save password baru, jika sesuai dengan data dan benar maka akan bisa diklik
-            savePassword.isEnabled = newPassword == confirmpassword
-            // jika pemasukkan data tidak sesuai
-        }?.addOnFailureListener { e ->
-            // pesan yang akan ditampikan seperti ini
-            oldPasswordInputLayout.error = "Password tidak sesuai"
-            // dan button untuk save password baru tidak akan jalan
-            savePassword.isEnabled = false
+        // Fungsi ketika verifikasi password di click
+        binding.verifikasiPassword.setOnClickListener {
+
+            // variable untuk menampung id oldPassword
+            val oldPassword = binding.oldPasswordEdit.text.toString()
+
+            // logika jika inputan oldpassword kosong maka kana menampilkan pesan erro
+            if (oldPassword.isEmpty()) {
+                binding.oldPasswordEdit.error = "Password tidak boleh kosong"
+                binding.oldPasswordEdit.requestFocus()
+                return@setOnClickListener
+            }
+
+            // logika jika inputan oldpassword kurang dari 8 maka akan menampilkan pesan error
+            if (oldPassword.length < 8) {
+                binding.oldPasswordEdit.error = "Password kurang dari 8 karakter"
+                binding.oldPasswordEdit.requestFocus()
+                return@setOnClickListener
+            }
+
+            // logika pengecekan data user
+            user.let {
+                // menampung data user didalam variable userCredential
+                val userCredential = EmailAuthProvider.getCredential(it?.email!!, oldPassword)
+                // pengecekan data user, jika berhasil akan menampilkan pesan didalam for / when
+                it.reauthenticate(userCredential).addOnCompleteListener { task ->
+                    // logika
+                    when {
+                        // jika pengecekan sukses akan menampilkan pesan dan button savePassword akan bisa digunakan
+                        task.isSuccessful -> {
+                            Toast.makeText(this, "Verifikasi berhasil", Toast.LENGTH_SHORT).show()
+                            binding.SavePassowrd.isEnabled = true
+                        }
+
+                        // jika pengecekan gagal akan menampilkan pesan error dan button savePassword akan tetap tidak berfungsi
+                        task.exception is FirebaseAuthInvalidCredentialsException -> {
+                            binding.oldPasswordEdit.error = "Password salah"
+                            binding.oldPasswordEdit.requestFocus()
+                            return@addOnCompleteListener
+                            binding.SavePassowrd.isEnabled = false
+                        }
+
+                        // error jika dalam keadaan tidak ada internet
+                        else -> {
+                            Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    }
+                }
+            }
+
+            // fungsi untuk savePassword baru
+            binding.SavePassowrd.setOnClickListener SavePassword@{
+                // id inputan di tampung kedalam variable
+                val newPassword = binding.newPasswordEdit.text.toString()
+                val confirmPassword = binding.ConfirmNewPasswordEdit.text.toString()
+
+                // logika jika newPassword kosong
+                if (newPassword.isEmpty()){
+                    binding.newPasswordEdit.error = "Password tidak boleh kosong"
+                    binding.newPasswordEdit.requestFocus()
+                    return@SavePassword
+                }
+
+                // logika jika newPassword kurang dari 8 karakter saat di inputkan
+                if (newPassword.length < 8){
+                    binding.newPasswordEdit.error = "Password min 8 karakter"
+                    binding.newPasswordEdit.requestFocus()
+                    return@SavePassword
+                }
+
+                // logika jika confirmPassword kosong
+                if (confirmPassword.isEmpty()){
+                    binding.ConfirmNewPasswordEdit.error = "Password tidak boleh kosong"
+                    binding.ConfirmNewPasswordEdit.requestFocus()
+                    return@SavePassword
+                }
+
+                // logika jika confirmPassword kurang dari 8 karakter saat input
+                if (confirmPassword.length < 8){
+                    binding.ConfirmNewPasswordEdit.error = "Password min 8 karakter"
+                    binding.ConfirmNewPasswordEdit.requestFocus()
+                    return@SavePassword
+                }
+
+                // logika jika newPassword dan confirmPassword tidak sesuai dengan inputan maka akan error
+                if (newPassword != confirmPassword){
+                    binding.ConfirmNewPasswordEdit.error = "Password tidak sama"
+                    binding.ConfirmNewPasswordEdit.requestFocus()
+                    return@SavePassword
+                }
+
+                // logika untuk menyimpan password baru
+                user?.let {
+                    // logika penyimpanan password baru
+                    user.updatePassword(newPassword).addOnCompleteListener {
+                        // jika penyimpanan berhasil akan langsung keluar dan diarahkan kembali ke arah login
+                        if (it.isSuccessful){
+                            Toast.makeText(this, "Password baru berhasil disimpan", Toast.LENGTH_SHORT).show()
+                            successLogout()
+                            // jika gagal maka akan mengulang password
+                        } else {
+                            Toast.makeText(this, "Password baru gagal di simpan", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+
+            }
         }
     }
 
-//    BAGIAN YANG MASIH ERROR
-//    private fun SimpanPasswordBaru() {
-//        val newPassword = newPasswordEditText.text.toString()
-//        val confirmPassword = confirmPasswordEditText.text.toString()
-//            if (newPassword.isEmpty() && newPassword == confirmPassword){
-//                currentUser?.updatePassword(newPassword)
-//                    ?.addOnSuccessListener {
-//                        Toast.makeText(this@ChangepasswordActivity, "Password anda telah diperbarui", Toast.LENGTH_SHORT).show()
-//                        savePassword.isEnabled = false
-//                    }
-//                    ?.addOnFailureListener {e ->
-//                        Toast.makeText(this@ChangepasswordActivity, "Gagal menyimpan perbaruan password", Toast.LENGTH_SHORT).show()
-//                    }
-//            } else {
-//                Toast.makeText(this@ChangepasswordActivity, "Password tidak boleh kosong", Toast.LENGTH_SHORT).show()
-//            }
-//    }
+    // fungsi untuk kembali ke halama login
+    private fun successLogout() {
+        // mengambil data auth user
+        auth = FirebaseAuth.getInstance()
+        // jika berhasil dan sesuai dengan data login makan akan dikembalikan ke halaman login / SignOut / Logout otomatis
+        auth.signOut()
+
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+
+        Toast.makeText(this, "Silahkan login kembali", Toast.LENGTH_SHORT).show()
+    }
 }
