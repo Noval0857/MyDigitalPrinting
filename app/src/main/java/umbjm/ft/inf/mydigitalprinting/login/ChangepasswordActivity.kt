@@ -3,7 +3,9 @@ package umbjm.ft.inf.mydigitalprinting.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
@@ -41,7 +43,7 @@ class ChangepasswordActivity : AppCompatActivity() {
             // variable untuk menampung id oldPassword
             val oldPassword = binding.oldPasswordEdit.text.toString()
 
-            // logika jika inputan oldpassword kosong maka kana menampilkan pesan erro
+            // logika jika inputan oldpassword kosong maka kana menampilkan pesan error
             if (oldPassword.isEmpty()) {
                 binding.oldPasswordEdit.error = "Password tidak boleh kosong"
                 binding.oldPasswordEdit.requestFocus()
@@ -65,7 +67,9 @@ class ChangepasswordActivity : AppCompatActivity() {
                     when {
                         // jika pengecekan sukses akan menampilkan pesan dan button savePassword akan bisa digunakan
                         task.isSuccessful -> {
-                            Toast.makeText(this, "Verifikasi berhasil", Toast.LENGTH_SHORT).show()
+                            val pesan = findViewById<View>(android.R.id.content)
+                            val snackbar = Snackbar.make(pesan, "Verifikasi berhasil", Snackbar.LENGTH_SHORT)
+                            snackbar.show()
                             binding.SavePassowrd.isEnabled = true
                         }
 
@@ -133,11 +137,14 @@ class ChangepasswordActivity : AppCompatActivity() {
                     user.updatePassword(newPassword).addOnCompleteListener {
                         // jika penyimpanan berhasil akan langsung keluar dan diarahkan kembali ke arah login
                         if (it.isSuccessful){
-                            Toast.makeText(this, "Password baru berhasil disimpan", Toast.LENGTH_SHORT).show()
-                            successLogout()
+                            val intent = Intent(this, ProfileActivity::class.java)
+                            intent.putExtra("data_masuk", "success")
+                            startActivity(intent)
                             // jika gagal maka akan mengulang password
                         } else {
-                            Toast.makeText(this, "Password baru gagal di simpan", Toast.LENGTH_SHORT).show()
+                            val pesangagal = findViewById<View>(android.R.id.content)
+                            val snackbar = Snackbar.make(pesangagal, "Gagal menyimpan password baru", Snackbar.LENGTH_SHORT)
+                            snackbar.show()
                         }
                     }
                 }

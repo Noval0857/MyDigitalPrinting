@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.navigation.NavigationView
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityMainBinding
 import umbjm.ft.inf.mydigitalprinting.item.GridAdapter
@@ -38,6 +39,22 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
+    }
+
+    // Mengambil data yang ada pada loginactivity
+    override fun onResume() {
+        super.onResume()
+
+        // menampung data yang ada pada login_status didalam variable loginstatus
+        val loginstatus = intent.getStringExtra("login_status")
+        // jika sukses mengambil data maka akan menampilkan sebuah alert
+        if (loginstatus == "success"){
+            SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                .setContentText("Berhasil Login")
+                .show()
+            // menghapus data berikutnya jika dipanggil lagi
+            intent.removeExtra("login_status")
+        }
     }
 
     // Untuk menampilkan Toolbar

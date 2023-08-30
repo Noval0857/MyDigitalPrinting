@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityLoginBinding
@@ -65,19 +66,35 @@ class LoginActivity : AppCompatActivity() {
             LoginFirebase(inpEmail, inpPassword)
         }
     }
+    // Mengambil data yang ada pada Registrasi Activity
+    override fun onResume() {
+        super.onResume()
+
+        // menampung data registasi ke dalam variable
+        val dataRegis = intent.getStringExtra("data_regis")
+        // jika intent data sama dengan success  maka akan menampilkan alert
+        if (dataRegis == "success"){
+            // ini alert yang akan di tampilkan
+            SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                .setContentText("Registrasi Berhasil")
+                .show()
+            // remove data yang sudah masuk agar dapat diakases ulang
+            intent.removeExtra("data_regis")
+        }
+    }
 
     // Fungsi untuk Sign menggunakan email dan password sesuai dengan yang ada di firebase
     private fun LoginFirebase(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "Selamat Datang", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("login_status", "success")
                     startActivity(intent)
                 } else {
                     Toast.makeText(
                         this,
-                        "Anda gagal login, tolong isi data anda dengan benar",
+                        "Email atau Password salah, silahkan cek ulang",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
