@@ -30,6 +30,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jenis_spanduk"
                 android:layout_width="370dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
@@ -47,6 +48,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/teks_utama"
                 android:layout_width="370dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
@@ -64,6 +66,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/teks_lainnya"
                 android:layout_width="370dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
@@ -81,6 +84,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/keterangan"
                 android:layout_width="370dp"
                 android:layout_height="90dp"
                 android:layout_marginLeft="30dp"
@@ -97,8 +101,8 @@
                 android:textSize="13sp"
                 style="@style/BoldTextItalicText"/>
 
-            <ImageButton
-                android:id="@+id/imageButton1"
+            <ImageView
+                android:id="@+id/image"
                 android:layout_width="370dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
@@ -116,6 +120,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/panjang"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
@@ -133,6 +138,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lebar"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="10dp"
