@@ -42,10 +42,9 @@ class NewPassword : AppCompatActivity() {
             // Fungsi untuk memberikan reset password dengan cara mengirim link reset password ke email pengguna
             FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener {
                 if (it.isSuccessful){
-                    Toast.makeText(this, "Reset email berhasil dikirim", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, LoginActivity::class.java)
+                    intent.putExtra("New_password", "success")
                     startActivity(intent)
-                    finish()
                 } else {
                     Toast.makeText(this, "Reset email tidak berhasil dikirim", Toast.LENGTH_SHORT).show()
                 }
