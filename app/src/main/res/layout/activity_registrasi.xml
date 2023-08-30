@@ -92,6 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    app:passwordToggleEnabled="true"
                     app:startIconDrawable="@drawable/gembok">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -99,6 +100,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/sudut"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:singleLine="true"
                         android:hint="Password" />
 
                 </com.google.android.material.textfield.TextInputLayout>

@@ -74,8 +74,8 @@ class RegistrasiActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "Akun anda berhasil dibuat", Toast.LENGTH_LONG).show()
                     val intent = Intent(this, LoginActivity::class.java)
+                    intent.putExtra("data_regis", "success")
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "Data anda tidak berhasil disimpan", Toast.LENGTH_LONG)
