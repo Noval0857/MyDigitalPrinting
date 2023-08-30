@@ -70,17 +70,31 @@ class LoginActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        // menampung data registasi ke dalam variable
+        // Fungsi Alert Registrasi
+        alertRegistrasi()
+        // Fungsi Alert Reset Password
+        alertResetPassword()
+
+    }
+
+    private fun alertResetPassword() {
+        val dataUser = intent.getStringExtra("New_password")
+            if (dataUser == "success"){
+                SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Berhasil")
+                    .setContentText("Email Reset Password, Berhasil Dikirim!!")
+                    .show()
+            }
+    }
+
+    private fun alertRegistrasi() {
         val dataRegis = intent.getStringExtra("data_regis")
-        // jika intent data sama dengan success  maka akan menampilkan alert
-        if (dataRegis == "success"){
-            // ini alert yang akan di tampilkan
-            SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-                .setContentText("Registrasi Berhasil")
-                .show()
-            // remove data yang sudah masuk agar dapat diakases ulang
-            intent.removeExtra("data_regis")
-        }
+            if (dataRegis == "success"){
+                SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Berhasil")
+                    .setContentText("Registrasi berhasil")
+                    .show()
+            }
     }
 
     // Fungsi untuk Sign menggunakan email dan password sesuai dengan yang ada di firebase
