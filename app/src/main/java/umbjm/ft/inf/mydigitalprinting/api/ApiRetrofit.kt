@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiRetrofit {
 
-    private val BASE_URL = "http://192.168.1.21/MyDigitalPrinting/"
+    private val BASE_URL = "http://192.168.1.14/MyDigitalPrinting/"
 
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor (HttpLoggingInterceptor().apply {
@@ -37,19 +37,4 @@ class ApiRetrofit {
         retrofit.create(ApiEndPoint::class.java)
     }
 
-//    /*var gson: Gson = GsonBuilder()
-//        .setLenient()
-//        .create()
-//
-//    val endpoint:ApiEndPoint
-//        get() {
-//            val retrofit = Retrofit.Builder()
-//                .baseUrl("http://192.168.1.13/MyDigitalPrinting/")
-//                .addConverterFactory(GsonConverterFactory.create(gson))
-//                .build()
-//
-//            return retrofit.create(ApiEndPoint::class.java)
-//        }*/
-//
-//
 }

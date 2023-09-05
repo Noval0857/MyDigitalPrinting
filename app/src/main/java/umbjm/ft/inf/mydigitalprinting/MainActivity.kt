@@ -1,20 +1,19 @@
 package umbjm.ft.inf.mydigitalprinting
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.pedant.SweetAlert.SweetAlertDialog
-import com.google.android.material.navigation.NavigationView
-import umbjm.ft.inf.mydigitalprinting.databinding.ActivityMainBinding
 import umbjm.ft.inf.mydigitalprinting.item.GridAdapter
 import umbjm.ft.inf.mydigitalprinting.item.GridItem
+import umbjm.ft.inf.mydigitalprinting.keranjang.KeranjangActivity
 import umbjm.ft.inf.mydigitalprinting.profil.ProfileActivity
 
 class MainActivity : AppCompatActivity() {
@@ -70,6 +69,9 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.keranjang -> {
             // Konfigurasikan jika ingin pindah halaman
+                val intent = Intent(this, KeranjangActivity::class.java)
+                startActivity(intent)
+                return true
             }
 
             R.id.Tolprofile -> {
