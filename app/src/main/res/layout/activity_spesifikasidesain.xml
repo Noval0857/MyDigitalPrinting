@@ -30,7 +30,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/jenis_spanduk"
+                android:id="@+id/jenis"
                 android:layout_width="370dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
