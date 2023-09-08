@@ -127,7 +127,7 @@
             android:name=".produk.StickerActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.BannerActivity"
+            android:name=".produk.banner.BannerActivity"
             android:exported="false" />
         <activity
             android:name=".login.RegistrasiActivity"

@@ -6,7 +6,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.item.GridBanner
 import umbjm.ft.inf.mydigitalprinting.item.GridIdcard
 import umbjm.ft.inf.mydigitalprinting.item.GridItem2
 
