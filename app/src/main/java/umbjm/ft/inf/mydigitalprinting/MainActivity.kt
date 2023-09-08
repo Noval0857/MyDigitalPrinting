@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -11,16 +12,22 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import umbjm.ft.inf.mydigitalprinting.item.GridAdapter
 import umbjm.ft.inf.mydigitalprinting.item.GridItem
 import umbjm.ft.inf.mydigitalprinting.keranjang.KeranjangActivity
+import umbjm.ft.inf.mydigitalprinting.produk.banner.BannerActivity
 import umbjm.ft.inf.mydigitalprinting.profil.ProfileActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var recyclerView: RecyclerView
     lateinit var gridList: ArrayList<GridItem>
-    lateinit var gridAdapter: GridAdapter
+    private lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -97,22 +104,51 @@ class MainActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
-        gridList = ArrayList()
-        addDataToList()
+        gridList = arrayListOf<GridItem>()
 
-        gridAdapter = GridAdapter(gridList)
-        recyclerView.adapter = gridAdapter
+        getData()
+        recyclerView.addOnItemClickListener(object : OnItemClickListener {
+            override fun onItemClicked(position: Int, view: View) {
+                val selectedProduct = gridList[position]
+                val intent = Intent(this@MainActivity, BannerActivity::class.java)
+                intent.putExtra("id", selectedProduct.id)
+                startActivity(intent)
+            }
+        })
+    }
+    interface OnItemClickListener {
+        fun onItemClicked(position: Int, view: View)
     }
 
-    private fun addDataToList() {
-        gridList.add(GridItem(R.drawable.banner, "Banner"))
-        gridList.add(GridItem(R.drawable.id_card, "Id Card"))
-        gridList.add(GridItem(R.drawable.brosur, "Brosur"))
-        gridList.add(GridItem(R.drawable.sticker, "Sticker"))
-        gridList.add(GridItem(R.drawable.banner, "Undangan"))
-        gridList.add(GridItem(R.drawable.id_card, "Sertifikat"))
-        gridList.add(GridItem(R.drawable.brosur, "Kalender"))
-        gridList.add(GridItem(R.drawable.sticker, "Poster"))
-        gridList.add(GridItem(R.drawable.sticker, "Spanduk"))
+    private fun getData() {
+        database = FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Products")
+        database.child("produk").orderByChild("id").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    gridList.clear()  // Membersihkan list terlebih dahulu
+                    for (itemProduk in snapshot.children) {
+                        val item = itemProduk.getValue(GridItem::class.java)
+                        gridList.add(item!!)
+                    }
+                    recyclerView.adapter = GridAdapter(gridList)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Error handling
+            }
+        })
     }
+
+//    private fun addDataToList() {
+//        gridList.add(GridItem(R.drawable.banner, "Banner"))
+//        gridList.add(GridItem(R.drawable.id_card, "Id Card"))
+//        gridList.add(GridItem(R.drawable.brosur, "Brosur"))
+//        gridList.add(GridItem(R.drawable.sticker, "Sticker"))
+//        gridList.add(GridItem(R.drawable.banner, "Undangan"))
+//        gridList.add(GridItem(R.drawable.id_card, "Sertifikat"))
+//        gridList.add(GridItem(R.drawable.brosur, "Kalender"))
+//        gridList.add(GridItem(R.drawable.sticker, "Poster"))
+//        gridList.add(GridItem(R.drawable.sticker, "Spanduk"))
+//    }
 }

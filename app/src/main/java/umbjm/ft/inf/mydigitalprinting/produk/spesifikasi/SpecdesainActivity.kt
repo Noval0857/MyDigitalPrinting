@@ -13,7 +13,7 @@ import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivitySpesifikasidesainBinding
 
 
-class SpecdesainActivity : AppCompatActivity(){
+class SpecdesainActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySpesifikasidesainBinding
     private lateinit var database: DatabaseReference
     private var imageUri: Uri? = null
@@ -23,12 +23,24 @@ class SpecdesainActivity : AppCompatActivity(){
         binding = ActivitySpesifikasidesainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        imageInput()
-        upload()
+        val idBanner = intent.getStringExtra("idBanner")
+        val loginstatus = intent.getStringExtra("login_status")
+        if (idBanner != null && idBanner.isNotEmpty()) {
+            // Lanjutkan dengan penggunaan idBanner
+            imageInput()
+            upload()
+        } else {
+            // Handle jika idBanner null atau kosong
+            Toast.makeText(this, "ID Banner tidak valid", Toast.LENGTH_SHORT).show()
+            finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
+        }
+
+
+
 
     }
 
-    private fun imageInput(){
+    private fun imageInput() {
         binding.image.setOnClickListener {
             resultLauncher.launch("image/*")
         }
@@ -43,7 +55,7 @@ class SpecdesainActivity : AppCompatActivity(){
     }
 
 
-    private fun upload(){
+    private fun upload() {
         binding.btnS1.setOnClickListener {
             val jenis = binding.UploadJenis.text.toString()
             val teksUtama = binding.UploadteksUtama.text.toString()
@@ -54,7 +66,8 @@ class SpecdesainActivity : AppCompatActivity(){
 
 
             // Referensi Firebase Storage
-            val storageRef = FirebaseStorage.getInstance().reference.child("Images").child(System.currentTimeMillis().toString())
+            val storageRef = FirebaseStorage.getInstance().reference.child("Pesanan")
+                .child(System.currentTimeMillis().toString())
 
             // Mengunggah gambar ke Firebase Storage
             imageUri?.let {
@@ -64,26 +77,42 @@ class SpecdesainActivity : AppCompatActivity(){
                         storageRef.downloadUrl.addOnSuccessListener { uri ->
                             // Simpan URL gambar ke Firebase Realtime Database
                             val imageUrl = uri.toString()
-                            database = FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Produk")
+                            database =
+                                FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                                    .getReference("User")
                             val idProduk = database.push().key!!
-                            val sD = SpecDesain(idProduk, jenis, teksUtama, teksLainnya, keterangan, panjang, lebar, imageUrl)
-                            database.child(idProduk).setValue(sD).addOnCompleteListener { databaseTask ->
-                                if (databaseTask.isSuccessful) {
-                                    Toast.makeText(this, "Uploaded Successfully", Toast.LENGTH_SHORT).show()
-                                    val intent = Intent(this, MainActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
-                                } else {
-                                    Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
-                                }
-                                binding.UploadJenis.text?.clear()
-                                binding.UploadteksUtama.text?.clear()
-                                binding.UploadteksLainnya.text?.clear()
-                                binding.Uploadketerangan.text?.clear()
-                                binding.Uploadpanjang.text?.clear()
-                                binding.Uploadlebar.text?.clear()
+                            val sD = SpecDesain(
+                                idProduk,
+                                jenis,
+                                teksUtama,
+                                teksLainnya,
+                                keterangan,
+                                panjang,
+                                lebar,
+                                imageUrl
+                            )
+                            database.child(idProduk).setValue(sD)
+                                .addOnCompleteListener { databaseTask ->
+                                    if (databaseTask.isSuccessful) {
+                                        Toast.makeText(
+                                            this,
+                                            "Uploaded Successfully",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        val intent = Intent(this, MainActivity::class.java)
+                                        startActivity(intent)
+                                        finish()
+                                    } else {
+                                        Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                                    }
+                                    binding.UploadJenis.text?.clear()
+                                    binding.UploadteksUtama.text?.clear()
+                                    binding.UploadteksLainnya.text?.clear()
+                                    binding.Uploadketerangan.text?.clear()
+                                    binding.Uploadpanjang.text?.clear()
+                                    binding.Uploadlebar.text?.clear()
 
-                            }
+                                }
                         }
                     } else {
                         Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
@@ -92,6 +121,7 @@ class SpecdesainActivity : AppCompatActivity(){
             }
         }
     }
+}
 
 //    private val ActivityResultLauncher = registerForActivityResult<Intent, ActivityResult>(
 //        ActivityResultContracts.StartActivityForResult()
@@ -112,7 +142,6 @@ class SpecdesainActivity : AppCompatActivity(){
 //            }
 //        }
 //    }
-}
 
 //class SpecdesainActivity : AppCompatActivity() {
 //

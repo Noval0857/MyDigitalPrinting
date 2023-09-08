@@ -1,6 +1,7 @@
 package umbjm.ft.inf.mydigitalprinting.keranjang
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,12 +27,30 @@ class KeranjangActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.hasFixedSize()
         keranjangItem = arrayListOf<KeranjangItem>()
-        getData()
+
+
+        val idBanner = intent.getStringExtra("idBanner")
+        val loginstatus = intent.getStringExtra("login_status")
+        if (loginstatus != null && loginstatus.isNotEmpty()) {
+            // Lanjutkan dengan penggunaan idBanner
+            getData()
+        } else {
+            if (idBanner != null && idBanner.isNotEmpty()) {
+                // Lanjutkan dengan penggunaan idBanner
+            } else {
+                // Handle jika idBanner null atau kosong
+                Toast.makeText(this, "ID Banner tidak valid", Toast.LENGTH_SHORT).show()
+                finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
+            }
+            // Handle jika idBanner null atau kosong
+            Toast.makeText(this, "masih ada", Toast.LENGTH_SHORT).show()
+            finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
+        }
     }
 
     private fun getData() {
         database = FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Produk")
-        database.limitToFirst(2).addValueEventListener(object : ValueEventListener {
+        database.orderByChild("id").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     keranjangItem.clear()  // Membersihkan list terlebih dahulu
