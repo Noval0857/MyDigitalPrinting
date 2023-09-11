@@ -85,6 +85,10 @@ class RegistrasiActivity : AppCompatActivity() {
                         .show()
                 }
             }
+
+    }
+
+}
 //        val namaUser = binding.Rnama.text.toString()
 //        val emailUser = binding.Remail.text.toString()
 //        val passwordUser = binding.Rpassword.text.toString()
@@ -105,9 +109,6 @@ class RegistrasiActivity : AppCompatActivity() {
 //            binding.Rpassword.text?.clear()
 //
 //        }
-    }
-
-}
 
 
 //import android.annotation.SuppressLint
