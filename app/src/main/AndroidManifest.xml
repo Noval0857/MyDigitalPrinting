@@ -100,7 +100,7 @@
             android:name=".produk.spesifikasi.SpecstickerActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.spesifikasi.SpecidcardActivity"
+            android:name=".produk.idcard.SpecidcardActivity"
             android:exported="false" />
         <activity
             android:name=".produk.spesifikasi.SpecdesainActivity"
@@ -121,7 +121,7 @@
             android:name=".produk.BrosurActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.IdCardActivity"
+            android:name=".produk.idcard.IdCardActivity"
             android:exported="false" />
         <activity
             android:name=".produk.StickerActivity"
