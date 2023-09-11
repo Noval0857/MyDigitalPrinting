@@ -3,6 +3,7 @@ package umbjm.ft.inf.mydigitalprinting.produk.spesifikasi
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -10,33 +11,41 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import umbjm.ft.inf.mydigitalprinting.MainActivity
+import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivitySpesifikasidesainBinding
+import umbjm.ft.inf.mydigitalprinting.produk.banner.BannerActivity
 
 
 class SpecdesainActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySpesifikasidesainBinding
     private lateinit var database: DatabaseReference
     private var imageUri: Uri? = null
+    private lateinit var BackPesanan: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySpesifikasidesainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val idBanner = intent.getStringExtra("idBanner")
-        val loginstatus = intent.getStringExtra("login_status")
-        if (idBanner != null && idBanner.isNotEmpty()) {
-            // Lanjutkan dengan penggunaan idBanner
-            imageInput()
-            upload()
-        } else {
-            // Handle jika idBanner null atau kosong
-            Toast.makeText(this, "ID Banner tidak valid", Toast.LENGTH_SHORT).show()
-            finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
+//        val idBanner = intent.getStringExtra("idBanner")
+//        val loginstatus = intent.getStringExtra("login_status")
+//        if (idBanner != null && idBanner.isNotEmpty()) {
+//            // Lanjutkan dengan penggunaan idBanner
+//
+//        } else {
+//            // Handle jika idBanner null atau kosong
+//            Toast.makeText(this, "ID Banner tidak valid", Toast.LENGTH_SHORT).show()
+//            finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
+//        }
+
+        BackPesanan = findViewById(R.id.BackPesanan)
+        BackPesanan.setOnClickListener {
+            val intent = Intent(this, BannerActivity::class.java)
+            startActivity(intent)
+            return@setOnClickListener
         }
-
-
-
+        imageInput()
+        upload()
 
     }
 
@@ -62,7 +71,7 @@ class SpecdesainActivity : AppCompatActivity() {
             val teksLainnya = binding.UploadteksLainnya.text.toString()
             val keterangan = binding.Uploadketerangan.text.toString()
             val panjang = binding.Uploadpanjang.text.toString()
-            val lebar = binding.Uploadlebar.text.toString()
+//            val lebar = binding.Uploadlebar.text.toString()
 
 
             // Referensi Firebase Storage
@@ -88,7 +97,7 @@ class SpecdesainActivity : AppCompatActivity() {
                                 teksLainnya,
                                 keterangan,
                                 panjang,
-                                lebar,
+//                                lebar,
                                 imageUrl
                             )
                             database.child("Pesanan").setValue(sD)
@@ -110,7 +119,7 @@ class SpecdesainActivity : AppCompatActivity() {
                                     binding.UploadteksLainnya.text?.clear()
                                     binding.Uploadketerangan.text?.clear()
                                     binding.Uploadpanjang.text?.clear()
-                                    binding.Uploadlebar.text?.clear()
+//                                    binding.Uploadlebar.text?.clear()
 
                                 }
                         }
