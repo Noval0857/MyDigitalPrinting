@@ -91,7 +91,7 @@ class SpecdesainActivity : AppCompatActivity() {
                                 lebar,
                                 imageUrl
                             )
-                            database.child(idProduk).setValue(sD)
+                            database.child("Pesanan").setValue(sD)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
                                         Toast.makeText(

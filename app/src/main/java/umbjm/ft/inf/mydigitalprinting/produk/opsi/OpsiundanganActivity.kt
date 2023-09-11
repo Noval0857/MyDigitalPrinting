@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.produk.cetak.CetakdesainActivity
 import umbjm.ft.inf.mydigitalprinting.produk.cetak.CetakundanganActivity
-import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecdesainActivity
 import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecundanganActivity
 
 class OpsiundanganActivity : AppCompatActivity() {

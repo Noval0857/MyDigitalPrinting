@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produk.spesifikasi.SpecidcardActivity">
+    tools:context=".produk.idcard.SpecidcardActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,6 +30,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/namaProject"
                 android:layout_width="370dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
@@ -47,6 +48,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/satusisi"
                 android:layout_width="140dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
@@ -54,6 +56,7 @@
                 />
 
             <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/duasisi"
                 android:layout_width="140dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="-35dp"
@@ -72,6 +75,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/keterangan"
                 android:layout_width="370dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="30dp"
@@ -89,6 +93,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sisibelakang"
                 android:layout_width="370dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="30dp"
@@ -106,7 +111,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <ImageButton
-                android:id="@+id/imageButton1"
+                android:id="@+id/image"
                 android:layout_width="370dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="30dp"
@@ -124,6 +129,7 @@
                 style="@style/BoldTextItalicText"/>
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/keteranganTambahan"
                 android:layout_width="370dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="30dp"
@@ -143,7 +149,7 @@
 
             <!--Bagian Pembayaran-->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnS1"
+                android:id="@+id/btnPesan"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
@@ -152,7 +158,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/maron"
-                android:text="Pembayaran"
+                android:text="Pesan"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:cornerRadius="20dp"

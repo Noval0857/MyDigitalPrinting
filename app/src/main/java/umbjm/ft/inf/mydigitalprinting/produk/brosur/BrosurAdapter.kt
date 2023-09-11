@@ -1,4 +1,4 @@
-package umbjm.ft.inf.mydigitalprinting.produk.banner
+package umbjm.ft.inf.mydigitalprinting.produk.brosur
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,13 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 import umbjm.ft.inf.mydigitalprinting.R
 
-class BannerAdapter(private val bannerItem: ArrayList<BannerItem>, private val itemClickListener: BannerItemClickListener) : RecyclerView.Adapter<BannerAdapter.BannerHolder>(){
+class BrosurAdapter(private val brosurItem: ArrayList<BrosurItem>, private val itemClickListener: BrosurItemClickListener) : RecyclerView.Adapter<BrosurAdapter.BrosurHolder>(){
 
-    inner class BannerHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class BrosurHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val imageView: ImageView = itemView.findViewById(R.id.image_grid)
         val nameView: TextView = itemView.findViewById(R.id.text_grid)
         val hargaView: TextView = itemView.findViewById(R.id.harga_grid)
@@ -20,39 +19,39 @@ class BannerAdapter(private val bannerItem: ArrayList<BannerItem>, private val i
             itemView.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION){
-                    val idBanner = bannerItem[position].idBanner
-                    if (idBanner != null) {
-                        itemClickListener.onItemClick(idBanner)
+                    val idBrosur = brosurItem[position].idBrosur
+                    if (idBrosur != null) {
+                        itemClickListener.onItemClick(idBrosur)
                     }
                 }
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrosurHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.grid_item2, parent, false)
-        return BannerHolder(view)
+        return BrosurHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return bannerItem.size
+        return brosurItem.size
     }
 
-    override fun onBindViewHolder(holder: BannerHolder, position: Int) {
-        val currentitem = bannerItem[position]
-        holder.nameView.text = currentitem.nameBanner
-        holder.hargaView.text = currentitem.hargaBanner
+    override fun onBindViewHolder(holder: BrosurHolder, position: Int) {
+        val currentitem = brosurItem[position]
+        holder.nameView.text = currentitem.nameBrosur
+        holder.hargaView.text = currentitem.hargaBrosur
         // Periksa apakah currentitem.image tidak kosong dan tidak null
-        if (!currentitem.imageBanner.isNullOrEmpty()) {
-            Picasso.get().load(currentitem.imageBanner).into(holder.imageView)
+        if (!currentitem.imageBrosur.isNullOrEmpty()) {
+            Picasso.get().load(currentitem.imageBrosur).into(holder.imageView)
         } else {
             // Handle kasus jika path gambar kosong atau null, misalnya tampilkan gambar placeholder
             Picasso.get().load(R.drawable.banner1).into(holder.imageView)
         }
     }
 
-    interface BannerItemClickListener {
-        fun onItemClick(id: String)
+    interface BrosurItemClickListener {
+        fun onItemClick(idBrosur: String)
     }
 
 
