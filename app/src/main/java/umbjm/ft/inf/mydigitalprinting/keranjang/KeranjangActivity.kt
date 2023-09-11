@@ -1,6 +1,8 @@
 package umbjm.ft.inf.mydigitalprinting.keranjang
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +14,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.StorageReference
+import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityKeranjangBinding
 
@@ -19,6 +22,7 @@ class KeranjangActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var recyclerView: RecyclerView
     private lateinit var keranjangItem: ArrayList<KeranjangItem>
+    private lateinit var HomeBack:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +32,20 @@ class KeranjangActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.hasFixedSize()
         keranjangItem = arrayListOf<KeranjangItem>()
-
+        // back mainActivity
+        HomeBack = findViewById(R.id.HomeBack)
+        HomeBack.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            return@setOnClickListener
+          
         // Periksa apakah pengguna sudah login sebelum mencoba mengambil data
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             val userID = user.uid // Mendapatkan ID pengguna saat ini
             getData(userID)
+        }
+
         } else {
             // Handle jika pengguna belum login
             // Contoh: Redirect pengguna ke halaman login

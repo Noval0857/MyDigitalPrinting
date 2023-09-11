@@ -1,170 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produk.idcard.SpecidcardActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    tools:context=".produk.spesifikasi.SpecdesainActivity"
+    android:fitsSystemWindows="true">
+
+    <ImageButton
+        android:id="@+id/BackPesanan"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/back"
+        android:importantForAccessibility="no" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <include layout="@layout/nav_header1"/>
-
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingTop="68dp">
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
 
-            <!--Bagian untuk Nama Project-->
-            <TextView
-                android:layout_width="90dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Nama project"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/namaProject"
-                android:layout_width="370dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                />
+                <!-- Untuk Jenis Spanduk -->
 
-            <!--Bagian untuk CheckBox-->
-            <TextView
-                android:layout_width="90dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Desain"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
+                <TextView
+                    style="@style/BoldTextItalicText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="*Nama Project" />
 
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/satusisi"
-                android:layout_width="140dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:text="desain satu sisi"
-                />
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black">
 
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/duasisi"
-                android:layout_width="140dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="-35dp"
-                android:layout_marginLeft="190dp"
-                android:text="desain dua sisi"
-                />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/UploadJenis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/block_pesanan"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="18sp" />
 
-            <!--Bagian untuk Nama Jabatan-->
-            <TextView
-                android:layout_width="330dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginLeft="30dp"
-                android:text="Nama dan Jabatan (sisi Depan)\n*tanda koma (,) untuk jabatan/lain sebagainya dan berikan tanda titik koma  (;) untuk membedakan nama yang lebih dari 1 orang Contoh : aulia,ketua,68667; Budi,anggota,7678;..........."
-                android:textSize="10sp"
-                style="@style/BoldTextItalicText"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/keterangan"
-                android:layout_width="370dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                />
+                <!--Bagian untuk CheckBox-->
+                <TextView
+                    style="@style/BoldTextItalicText"
+                    android:layout_width="90dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="*Desain" />
 
-            <!--Bagian untuk Sisi Belakang-->
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Sisi belakang"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/satusisi"
+                    android:layout_width="140dp"
+                    android:layout_height="35dp"
+                    android:text="desain satu sisi" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/sisibelakang"
-                android:layout_width="370dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                />
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/duasisi"
+                    android:layout_width="140dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginTop="-35dp"
+                    android:text="desain dua sisi" />
 
-            <!--Bagian Upload Foto-->
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Upload foto*"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
+                <!-- Untuk Teks Lainnya -->
 
-            <ImageButton
-                android:id="@+id/image"
-                android:layout_width="370dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                android:src="@android:drawable/ic_menu_camera" />
+                <!--Bagian untuk Nama Jabatan-->
+                <TextView
+                    style="@style/BoldTextItalicText"
+                    android:layout_width="330dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="1dp"
+                    android:text="Nama dan Jabatan (sisi Depan)\n*tanda koma (,) untuk jabatan/lain sebagainya dan berikan tanda titik koma  (;) untuk membedakan nama yang lebih dari 1 orang Contoh : aulia,ketua,68667; Budi,anggota,7678;..........."
+                    android:textSize="13sp" />
 
-            <!--Bagian untuk Keterangan tambahan-->
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="30dp"
-                android:text="Keterangan tambahan"
-                android:textSize="13sp"
-                style="@style/BoldTextItalicText"/>
+                <!-- Untuk Bagian Keterangan -->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/keteranganTambahan"
-                android:layout_width="370dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="30dp"
-                android:background="@drawable/block_pesanan"
-                />
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="375dp"
+                    android:layout_height="100dp"
+                    android:hint="Keterangan"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black">
 
-            <!--Bagian untuk Desain akan dikirim-->
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginLeft="30dp"
-                android:text="*Desain Akan Dikirim dalam kuran waktu 24 jam"
-                android:textSize="9sp"
-                style="@style/BoldTextItalicText"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Uploadketerangan"
+                        android:layout_width="375dp"
+                        android:layout_height="90dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/block_pesanan"
+                        android:gravity="top|start"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="18sp" />
 
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Bagian Pembayaran-->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPesan"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="20dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/maron"
-                android:text="Pesan"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                app:cornerRadius="20dp"
-                app:elevation="5dp" />
-        </LinearLayout>
+                <!-- Sisi belakang -->
+                <TextView
+                    style="@style/BoldTextItalicText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="*Sisi Belakang" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/UploadteksLainnya"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/block_pesanan"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Bagian Upload Foto -->
+                <TextView
+                    style="@style/BoldTextItalicText"
+                    android:layout_width="120dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Upload foto Utama" />
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/block_pesanan"
+                    android:src="@android:drawable/ic_menu_camera" />
+
+                <!-- Bagian untuk mengatur untuk spesifikasi -->
+                <TextView
+                    style="@style/BoldTextItalicText"
+                    android:layout_width="160dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="215dp"
+                    android:layout_marginTop="-120dp"
+                    android:text="*Keterangan Tambahan"
+                    android:textSize="13sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="215dp"
+                    android:layout_marginTop="15dp"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Uploadpanjang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/block_pesanan"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Button -->
+                <TextView
+                    style="@style/BoldTextItalicText"
+                    android:layout_width="280dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="*Desain Akan Dikirim dalam kuran waktu 24 jam"
+                    android:textSize="13sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnS1"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/maron"
+                    android:text="Pesan"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:cornerRadius="20dp"
+                    app:elevation="5dp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.core.widget.NestedScrollView>
 
     </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
