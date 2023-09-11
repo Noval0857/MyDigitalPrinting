@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -31,36 +32,38 @@ class KeranjangActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.hasFixedSize()
         keranjangItem = arrayListOf<KeranjangItem>()
-
+        // back mainActivity
         HomeBack = findViewById(R.id.HomeBack)
         HomeBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             return@setOnClickListener
+          
+        // Periksa apakah pengguna sudah login sebelum mencoba mengambil data
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            val userID = user.uid // Mendapatkan ID pengguna saat ini
+            getData(userID)
         }
 
-        val idBanner = intent.getStringExtra("idBanner")
-        val loginstatus = intent.getStringExtra("login_status")
-        if (loginstatus != null && loginstatus.isNotEmpty()) {
-            // Lanjutkan dengan penggunaan idBanner
-            getData()
         } else {
-            if (idBanner != null && idBanner.isNotEmpty()) {
-                // Lanjutkan dengan penggunaan idBanner
-            } else {
-                // Handle jika idBanner null atau kosong
-                Toast.makeText(this, "ID Banner tidak valid", Toast.LENGTH_SHORT).show()
-                finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
-            }
-            // Handle jika idBanner null atau kosong
-            Toast.makeText(this, "masih ada", Toast.LENGTH_SHORT).show()
-            finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
+            // Handle jika pengguna belum login
+            // Contoh: Redirect pengguna ke halaman login
+            // atau tampilkan pesan bahwa pengguna harus login terlebih dahulu
         }
     }
 
-    private fun getData() {
-        database = FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Produk")
-        database.orderByChild("id").addValueEventListener(object : ValueEventListener {
+    private fun getData(userID: String) {
+        database = FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("User")
+
+
+        // Panggil getDataFirebase() dengan userID sebagai filter
+        getDataFirebase(userID)
+    }
+
+    private fun getDataFirebase(userID: String) {
+        database.child(userID).child("Pesanan").orderByChild("idProduk")
+            .addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     keranjangItem.clear()  // Membersihkan list terlebih dahulu
@@ -73,13 +76,13 @@ class KeranjangActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Error handling
+                // Handle kesalahan Firebase di sini
+                Toast.makeText(applicationContext, "Gagal mengambil data: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
-
-
 }
+
 
 //    private lateinit var binding: ActivityKeranjangBinding
 //    private lateinit var storageRef: StorageReference

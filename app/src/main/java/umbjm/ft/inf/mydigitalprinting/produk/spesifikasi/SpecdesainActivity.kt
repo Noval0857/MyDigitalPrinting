@@ -7,6 +7,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -26,18 +27,7 @@ class SpecdesainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySpesifikasidesainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-//        val idBanner = intent.getStringExtra("idBanner")
-//        val loginstatus = intent.getStringExtra("login_status")
-//        if (idBanner != null && idBanner.isNotEmpty()) {
-//            // Lanjutkan dengan penggunaan idBanner
-//
-//        } else {
-//            // Handle jika idBanner null atau kosong
-//            Toast.makeText(this, "ID Banner tidak valid", Toast.LENGTH_SHORT).show()
-//            finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
-//        }
-
+        // back mainActovoty
         BackPesanan = findViewById(R.id.BackPesanan)
         BackPesanan.setOnClickListener {
             val intent = Intent(this, BannerActivity::class.java)
@@ -66,6 +56,11 @@ class SpecdesainActivity : AppCompatActivity() {
 
     private fun upload() {
         binding.btnS1.setOnClickListener {
+
+            val user = FirebaseAuth.getInstance().currentUser
+            val userID = user?.uid // Mendapatkan ID pengguna saat ini
+
+
             val jenis = binding.UploadJenis.text.toString()
             val teksUtama = binding.UploadteksUtama.text.toString()
             val teksLainnya = binding.UploadteksLainnya.text.toString()
@@ -87,11 +82,11 @@ class SpecdesainActivity : AppCompatActivity() {
                             // Simpan URL gambar ke Firebase Realtime Database
                             val imageUrl = uri.toString()
                             database =
-                                FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                                    .getReference("User")
+                                FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
                             val idProduk = database.push().key!!
                             val sD = SpecDesain(
                                 idProduk,
+                                userID,
                                 jenis,
                                 teksUtama,
                                 teksLainnya,
@@ -100,7 +95,7 @@ class SpecdesainActivity : AppCompatActivity() {
 //                                lebar,
                                 imageUrl
                             )
-                            database.child("Pesanan").setValue(sD)
+                            database.child("User").child(userID!!).child("Pesanan").child(idProduk).setValue(sD)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
                                         Toast.makeText(
