@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.button.MaterialButton
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.produk.PembayaranActivity
 
 class CetakidcardActivity : AppCompatActivity() {
 
@@ -16,9 +15,9 @@ class CetakidcardActivity : AppCompatActivity() {
 
         bayar = findViewById(R.id.btnS1)
 
-        bayar.setOnClickListener {
-            val intent = Intent(this, PembayaranActivity::class.java)
-            startActivity(intent)
-        }
+//        bayar.setOnClickListener {
+//            val intent = Intent(this, PembayaranActivity::class.java)
+//            startActivity(intent)
+//        }
     }
 }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produk.PembayaranActivity">
+    tools:context=".pembayaran.PembayaranActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -219,9 +219,9 @@
         </TextView>
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/imageButton"
             android:layout_width="370dp"
-            android:layout_height="35dp"
+            android:layout_height="100dp"
             android:layout_marginTop="565dp"
             android:layout_marginLeft="15dp"
             android:background="@drawable/block_pesanan"
@@ -234,7 +234,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="140dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="610dp"
+            android:layout_marginTop="675dp"
             android:backgroundTint="#B31312"
             android:elevation="4dp"
             android:text="Submit"

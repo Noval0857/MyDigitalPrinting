@@ -42,7 +42,7 @@ class BannerActivity : AppCompatActivity(), BannerAdapter.BannerItemClickListene
         database =
             FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("Products")
-        database.child("Banner").orderByChild("id")
+        database.child("Banner").orderByChild("idBanner")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
@@ -62,25 +62,14 @@ class BannerActivity : AppCompatActivity(), BannerAdapter.BannerItemClickListene
             })
     }
 
-    override fun onItemClick(idBanner: String) {
+    override fun onItemClick(idBanner: String, hargaBanner: String) {
         // Di sini, Anda dapat membuat Intent untuk berpindah ke aktivitas lain
         // dan membawa ID sebagai data tambahan (extra) dalam Intent.
 
         val intent = Intent(this, SpecdesainActivity::class.java)
         intent.putExtra("idBanner", idBanner)
+        intent.putExtra("hargaBanner", hargaBanner)
         startActivity(intent)
     }
 
 }
-
-//    private fun addDataToList(){
-//        listbanner.add(GridItem2(R.drawable.banner1, "Rollbanner 80 x 200", "Rp. 450.000,00"))
-//        listbanner.add(GridItem2(R.drawable.banner1, "Rollbanner 60 x 160", "Rp. 350.000,00"))
-//        listbanner.add(GridItem2(R.drawable.banner2, "Spanduk", "Rp. 20.000/M"))
-//        listbanner.add(GridItem2(R.drawable.banner3, "X-Banner", "Rp. 65.000,00"))
-//        listbanner.add(GridItem2(R.drawable.banner4, "Y-banner", "Rp. 20.000/M"))
-//        listbanner.add(GridItem2(R.drawable.banner5, "Tripod Banner", "Rp. 20.000/M"))
-//        listbanner.add(GridItem2(R.drawable.banner6, "Roll Up Banner", "Rp. 150.000,00"))
-//        listbanner.add(GridItem2(R.drawable.banner7, "Door Frame Banner", "Rp. 250.000/M"))
-//        listbanner.add(GridItem2(R.drawable.banner8, "Event Desk", "Rp. 250.000/M"))
-//    }
