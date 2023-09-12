@@ -60,13 +60,16 @@ class SpecdesainActivity : AppCompatActivity() {
             val user = FirebaseAuth.getInstance().currentUser
             val userID = user?.uid // Mendapatkan ID pengguna saat ini
 
+            val idBanner = intent.getStringExtra("idBanner")
+            val hargaBanner = intent.getStringExtra("hargaBanner")
+
+
 
             val jenis = binding.UploadJenis.text.toString()
             val teksUtama = binding.UploadteksUtama.text.toString()
             val teksLainnya = binding.UploadteksLainnya.text.toString()
             val keterangan = binding.Uploadketerangan.text.toString()
             val panjang = binding.Uploadpanjang.text.toString()
-//            val lebar = binding.Uploadlebar.text.toString()
 
 
             // Referensi Firebase Storage
@@ -82,20 +85,21 @@ class SpecdesainActivity : AppCompatActivity() {
                             // Simpan URL gambar ke Firebase Realtime Database
                             val imageUrl = uri.toString()
                             database =
-                                FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
-                            val idProduk = database.push().key!!
+                                FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("User")
+                            val idPesanan = database.push().key!!
                             val sD = SpecDesain(
-                                idProduk,
+                                idPesanan,
                                 userID,
+                                idBanner,
+                                hargaBanner,
                                 jenis,
                                 teksUtama,
                                 teksLainnya,
                                 keterangan,
                                 panjang,
-//                                lebar,
                                 imageUrl
                             )
-                            database.child("User").child(userID!!).child("Pesanan").child(idProduk).setValue(sD)
+                            database.child(userID!!).child("Pesanan").child(idPesanan).setValue(sD)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
                                         Toast.makeText(
@@ -114,7 +118,6 @@ class SpecdesainActivity : AppCompatActivity() {
                                     binding.UploadteksLainnya.text?.clear()
                                     binding.Uploadketerangan.text?.clear()
                                     binding.Uploadpanjang.text?.clear()
-//                                    binding.Uploadlebar.text?.clear()
 
                                 }
                         }

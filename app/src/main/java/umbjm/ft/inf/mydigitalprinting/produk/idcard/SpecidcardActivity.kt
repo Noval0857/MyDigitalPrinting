@@ -57,12 +57,12 @@ class SpecidcardActivity : AppCompatActivity() {
 
     private fun upload() {
         binding.btnPesan.setOnClickListener {
-            val namaProject = binding.namaProject.text.toString()
+            val namaProject = binding.UploadNamaProject.text.toString()
             val satuSisi = binding.satusisi.text.toString()
             val duaSisi = binding.duasisi.text.toString()
-            val keterangan = binding.keterangan.text.toString()
-            val sisiBelakang = binding.sisibelakang.text.toString()
-            val keteranganTambahan = binding.keteranganTambahan.text.toString()
+            val keterangan = binding.Uploadketerangan.text.toString()
+            val sisiBelakang = binding.UploadSisiBelakang.text.toString()
+            val keteranganTambahan = binding.UploadketeranganTambahan.text.toString()
 
 
             // Referensi Firebase Storage
@@ -96,12 +96,12 @@ class SpecidcardActivity : AppCompatActivity() {
                                     } else {
                                         Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
                                     }
-                                    binding.namaProject.text?.clear()
+                                    binding.UploadNamaProject.text?.clear()
                                     binding.satusisi.isChecked = false
                                     binding.duasisi.isChecked = false
-                                    binding.keterangan.text?.clear()
-                                    binding.sisibelakang.text?.clear()
-                                    binding.keteranganTambahan.text?.clear()
+                                    binding.Uploadketerangan.text?.clear()
+                                    binding.UploadSisiBelakang.text?.clear()
+                                    binding.UploadketeranganTambahan.text?.clear()
 
                                 }
                         }

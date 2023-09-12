@@ -1,8 +1,10 @@
 package umbjm.ft.inf.mydigitalprinting.keranjang
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,20 +15,26 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.StorageReference
 import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.databinding.ActivityKeranjangBinding
+import umbjm.ft.inf.mydigitalprinting.pembayaran.PembayaranActivity
+import java.text.DecimalFormat
 
 class KeranjangActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var recyclerView: RecyclerView
     private lateinit var keranjangItem: ArrayList<KeranjangItem>
     private lateinit var HomeBack:ImageButton
+    private lateinit var BtnCheckout: TextView
+    private var totalHarga: Double = 0.0
+    private lateinit var tv_total: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_keranjang)
+
+        tv_total = findViewById(R.id.tv_total)
+        BtnCheckout = findViewById(R.id.BtnCheckout)
 
         recyclerView = findViewById(R.id.rv_keranjang)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -38,19 +46,35 @@ class KeranjangActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             return@setOnClickListener
+        }
           
         // Periksa apakah pengguna sudah login sebelum mencoba mengambil data
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             val userID = user.uid // Mendapatkan ID pengguna saat ini
             getData(userID)
-        }
+            bayar()
+
+
 
         } else {
             // Handle jika pengguna belum login
             // Contoh: Redirect pengguna ke halaman login
             // atau tampilkan pesan bahwa pengguna harus login terlebih dahulu
         }
+    }
+
+    private fun bayar() {
+        BtnCheckout.setOnClickListener {
+            // Lakukan pembayaran dengan totalHarga
+            // Misalnya, Anda dapat menampilkan dialog konfirmasi pembayaran di sini
+            // atau mengarahkan pengguna ke layar pembayaran
+            // Anda juga dapat mengirim totalHarga ke layar pembayaran jika diperlukan
+            val intent = Intent(this, PembayaranActivity::class.java)
+            intent.putExtra("totalHarga", totalHarga)
+            startActivity(intent)
+        }
+
     }
 
     private fun getData(userID: String) {
@@ -64,14 +88,22 @@ class KeranjangActivity : AppCompatActivity() {
     private fun getDataFirebase(userID: String) {
         database.child(userID).child("Pesanan").orderByChild("idProduk")
             .addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SetTextI18n")
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    keranjangItem.clear()  // Membersihkan list terlebih dahulu
+                    keranjangItem.clear() // Membersihkan list terlebih dahulu
+                    totalHarga = 0.0
                     for (itemProduk in snapshot.children) {
                         val item = itemProduk.getValue(KeranjangItem::class.java)
                         keranjangItem.add(item!!)
+
+                        val hargaItem = item.hargaBanner?.replace(".","")?.toDoubleOrNull() ?: 0.0
+                        totalHarga += hargaItem
                     }
                     recyclerView.adapter = KeranjangAdapter(keranjangItem)
+
+                    val formattedTotalHarga = DecimalFormat("Rp #,###.##").format(totalHarga)
+                    tv_total.text = formattedTotalHarga
                 }
             }
 

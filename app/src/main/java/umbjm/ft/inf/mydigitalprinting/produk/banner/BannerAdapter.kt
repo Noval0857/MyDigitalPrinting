@@ -20,8 +20,9 @@ class BannerAdapter(private val bannerItem: ArrayList<BannerItem>, private val i
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION){
                     val idBanner = bannerItem[position].idBanner
-                    if (idBanner != null) {
-                        itemClickListener.onItemClick(idBanner)
+                    val hargaBanner = bannerItem[position].hargaBanner
+                    if (idBanner != null && hargaBanner != null) {
+                        itemClickListener.onItemClick(idBanner, hargaBanner)
                     }
                 }
             }
@@ -51,7 +52,7 @@ class BannerAdapter(private val bannerItem: ArrayList<BannerItem>, private val i
     }
 
     interface BannerItemClickListener {
-        fun onItemClick(idBanner: String)
+        fun onItemClick(idBanner: String, hargaBanner: String)
     }
 
 

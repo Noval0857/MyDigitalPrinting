@@ -52,7 +52,7 @@
                     app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/UploadJenis"
+                        android:id="@+id/UploadNamaProject"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -150,7 +150,7 @@
                     app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/UploadteksLainnya"
+                        android:id="@+id/UploadSisiBelakang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -205,7 +205,7 @@
                     app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/Uploadpanjang"
+                        android:id="@+id/UploadketeranganTambahan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -224,7 +224,7 @@
                     android:textSize="13sp" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnS1"
+                    android:id="@+id/btnPesan"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
