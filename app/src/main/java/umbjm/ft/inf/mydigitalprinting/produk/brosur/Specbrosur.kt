@@ -1,47 +1,45 @@
-package umbjm.ft.inf.mydigitalprinting.produk.idcard
+package umbjm.ft.inf.mydigitalprinting.produk.brosur
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import umbjm.ft.inf.mydigitalprinting.MainActivity
-import umbjm.ft.inf.mydigitalprinting.databinding.ActivitySpesifikasiidcardBinding
-import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecDesain
+import umbjm.ft.inf.mydigitalprinting.databinding.ActivitySpesifikasibrosurBinding
+import umbjm.ft.inf.mydigitalprinting.produk.idcard.SpecIdcard
+import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsibrosurActivity
 
-class SpecidcardActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySpesifikasiidcardBinding
-    private lateinit var database: DatabaseReference
+class Specbrosur : AppCompatActivity(){
+
+    private lateinit var binding: ActivitySpesifikasibrosurBinding
+    private lateinit var database:DatabaseReference
     private var imageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySpesifikasiidcardBinding.inflate(layoutInflater)
+        binding = ActivitySpesifikasibrosurBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val idCard = intent.getStringExtra("idCard")
-//        val loginstatus = intent.getStringExtra("login_status")
-//        if (idCard != null && idCard.isNotEmpty()) {
-//            // Lanjutkan dengan penggunaan idBanner
-//
-//        } else {
-//            // Handle jika idBanner null atau kosong
-//            Toast.makeText(this, "ID Card tidak valid", Toast.LENGTH_SHORT).show()
-//            finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
-//        }
+        // Kembali kehalaman Opsi
+        binding.BackOpsi.setOnClickListener BackOpsi@{
+            val intent = Intent(this, OpsibrosurActivity::class.java)
+            startActivity(intent)
+            return@BackOpsi
+        }
 
-        imageInput()
+        // Menyimpan data
+        ImageInput()
         upload()
-
-
     }
 
-    private fun imageInput() {
+    private fun ImageInput() {
         binding.image.setOnClickListener {
             resultLauncher.launch("image/*")
         }
@@ -49,25 +47,23 @@ class SpecidcardActivity : AppCompatActivity() {
 
     private val resultLauncher = registerForActivityResult(
         ActivityResultContracts.GetContent()
-    ) {
-
+    ){
         imageUri = it
         binding.image.setImageURI(it)
     }
 
-
     private fun upload() {
         binding.btnPesan.setOnClickListener {
+
             val user = FirebaseAuth.getInstance().currentUser
             val userID = user?.uid
 
             val namaProject = binding.UploadNamaProject.text.toString()
             val satuSisi = binding.satusisi.text.toString()
             val duaSisi = binding.duasisi.text.toString()
-            val keterangan = binding.Uploadketerangan.text.toString()
-            val sisiBelakang = binding.UploadSisiBelakang.text.toString()
+            val uploadJudul = binding.uploadJudul.text.toString()
+            val uploadSubJudul = binding.uploadSubJudul.text.toString()
             val keteranganTambahan = binding.UploadketeranganTambahan.text.toString()
-
 
             // Referensi Firebase Storage
             val storageRef = FirebaseStorage.getInstance().reference.child("Pesanan")
@@ -84,9 +80,9 @@ class SpecidcardActivity : AppCompatActivity() {
                             database =
                                 FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
                                     .getReference("User")
-                            val idProduk = database.push().key!!
-                            val specIdcard = SpecIdcard(idProduk, namaProject, satuSisi, duaSisi, keterangan, sisiBelakang, keteranganTambahan, imageUrl)
-                            database.child(userID!!).child("Pesanan").child(idProduk).setValue(specIdcard)
+                            val idBrosur = database.push().key!!
+                            val specbrosur = SpecIdcard(idBrosur, namaProject, satuSisi, duaSisi, uploadJudul, uploadSubJudul, keteranganTambahan, imageUrl)
+                            database.child(userID!!).child("Pesanan").child(idBrosur).setValue(specbrosur)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
                                         Toast.makeText(
@@ -103,8 +99,8 @@ class SpecidcardActivity : AppCompatActivity() {
                                     binding.UploadNamaProject.text?.clear()
                                     binding.satusisi.isChecked = false
                                     binding.duasisi.isChecked = false
-                                    binding.Uploadketerangan.text?.clear()
-                                    binding.UploadSisiBelakang.text?.clear()
+                                    binding.uploadJudul.text?.clear()
+                                    binding.uploadSubJudul.text?.clear()
                                     binding.UploadketeranganTambahan.text?.clear()
 
                                 }

@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import umbjm.ft.inf.mydigitalprinting.R
+import umbjm.ft.inf.mydigitalprinting.produk.brosur.Specbrosur
 import umbjm.ft.inf.mydigitalprinting.produk.cetak.CetakbrosurActivity
 import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecdesainActivity
 
@@ -21,7 +22,7 @@ class OpsibrosurActivity : AppCompatActivity() {
 
         jasabrosur = findViewById(R.id.jasabrosur)
         jasabrosur.setOnClickListener {
-            val intent = Intent(this, SpecdesainActivity::class.java)
+            val intent = Intent(this, Specbrosur::class.java)
             startActivity(intent)
             return@setOnClickListener
         }
