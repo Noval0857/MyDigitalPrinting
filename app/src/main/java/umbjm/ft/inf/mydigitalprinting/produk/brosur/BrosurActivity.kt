@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import umbjm.ft.inf.mydigitalprinting.R
+import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsibrosurActivity
 import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecdesainActivity
 
 class BrosurActivity : AppCompatActivity(), BrosurAdapter.BrosurItemClickListener {
@@ -66,7 +67,7 @@ class BrosurActivity : AppCompatActivity(), BrosurAdapter.BrosurItemClickListene
         // Di sini, Anda dapat membuat Intent untuk berpindah ke aktivitas lain
         // dan membawa ID sebagai data tambahan (extra) dalam Intent.
 
-        val intent = Intent(this, SpecdesainActivity::class.java)
+        val intent = Intent(this, OpsibrosurActivity::class.java)
         intent.putExtra("idBrosur", idBrosur)
         startActivity(intent)
     }

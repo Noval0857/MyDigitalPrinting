@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".produk.opsi.OpsipesananActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/nav_header1"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="68dp">
+
+            <ImageView
+                android:id="@+id/jasabrosur"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/brosur4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="280dp"
+                android:layout_height="58dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="-17dp"
+                android:background="@drawable/opsi_sudut"
+                android:text="Jasa Desain\nDikenakan biaya Rp.20.000"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                style="@style/BoldText"/>
+
+            <ImageView
+                android:id="@+id/cetakbrosur"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/brosur4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="280dp"
+                android:layout_height="58dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="-17dp"
+                android:background="@drawable/opsi_sudut"
+                android:text="Kirim desain"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textAlignment="center"
+                style="@style/BoldText"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,8 @@ import umbjm.ft.inf.mydigitalprinting.item.GridAdapter
 import umbjm.ft.inf.mydigitalprinting.item.GridItem
 import umbjm.ft.inf.mydigitalprinting.keranjang.KeranjangActivity
 import umbjm.ft.inf.mydigitalprinting.produk.banner.BannerActivity
+import umbjm.ft.inf.mydigitalprinting.produk.brosur.BrosurActivity
+import umbjm.ft.inf.mydigitalprinting.produk.idcard.IdCardActivity
 import umbjm.ft.inf.mydigitalprinting.profil.ProfileActivity
 
 class MainActivity : AppCompatActivity() {
@@ -110,9 +112,24 @@ class MainActivity : AppCompatActivity() {
         recyclerView.addOnItemClickListener(object : OnItemClickListener {
             override fun onItemClicked(position: Int, view: View) {
                 val selectedProduct = gridList[position]
-                val intent = Intent(this@MainActivity, BannerActivity::class.java)
-                intent.putExtra("id", selectedProduct.id)
-                startActivity(intent)
+                when (selectedProduct.name){
+                    "Banner" -> {
+                        val intent = Intent(this@MainActivity, BannerActivity::class.java)
+                        intent.putExtra("id", selectedProduct.id)
+                        startActivity(intent)
+                    }
+
+                    "Id Card" -> {
+                        val intent = Intent(this@MainActivity, IdCardActivity::class.java)
+                        intent.putExtra("id", selectedProduct.id)
+                        startActivity(intent)
+                    }
+                    "Brosur" -> {
+                        val intent = Intent(this@MainActivity, BrosurActivity::class.java)
+                        intent.putExtra("id", selectedProduct.id)
+                        startActivity(intent)
+                    }
+                        }
             }
         })
     }
