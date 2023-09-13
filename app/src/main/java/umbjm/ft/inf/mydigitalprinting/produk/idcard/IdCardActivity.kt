@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import umbjm.ft.inf.mydigitalprinting.R
+import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsiidcardActivity
 
 class IdCardActivity : AppCompatActivity(), IdCardAdapter.IdCardItemClickListener {
 
@@ -65,7 +66,7 @@ class IdCardActivity : AppCompatActivity(), IdCardAdapter.IdCardItemClickListene
         // Di sini, Anda dapat membuat Intent untuk berpindah ke aktivitas lain
         // dan membawa ID sebagai data tambahan (extra) dalam Intent.
 
-        val intent = Intent(this, SpecidcardActivity::class.java)
+        val intent = Intent(this, OpsiidcardActivity::class.java)
         intent.putExtra("idCard", idCard)
         startActivity(intent)
     }

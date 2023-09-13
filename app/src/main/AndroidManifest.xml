@@ -19,6 +19,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".produk.opsi.OpsibrosurActivity"
+            android:exported="false" />
+        <activity
             android:name=".pembayaran.PembayaranActivity"
             android:exported="false" />
         <activity
@@ -48,9 +51,9 @@
         <activity
             android:name=".profil.AlamatActivity"
             android:exported="false" />
-        <activity
-            android:name=".produk.PembayaranActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".produk.PembayaranActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".login.NewPassword"
             android:exported="false" />
@@ -121,7 +124,7 @@
             android:name=".produk.SertifikatActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.BrosurActivity"
+            android:name=".produk.brosur.BrosurActivity"
             android:exported="false" />
         <activity
             android:name=".produk.idcard.IdCardActivity"

@@ -23,19 +23,19 @@ class SpecidcardActivity : AppCompatActivity() {
         binding = ActivitySpesifikasiidcardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val idCard = intent.getStringExtra("idCard")
-        val loginstatus = intent.getStringExtra("login_status")
-        if (idCard != null && idCard.isNotEmpty()) {
-            // Lanjutkan dengan penggunaan idBanner
-            imageInput()
-            upload()
-        } else {
-            // Handle jika idBanner null atau kosong
-            Toast.makeText(this, "ID Card tidak valid", Toast.LENGTH_SHORT).show()
-            finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
-        }
+//        val idCard = intent.getStringExtra("idCard")
+//        val loginstatus = intent.getStringExtra("login_status")
+//        if (idCard != null && idCard.isNotEmpty()) {
+//            // Lanjutkan dengan penggunaan idBanner
+//
+//        } else {
+//            // Handle jika idBanner null atau kosong
+//            Toast.makeText(this, "ID Card tidak valid", Toast.LENGTH_SHORT).show()
+//            finish() // Sebaiknya kembali ke aktivitas sebelumnya atau tutup aktivitas ini jika ID tidak valid
+//        }
 
-
+        imageInput()
+        upload()
 
 
     }

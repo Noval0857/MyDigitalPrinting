@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import umbjm.ft.inf.mydigitalprinting.R
+import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsipesananActivity
 import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecdesainActivity
 
 class BannerActivity : AppCompatActivity(), BannerAdapter.BannerItemClickListener {
@@ -66,7 +67,7 @@ class BannerActivity : AppCompatActivity(), BannerAdapter.BannerItemClickListene
         // Di sini, Anda dapat membuat Intent untuk berpindah ke aktivitas lain
         // dan membawa ID sebagai data tambahan (extra) dalam Intent.
 
-        val intent = Intent(this, SpecdesainActivity::class.java)
+        val intent = Intent(this, OpsipesananActivity::class.java)
         intent.putExtra("idBanner", idBanner)
         intent.putExtra("hargaBanner", hargaBanner)
         startActivity(intent)
