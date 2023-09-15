@@ -21,6 +21,7 @@
             android:paddingTop="68dp">
 
             <ImageView
+                android:id="@+id/jasaSticker"
                 android:layout_width="350dp"
                 android:layout_height="200dp"
                 android:layout_marginLeft="25dp"
@@ -39,6 +40,7 @@
                 style="@style/BoldText"/>
 
             <ImageView
+                android:id="@+id/jasaDesain"
                 android:layout_width="350dp"
                 android:layout_height="250dp"
                 android:layout_marginLeft="25dp"
@@ -50,6 +52,7 @@
                 android:layout_height="58dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="-32dp"
+                android:gravity="center"
                 android:background="@drawable/opsi_sudut"
                 android:text="Kirim desain"
                 android:textSize="20sp"

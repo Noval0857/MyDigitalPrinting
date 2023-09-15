@@ -16,10 +16,10 @@ import umbjm.ft.inf.mydigitalprinting.databinding.ActivitySpesifikasibrosurBindi
 import umbjm.ft.inf.mydigitalprinting.produk.idcard.SpecIdcard
 import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsibrosurActivity
 
-class Specbrosur : AppCompatActivity(){
+class Specbrosur : AppCompatActivity() {
 
     private lateinit var binding: ActivitySpesifikasibrosurBinding
-    private lateinit var database:DatabaseReference
+    private lateinit var database: DatabaseReference
     private var imageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ class Specbrosur : AppCompatActivity(){
 
     private val resultLauncher = registerForActivityResult(
         ActivityResultContracts.GetContent()
-    ){
+    ) {
         imageUri = it
         binding.image.setImageURI(it)
     }
@@ -81,8 +81,18 @@ class Specbrosur : AppCompatActivity(){
                                 FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
                                     .getReference("User")
                             val idBrosur = database.push().key!!
-                            val specbrosur = SpecIdcard(idBrosur, namaProject, satuSisi, duaSisi, uploadJudul, uploadSubJudul, keteranganTambahan, imageUrl)
-                            database.child(userID!!).child("Pesanan").child(idBrosur).setValue(specbrosur)
+                            val specbrosur = SpecIdcard(
+                                idBrosur,
+                                namaProject,
+                                satuSisi,
+                                duaSisi,
+                                uploadJudul,
+                                uploadSubJudul,
+                                keteranganTambahan,
+                                imageUrl
+                            )
+                            database.child(userID!!).child("Pesanan").child(idBrosur)
+                                .setValue(specbrosur)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
                                         Toast.makeText(

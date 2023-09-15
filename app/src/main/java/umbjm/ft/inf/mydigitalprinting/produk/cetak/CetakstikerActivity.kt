@@ -3,21 +3,26 @@ package umbjm.ft.inf.mydigitalprinting.produk.cetak
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.material.button.MaterialButton
-import umbjm.ft.inf.mydigitalprinting.R
+import umbjm.ft.inf.mydigitalprinting.MainActivity
+import umbjm.ft.inf.mydigitalprinting.databinding.ActivityCetakstikerBinding
 
 class CetakstikerActivity : AppCompatActivity() {
 
-    private lateinit var bayar:MaterialButton
+    private lateinit var binding:ActivityCetakstikerBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivityCetakstikerBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cetakstiker)
+        setContentView(binding.root)
 
-        bayar = findViewById(R.id.btnS1)
+        binding.btnCetak.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            return@setOnClickListener
+        }
 
-//        bayar.setOnClickListener {
-//            val intent = Intent(this, PembayaranActivity::class.java)
-//            startActivity(intent)
-//        }
+
+
+
     }
 }
