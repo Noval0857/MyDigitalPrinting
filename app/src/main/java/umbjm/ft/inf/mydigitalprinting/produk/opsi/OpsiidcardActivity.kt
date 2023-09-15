@@ -18,8 +18,14 @@ class OpsiidcardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_opsi_id_card)
 
         jasaId = findViewById(R.id.jasaidcard)
+
+        val idCard = intent.getStringExtra("idCard")
+        val harga = intent.getStringExtra("harga")
+
         jasaId.setOnClickListener {
             val intent = Intent(this, SpecidcardActivity::class.java)
+            intent.putExtra("idCard", idCard)
+            intent.putExtra("harga", harga)
             startActivity(intent)
             return@setOnClickListener
         }

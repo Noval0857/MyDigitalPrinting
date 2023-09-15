@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import umbjm.ft.inf.mydigitalprinting.R
 
-class StickerAdapter(private val brosurItem: ArrayList<StickerItem>, private val itemClickListener: StickerItemClickListener) : RecyclerView.Adapter<StickerAdapter.StickerHolder>(){
+class StickerAdapter(private val stickerItem: ArrayList<StickerItem>, private val itemClickListener: StickerItemClickListener) : RecyclerView.Adapter<StickerAdapter.StickerHolder>(){
 
     inner class StickerHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val imageView: ImageView = itemView.findViewById(R.id.image_grid)
@@ -19,9 +19,10 @@ class StickerAdapter(private val brosurItem: ArrayList<StickerItem>, private val
             itemView.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION){
-                    val idSticker = brosurItem[position].idSticker
-                    if (idSticker != null) {
-                        itemClickListener.onItemClick(idSticker)
+                    val idSticker = stickerItem[position].idSticker
+                    val harga = stickerItem[position].harga
+                    if (idSticker != null && harga != null) {
+                        itemClickListener.onItemClick(idSticker, harga)
                     }
                 }
             }
@@ -34,13 +35,13 @@ class StickerAdapter(private val brosurItem: ArrayList<StickerItem>, private val
     }
 
     override fun getItemCount(): Int {
-        return brosurItem.size
+        return stickerItem.size
     }
 
     override fun onBindViewHolder(holder: StickerHolder, position: Int) {
-        val currentitem = brosurItem[position]
+        val currentitem = stickerItem[position]
         holder.nameView.text = currentitem.nameSticker
-        holder.hargaView.text = currentitem.hargaSticker
+        holder.hargaView.text = currentitem.harga
         // Periksa apakah currentitem.image tidak kosong dan tidak null
         if (!currentitem.imageSticker.isNullOrEmpty()) {
             Picasso.get().load(currentitem.imageSticker).into(holder.imageView)
@@ -51,7 +52,7 @@ class StickerAdapter(private val brosurItem: ArrayList<StickerItem>, private val
     }
 
     interface StickerItemClickListener {
-        fun onItemClick(idBrosur: String)
+        fun onItemClick(idSticker: String, harga: String)
     }
 
 

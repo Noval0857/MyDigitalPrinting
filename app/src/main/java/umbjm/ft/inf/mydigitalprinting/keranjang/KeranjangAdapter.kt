@@ -28,8 +28,8 @@ class KeranjangAdapter(private val keranjangItems: ArrayList<KeranjangItem>) : R
 
     override fun onBindViewHolder(holder: KeranjangHolder, position: Int) {
         val currentitem = keranjangItems[position]
-        holder.outJenis.text = currentitem.jenis
-        holder.outHarga.text = currentitem.hargaBanner
+        holder.outJenis.text = currentitem.namaProject
+        holder.outHarga.text = currentitem.harga
         Picasso.get().load(currentitem.image).into(holder.outImage)
     }
 

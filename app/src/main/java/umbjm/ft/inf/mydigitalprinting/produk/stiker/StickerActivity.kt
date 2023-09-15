@@ -62,12 +62,13 @@ class StickerActivity : AppCompatActivity(), StickerAdapter.StickerItemClickList
             })
     }
 
-    override fun onItemClick(idSticker: String) {
+    override fun onItemClick(idSticker: String, harga: String) {
         // Di sini, Anda dapat membuat Intent untuk berpindah ke aktivitas lain
         // dan membawa ID sebagai data tambahan (extra) dalam Intent.
 
         val intent = Intent(this, OpsistickerActivity::class.java)
         intent.putExtra("idSticker", idSticker)
+        intent.putExtra("harga", harga)
         startActivity(intent)
     }
 

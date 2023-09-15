@@ -86,7 +86,7 @@ class KeranjangActivity : AppCompatActivity() {
     }
 
     private fun getDataFirebase(userID: String) {
-        database.child(userID).child("Pesanan").orderByChild("idProduk")
+        database.child(userID).child("Pesanan").orderByChild("idPesanan")
             .addValueEventListener(object : ValueEventListener {
             @SuppressLint("SetTextI18n")
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -97,7 +97,7 @@ class KeranjangActivity : AppCompatActivity() {
                         val item = itemProduk.getValue(KeranjangItem::class.java)
                         keranjangItem.add(item!!)
 
-                        val hargaItem = item.hargaBanner?.replace(".","")?.toDoubleOrNull() ?: 0.0
+                        val hargaItem = item.harga?.replace(".","")?.toDoubleOrNull() ?: 0.0
                         totalHarga += hargaItem
                     }
                     recyclerView.adapter = KeranjangAdapter(keranjangItem)

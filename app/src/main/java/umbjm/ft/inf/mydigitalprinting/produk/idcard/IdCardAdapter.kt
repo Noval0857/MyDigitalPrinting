@@ -23,8 +23,9 @@ class IdCardAdapter(private val idcardItem: ArrayList<IdCardItem>, private val i
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     val idCard = idcardItem[position].idCard
-                    if (idCard != null) {
-                        itemClickListener.onItemClick(idCard)
+                    val harga = idcardItem[position].harga
+                    if (idCard != null && harga != null) {
+                        itemClickListener.onItemClick(idCard, harga)
                     }
                 }
             }
@@ -43,7 +44,7 @@ class IdCardAdapter(private val idcardItem: ArrayList<IdCardItem>, private val i
     override fun onBindViewHolder(holder: IdCardHolder, position: Int) {
         val currentitem = idcardItem[position]
         holder.nameView.text = currentitem.nameIdcard
-        holder.hargaView.text = currentitem.hargaIdcard
+        holder.hargaView.text = currentitem.harga
         // Periksa apakah currentitem.image tidak kosong dan tidak null
         if (!currentitem.imageIdcard.isNullOrEmpty()) {
             Picasso.get().load(currentitem.imageIdcard).into(holder.imageView)
@@ -54,7 +55,7 @@ class IdCardAdapter(private val idcardItem: ArrayList<IdCardItem>, private val i
     }
 
     interface IdCardItemClickListener {
-        fun onItemClick(idCard: String)
+        fun onItemClick(idCard: String, harga : String)
     }
 
 }

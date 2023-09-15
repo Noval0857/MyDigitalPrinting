@@ -42,7 +42,7 @@ class IdCardActivity : AppCompatActivity(), IdCardAdapter.IdCardItemClickListene
         database =
             FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("Products")
-        database.child("Idcard").orderByChild("id")
+        database.child("Idcard").orderByChild("idCard")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
@@ -62,12 +62,13 @@ class IdCardActivity : AppCompatActivity(), IdCardAdapter.IdCardItemClickListene
             })
     }
 
-    override fun onItemClick(idCard: String) {
+    override fun onItemClick(idCard: String, harga: String) {
         // Di sini, Anda dapat membuat Intent untuk berpindah ke aktivitas lain
         // dan membawa ID sebagai data tambahan (extra) dalam Intent.
 
         val intent = Intent(this, OpsiidcardActivity::class.java)
         intent.putExtra("idCard", idCard)
+        intent.putExtra("harga", harga)
         startActivity(intent)
     }
 

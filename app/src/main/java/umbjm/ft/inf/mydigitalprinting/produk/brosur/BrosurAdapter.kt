@@ -20,8 +20,9 @@ class BrosurAdapter(private val brosurItem: ArrayList<BrosurItem>, private val i
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION){
                     val idBrosur = brosurItem[position].idBrosur
-                    if (idBrosur != null) {
-                        itemClickListener.onItemClick(idBrosur)
+                    val harga = brosurItem[position].harga
+                    if (idBrosur != null && harga != null) {
+                        itemClickListener.onItemClick(idBrosur, harga)
                     }
                 }
             }
@@ -40,7 +41,7 @@ class BrosurAdapter(private val brosurItem: ArrayList<BrosurItem>, private val i
     override fun onBindViewHolder(holder: BrosurHolder, position: Int) {
         val currentitem = brosurItem[position]
         holder.nameView.text = currentitem.nameBrosur
-        holder.hargaView.text = currentitem.hargaBrosur
+        holder.hargaView.text = currentitem.harga
         // Periksa apakah currentitem.image tidak kosong dan tidak null
         if (!currentitem.imageBrosur.isNullOrEmpty()) {
             Picasso.get().load(currentitem.imageBrosur).into(holder.imageView)
@@ -51,7 +52,7 @@ class BrosurAdapter(private val brosurItem: ArrayList<BrosurItem>, private val i
     }
 
     interface BrosurItemClickListener {
-        fun onItemClick(idBrosur: String)
+        fun onItemClick(idBrosur: String, harga: String)
     }
 
 

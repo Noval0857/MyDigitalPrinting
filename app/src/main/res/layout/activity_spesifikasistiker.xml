@@ -71,7 +71,7 @@
 
                 <!--Bagian Bentuk Kotak-->
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/kotak"
+                    android:id="@+id/kotakCheckbox"
                     style="@style/BoldTextItalicText"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
@@ -80,7 +80,7 @@
 
                 <!--Bagian Bentuk Oval-->
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/oval"
+                    android:id="@+id/ovalCheckbox"
                     style="@style/BoldTextItalicText"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
@@ -88,7 +88,7 @@
 
                 <!--Bagian Bulat-->
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/bulat"
+                    android:id="@+id/bulatCheckbox"
                     style="@style/BoldTextItalicText"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
@@ -98,7 +98,7 @@
 
                 <!--Bagian Costume-->
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/costume"
+                    android:id="@+id/costumeCheckbox"
                     style="@style/BoldTextItalicText"
                     android:layout_width="140dp"
                     android:layout_height="35dp"

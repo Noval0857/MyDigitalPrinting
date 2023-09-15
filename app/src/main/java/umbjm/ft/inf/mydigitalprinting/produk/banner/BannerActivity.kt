@@ -61,13 +61,13 @@ class BannerActivity : AppCompatActivity(), BannerAdapter.BannerItemClickListene
             })
     }
 
-    override fun onItemClick(idBanner: String, hargaBanner: String) {
+    override fun onItemClick(idBanner: String, harga: String) {
         // Di sini, Anda dapat membuat Intent untuk berpindah ke aktivitas lain
         // dan membawa ID sebagai data tambahan (extra) dalam Intent.
 
         val intent = Intent(this, OpsipesananActivity::class.java)
         intent.putExtra("idBanner", idBanner)
-        intent.putExtra("hargaBanner", hargaBanner)
+        intent.putExtra("harga", harga)
         startActivity(intent)
     }
 

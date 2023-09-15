@@ -1,9 +1,9 @@
 package umbjm.ft.inf.mydigitalprinting.produk.opsi
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.produk.cetak.CetakstikerActivity
 import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecstickerActivity
@@ -17,8 +17,14 @@ class OpsistickerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_opsi_stiker)
 
         jasaSticker = findViewById(R.id.jasaSticker)
+
+        val idSticker = intent.getStringExtra("idSticker")
+        val harga = intent.getStringExtra("harga")
+
         jasaSticker.setOnClickListener {
             val intent = Intent(this, SpecstickerActivity::class.java)
+            intent.putExtra("idSticker", idSticker)
+            intent.putExtra("harga", harga)
             startActivity(intent)
             return@setOnClickListener
         }
