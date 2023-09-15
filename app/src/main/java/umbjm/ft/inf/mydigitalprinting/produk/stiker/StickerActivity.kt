@@ -1,4 +1,4 @@
-package umbjm.ft.inf.mydigitalprinting.produk.banner
+package umbjm.ft.inf.mydigitalprinting.produk.stiker
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,25 +11,26 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsipesananActivity
-class BannerActivity : AppCompatActivity(), BannerAdapter.BannerItemClickListener {
+import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsistickerActivity
+
+class StickerActivity : AppCompatActivity(), StickerAdapter.StickerItemClickListener {
 
     private lateinit var database: DatabaseReference
     private lateinit var recyclerView: RecyclerView
-    private lateinit var bannerItem: ArrayList<BannerItem>
+    private lateinit var stickerItem: ArrayList<StickerItem>
 
     @JvmField
-    val bannerItemClickListener = this  // Menyimpan referensi ke BannerActivity sebagai BannerItemClickListener
+    val stickerItemClickListener = this  // Menyimpan referensi ke BannerActivity sebagai BannerItemClickListener
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_banner)
+        setContentView(R.layout.activity_sticker)
 
-        recyclerView = findViewById(R.id.rvBanner)
+        recyclerView = findViewById(R.id.rvSticker)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.setHasFixedSize(true)
-        bannerItem = arrayListOf<BannerItem>()
+        stickerItem = arrayListOf<StickerItem>()
         getData()
 
 
@@ -41,16 +42,16 @@ class BannerActivity : AppCompatActivity(), BannerAdapter.BannerItemClickListene
         database =
             FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("Products")
-        database.child("Banner").orderByChild("idBanner")
+        database.child("Sticker").orderByChild("id")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        bannerItem.clear()  // Membersihkan list terlebih dahulu
+                        stickerItem.clear()  // Membersihkan list terlebih dahulu
                         for (itemProduk in snapshot.children) {
-                            val item = itemProduk.getValue(BannerItem::class.java)
-                            bannerItem.add(item!!)
+                            val item = itemProduk.getValue(StickerItem::class.java)
+                            stickerItem.add(item!!)
                         }
-                        recyclerView.adapter = BannerAdapter(bannerItem, bannerItemClickListener)
+                        recyclerView.adapter = StickerAdapter(stickerItem, stickerItemClickListener)
                     }
                 }
 
@@ -61,13 +62,12 @@ class BannerActivity : AppCompatActivity(), BannerAdapter.BannerItemClickListene
             })
     }
 
-    override fun onItemClick(idBanner: String, hargaBanner: String) {
+    override fun onItemClick(idSticker: String) {
         // Di sini, Anda dapat membuat Intent untuk berpindah ke aktivitas lain
         // dan membawa ID sebagai data tambahan (extra) dalam Intent.
 
-        val intent = Intent(this, OpsipesananActivity::class.java)
-        intent.putExtra("idBanner", idBanner)
-        intent.putExtra("hargaBanner", hargaBanner)
+        val intent = Intent(this, OpsistickerActivity::class.java)
+        intent.putExtra("idSticker", idSticker)
         startActivity(intent)
     }
 

@@ -135,7 +135,7 @@
             android:name=".produk.idcard.IdCardActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.StickerActivity"
+            android:name=".produk.stiker.StickerActivity"
             android:exported="false" />
         <activity
             android:name=".produk.banner.BannerActivity"
