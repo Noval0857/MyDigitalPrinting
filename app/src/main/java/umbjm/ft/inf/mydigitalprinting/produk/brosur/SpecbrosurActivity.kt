@@ -3,7 +3,7 @@ package umbjm.ft.inf.mydigitalprinting.produk.brosur
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.ImageButton
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -12,11 +12,11 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import umbjm.ft.inf.mydigitalprinting.MainActivity
+import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivitySpesifikasibrosurBinding
-import umbjm.ft.inf.mydigitalprinting.produk.idcard.SpecIdcard
 import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsibrosurActivity
 
-class Specbrosur : AppCompatActivity() {
+class SpecbrosurActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySpesifikasibrosurBinding
     private lateinit var database: DatabaseReference
@@ -58,9 +58,14 @@ class Specbrosur : AppCompatActivity() {
             val user = FirebaseAuth.getInstance().currentUser
             val userID = user?.uid
 
+            val idBrosur = intent.getStringExtra("idBrosur")
+            val harga = intent.getStringExtra("harga")
+
             val namaProject = binding.UploadNamaProject.text.toString()
-            val satuSisi = binding.satusisi.text.toString()
-            val duaSisi = binding.duasisi.text.toString()
+            val satuSisiCheckbox = findViewById<CheckBox>(R.id.satusisiCheckbox)
+            val duaSisiCheckbox = findViewById<CheckBox>(R.id.duasisiCheckbox)
+            val satuSisi = satuSisiCheckbox.isChecked
+            val duaSisi = duaSisiCheckbox.isChecked
             val uploadJudul = binding.uploadJudul.text.toString()
             val uploadSubJudul = binding.uploadSubJudul.text.toString()
             val keteranganTambahan = binding.UploadketeranganTambahan.text.toString()
@@ -80,9 +85,12 @@ class Specbrosur : AppCompatActivity() {
                             database =
                                 FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
                                     .getReference("User")
-                            val idBrosur = database.push().key!!
-                            val specbrosur = SpecIdcard(
+                            val idPesanan = database.push().key!!
+                            val specbrosur = SpecBrosur(
+                                idPesanan,
+                                userID,
                                 idBrosur,
+                                harga,
                                 namaProject,
                                 satuSisi,
                                 duaSisi,
@@ -90,8 +98,9 @@ class Specbrosur : AppCompatActivity() {
                                 uploadSubJudul,
                                 keteranganTambahan,
                                 imageUrl
+
                             )
-                            database.child(userID!!).child("Pesanan").child(idBrosur)
+                            database.child(userID!!).child("Pesanan").child(idPesanan)
                                 .setValue(specbrosur)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
@@ -107,8 +116,8 @@ class Specbrosur : AppCompatActivity() {
                                         Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
                                     }
                                     binding.UploadNamaProject.text?.clear()
-                                    binding.satusisi.isChecked = false
-                                    binding.duasisi.isChecked = false
+                                    satuSisiCheckbox.isChecked = false
+                                    duaSisiCheckbox.isChecked = false
                                     binding.uploadJudul.text?.clear()
                                     binding.uploadSubJudul.text?.clear()
                                     binding.UploadketeranganTambahan.text?.clear()

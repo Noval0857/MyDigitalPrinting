@@ -34,9 +34,6 @@
             android:name=".keranjang.KeranjangActivity"
             android:exported="false" />
         <activity
-            android:name=".keranjang.Keranjang"
-            android:exported="false" />
-        <activity
             android:name=".produk.ResiActivity"
             android:exported="false" />
         <activity

@@ -76,13 +76,13 @@
                     android:text="*Desain" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/satusisi"
+                    android:id="@+id/satusisiCheckbox"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:text="desain satu sisi" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/duasisi"
+                    android:id="@+id/duasisiCheckbox"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="150dp"

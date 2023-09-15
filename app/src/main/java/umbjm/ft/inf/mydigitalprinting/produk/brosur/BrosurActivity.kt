@@ -43,7 +43,7 @@ class BrosurActivity : AppCompatActivity(), BrosurAdapter.BrosurItemClickListene
         database =
             FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("Products")
-        database.child("Brosur").orderByChild("id")
+        database.child("Brosur").orderByChild("idBrosur")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
@@ -63,12 +63,13 @@ class BrosurActivity : AppCompatActivity(), BrosurAdapter.BrosurItemClickListene
             })
     }
 
-    override fun onItemClick(idBrosur: String) {
+    override fun onItemClick(idBrosur: String, harga :String) {
         // Di sini, Anda dapat membuat Intent untuk berpindah ke aktivitas lain
         // dan membawa ID sebagai data tambahan (extra) dalam Intent.
 
         val intent = Intent(this, OpsibrosurActivity::class.java)
         intent.putExtra("idBrosur", idBrosur)
+        intent.putExtra("harga", harga)
         startActivity(intent)
     }
 

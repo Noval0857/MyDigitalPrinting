@@ -19,8 +19,13 @@ class OpsipesananActivity : AppCompatActivity() {
         jasadesain = findViewById(R.id.jasadesain)
         kirimdesain = findViewById(R.id.kirimdesain)
 
+        val idBanner = intent.getStringExtra("idBanner")
+        val harga = intent.getStringExtra("harga")
+
         jasadesain.setOnClickListener {
             val intent = Intent(this, SpecdesainActivity::class.java)
+            intent.putExtra("idBanner", idBanner)
+            intent.putExtra("harga", harga)
             startActivity(intent)
         }
 

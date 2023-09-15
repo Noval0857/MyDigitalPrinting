@@ -1,9 +1,9 @@
-package umbjm.ft.inf.mydigitalprinting.produk.idcard
+package umbjm.ft.inf.mydigitalprinting.produk.brosur
 
-data class SpecIdcard(
+data class SpecBrosur(
     val idPesanan: String?= null,
     val userID: String? = null,
-    val idCard: String? = null,
+    val idBrosur: String? = null,
     val harga: String? = null,
     val namaProject: String?= null,
     val satuSisi: Boolean? = false,

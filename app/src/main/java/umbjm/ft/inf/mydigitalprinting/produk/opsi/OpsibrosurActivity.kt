@@ -1,15 +1,12 @@
 package umbjm.ft.inf.mydigitalprinting.produk.opsi
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.produk.brosur.Specbrosur
+import umbjm.ft.inf.mydigitalprinting.produk.brosur.SpecbrosurActivity
 import umbjm.ft.inf.mydigitalprinting.produk.cetak.CetakbrosurActivity
-import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecdesainActivity
 
 class OpsibrosurActivity : AppCompatActivity() {
 
@@ -21,8 +18,14 @@ class OpsibrosurActivity : AppCompatActivity() {
         setContentView(R.layout.activity_opsibrosur)
 
         jasabrosur = findViewById(R.id.jasabrosur)
+
+        val idBrosur = intent.getStringExtra("idBrosur")
+        val harga = intent.getStringExtra("harga")
+
         jasabrosur.setOnClickListener {
-            val intent = Intent(this, Specbrosur::class.java)
+            val intent = Intent(this, SpecbrosurActivity::class.java)
+            intent.putExtra("idBrosur", idBrosur)
+            intent.putExtra("harga", harga)
             startActivity(intent)
             return@setOnClickListener
         }

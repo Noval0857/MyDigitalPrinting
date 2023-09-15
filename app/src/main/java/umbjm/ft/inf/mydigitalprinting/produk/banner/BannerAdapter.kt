@@ -20,9 +20,9 @@ class BannerAdapter(private val bannerItem: ArrayList<BannerItem>, private val i
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION){
                     val idBanner = bannerItem[position].idBanner
-                    val hargaBanner = bannerItem[position].hargaBanner
-                    if (idBanner != null && hargaBanner != null) {
-                        itemClickListener.onItemClick(idBanner, hargaBanner)
+                    val harga = bannerItem[position].harga
+                    if (idBanner != null && harga != null) {
+                        itemClickListener.onItemClick(idBanner, harga)
                     }
                 }
             }
@@ -41,7 +41,7 @@ class BannerAdapter(private val bannerItem: ArrayList<BannerItem>, private val i
     override fun onBindViewHolder(holder: BannerHolder, position: Int) {
         val currentitem = bannerItem[position]
         holder.nameView.text = currentitem.nameBanner
-        holder.hargaView.text = currentitem.hargaBanner
+        holder.hargaView.text = currentitem.harga
         // Periksa apakah currentitem.image tidak kosong dan tidak null
         if (!currentitem.imageBanner.isNullOrEmpty()) {
             Picasso.get().load(currentitem.imageBanner).into(holder.imageView)
@@ -52,7 +52,7 @@ class BannerAdapter(private val bannerItem: ArrayList<BannerItem>, private val i
     }
 
     interface BannerItemClickListener {
-        fun onItemClick(idBanner: String, hargaBanner: String)
+        fun onItemClick(idBanner: String, harga: String)
     }
 
 

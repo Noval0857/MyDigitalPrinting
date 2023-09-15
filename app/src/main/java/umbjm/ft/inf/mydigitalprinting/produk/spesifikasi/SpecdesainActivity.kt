@@ -61,11 +61,11 @@ class SpecdesainActivity : AppCompatActivity() {
             val userID = user?.uid // Mendapatkan ID pengguna saat ini
 
             val idBanner = intent.getStringExtra("idBanner")
-            val hargaBanner = intent.getStringExtra("hargaBanner")
+            val harga = intent.getStringExtra("harga")
 
 
 
-            val jenis = binding.UploadJenis.text.toString()
+            val namaProject = binding.UploadJenis.text.toString()
             val teksUtama = binding.UploadteksUtama.text.toString()
             val teksLainnya = binding.UploadteksLainnya.text.toString()
             val keterangan = binding.Uploadketerangan.text.toString()
@@ -91,8 +91,8 @@ class SpecdesainActivity : AppCompatActivity() {
                                 idPesanan,
                                 userID,
                                 idBanner,
-                                hargaBanner,
-                                jenis,
+                                harga,
+                                namaProject,
                                 teksUtama,
                                 teksLainnya,
                                 keterangan,
