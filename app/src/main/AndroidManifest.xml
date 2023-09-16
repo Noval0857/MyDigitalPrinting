@@ -141,7 +141,7 @@
             android:name=".login.RegistrasiActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.UndanganActivity"
+            android:name=".produk.undangan.UndanganActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
