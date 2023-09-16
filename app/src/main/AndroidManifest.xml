@@ -123,7 +123,7 @@
             android:name=".produk.KalenderActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.SertifikatActivity"
+            android:name=".produk.sertifikat.SertifikatActivity"
             android:exported="false" />
         <activity
             android:name=".produk.brosur.BrosurActivity"
