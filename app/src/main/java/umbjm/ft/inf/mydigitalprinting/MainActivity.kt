@@ -23,7 +23,9 @@ import umbjm.ft.inf.mydigitalprinting.keranjang.KeranjangActivity
 import umbjm.ft.inf.mydigitalprinting.produk.banner.BannerActivity
 import umbjm.ft.inf.mydigitalprinting.produk.brosur.BrosurActivity
 import umbjm.ft.inf.mydigitalprinting.produk.idcard.IdCardActivity
+import umbjm.ft.inf.mydigitalprinting.produk.sertifikat.SertifikatActivity
 import umbjm.ft.inf.mydigitalprinting.produk.stiker.StickerActivity
+import umbjm.ft.inf.mydigitalprinting.produk.undangan.UndanganActivity
 import umbjm.ft.inf.mydigitalprinting.profil.ProfileActivity
 
 class MainActivity : AppCompatActivity() {
@@ -133,6 +135,18 @@ class MainActivity : AppCompatActivity() {
 
                     "Sticker" -> {
                         val intent = Intent(this@MainActivity, StickerActivity::class.java)
+                        intent.putExtra("id", selectedProduct.id)
+                        startActivity(intent)
+                    }
+
+                    "Undangan" -> {
+                        val intent = Intent(this@MainActivity, UndanganActivity::class.java)
+                        intent.putExtra("id", selectedProduct.id)
+                        startActivity(intent)
+                    }
+
+                    "Sertifikat" -> {
+                        val intent = Intent(this@MainActivity, SertifikatActivity::class.java)
                         intent.putExtra("id", selectedProduct.id)
                         startActivity(intent)
                     }

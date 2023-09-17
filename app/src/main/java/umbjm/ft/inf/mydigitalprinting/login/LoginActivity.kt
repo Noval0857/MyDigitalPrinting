@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         // fungsi untuk pindah ke halaman Registrasi jika tidak memiliki akun
-        binding.Registrasi.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
             val intent = Intent(this, RegistrasiActivity::class.java)
             startActivity(intent)
         }
