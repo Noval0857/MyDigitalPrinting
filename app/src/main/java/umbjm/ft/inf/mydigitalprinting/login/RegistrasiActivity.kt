@@ -32,7 +32,7 @@ class RegistrasiActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.btnRegis.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
 
             // Membuat Variabel untuk menampung data
             val Regisnama = binding.Rnama.text.toString()
