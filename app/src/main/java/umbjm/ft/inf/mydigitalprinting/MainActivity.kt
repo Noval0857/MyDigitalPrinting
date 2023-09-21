@@ -1,5 +1,6 @@
 package umbjm.ft.inf.mydigitalprinting
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -7,11 +8,13 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -33,13 +36,61 @@ class MainActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var gridList: ArrayList<GridItem>
     private lateinit var database: DatabaseReference
+    private lateinit var BottomNavigationView: BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Untuk Mode NightMode dan LightMode
+        val sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val nightMode = sharedPreferences.getBoolean("night", false)
+        val switch = findViewById<SwitchCompat>(R.id.ModeTheme)
+
+        if (nightMode){
+            switch.isChecked = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+
+        switch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (!isChecked){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                editor.putBoolean("Night Mode Turn Off", false)
+            }else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                editor.putBoolean("Night Mode Turn On", true)
+                editor.apply()
+            }
+        }
+
         // ActionBar agar dapat di konfigurasi di halaman Activity_Main
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        fun refershActivity(){
+            val intent = intent
+            finish()
+            startActivity(intent)
+        }
+
+        BottomNavigationView = findViewById(R.id.bNavigation)
+        BottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when(menuItem.itemId){
+                R.id.Bkeranjang -> {
+                    val intent = Intent(this, KeranjangActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.Bprofile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                // jika kembali menekan home maka kan refresh halaman
+                R.id.Bhome -> {
+                    refershActivity()
+                    true
+                }
+                else -> false
+            }
+        }
 
         // Mengambil fungsi init
         init()
@@ -75,30 +126,26 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    // Fungsi toolbar jika diclick
+//     Fungsi toolbar jika diclick
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.keranjang -> {
+            R.id.Bkeranjang -> {
             // Konfigurasikan jika ingin pindah halaman
                 val intent = Intent(this, KeranjangActivity::class.java)
                 startActivity(intent)
                 return true
             }
 
-            R.id.Tolprofile -> {
+            R.id.Bprofile -> {
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
                 return true
             }
 
-            R.id.Tolsetting -> {
+            R.id.Bpesanan -> {
             // Konfigurasikan jika ingin pindah halaman
 
-            }
-
-            R.id.Tolpesanan -> {
-            // Konfigurasikan jika ingin pindah halaman
             }
         }
         return super.onOptionsItemSelected(item)

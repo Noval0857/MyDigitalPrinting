@@ -1,14 +1,18 @@
 package umbjm.ft.inf.mydigitalprinting.login
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import umbjm.ft.inf.mydigitalprinting.MainActivity
+import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.preferen.Constant
 import umbjm.ft.inf.mydigitalprinting.preferen.SharedPreferences
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityLoginBinding
@@ -28,6 +32,28 @@ class LoginActivity : AppCompatActivity() {
         shp = SharedPreferences(this)
 
         checkLoginStatus()
+
+        // Switch ModeTheme
+        val sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val nightMode = sharedPreferences.getBoolean("night", false)
+        val switch = findViewById<SwitchCompat>(R.id.ModeTheme)
+
+        if (nightMode){
+            switch.isChecked = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+
+        switch.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (!isChecked){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                editor.putBoolean("Night Mode Turn Off", false)
+            }else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                editor.putBoolean("Night Mode Turn On", true)
+                editor.apply()
+            }
+        }
 
         // Mengambil Variabel auth
         auth = FirebaseAuth.getInstance()

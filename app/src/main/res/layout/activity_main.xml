@@ -7,94 +7,134 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/white">
+    android:background="@color/white"
+    style="@style/ScreenBackground">
 
-    <!-- Main Content -->
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        style="@style/ScreenBackground">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorError"
-            android:elevation="4dp"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" >
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/logo3"/>
-        </androidx.appcompat.widget.Toolbar>
-
-        <!-- Top Bar -->
-        <!-- <include layout="@layout/nav_header" />-->
-
-        <!-- Main Content Layout -->
-
-        <LinearLayout
+        <!-- Main Content -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:orientation="vertical"
-            android:paddingTop="60dp">
+            style="@style/ScreenBackground">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="?attr/colorError"
                 android:elevation="4dp"
-                android:layout_margin="8dp"
-                android:background="@drawable/search_view_bg"
-                app:queryHint="Search Here..."
-                app:iconifiedByDefault="false">
-            </androidx.appcompat.widget.SearchView>
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                style="@style/ScreenBackground">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="121dp"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:background="@drawable/shape_bg">
                 <TextView
-                    android:id="@+id/txt1"
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    android:text="CETAK DI MY DIGITAL PRINTING AJA!"
-                    android:textSize="17dp"
-                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:layout_marginLeft="50dp"
-                    android:gravity="center"/>
-                <ImageView
+                    android:textColor="#FFFFFF"
+                    android:layout_gravity="left"
+                    android:text="MyDigitalPrinting"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/ModeTheme"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|right"
+                    android:gravity="center">
+
+                </androidx.appcompat.widget.SwitchCompat>
+            </androidx.appcompat.widget.Toolbar>
+
+            <!-- Top Bar -->
+            <!-- <include layout="@layout/nav_header" />-->
+
+            <!-- Main Content Layout -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical"
+                android:paddingTop="60dp">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:src="@drawable/person2"
-                    android:layout_gravity="right"
-                    android:layout_marginLeft="120dp"/>
-            </FrameLayout>
+                    android:layout_height="wrap_content"
+                    android:elevation="4dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/search_view_bg"
+                    app:queryHint="Search Here..."
+                    app:iconifiedByDefault="false"
+                    >
+                </androidx.appcompat.widget.SearchView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recylerView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="121dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/shape_bg">
+                    <TextView
+                        android:id="@+id/txt1"
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:text="CETAK DI MY DIGITAL PRINTING AJA!"
+                        android:textSize="17dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="50dp"
+                        android:gravity="center"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:src="@drawable/person2"
+                        android:layout_gravity="right"
+                        android:layout_marginLeft="120dp"/>
+                </FrameLayout>
 
-        </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recylerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
 
-    </RelativeLayout>
+            </LinearLayout>
 
+        </RelativeLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/toolbar_menu"
+            android:background="@color/maron"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:itemIconSize="20dp"
+            app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Navigation Drawer -->
-<!--    <com.google.android.material.navigation.NavigationView-->
-<!--        android:id="@+id/navigationView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="start"-->
-<!--        android:fitsSystemWindows="true"-->
-<!--        app:headerLayout="@layout/nav_header"-->
-<!--        app:menu="@menu/nav_menu" />-->
-
+    <!--    <com.google.android.material.navigation.NavigationView-->
+    <!--        android:id="@+id/navigationView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_gravity="start"-->
+    <!--        android:fitsSystemWindows="true"-->
+    <!--        app:headerLayout="@layout/nav_header"-->
+    <!--        app:menu="@menu/nav_menu" />-->
 
 </androidx.drawerlayout.widget.DrawerLayout>
