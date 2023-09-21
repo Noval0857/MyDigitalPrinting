@@ -1,7 +1,27 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.MyDigitalPrinting" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/marron</item>
+        <item name="colorPrimaryVariant">@color/marron</item>
+        <item name="colorOnPrimary">@color/marron</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/marron</item>
+        <item name="colorSecondaryVariant">@color/marron</item>
+        <item name="colorOnSecondary">@color/marron</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ScreenBackground">
+        <item name="android:background">
+            @color/white
+        </item>
+    </style>
+    <style name="CardBackground">
+        <item name="android:background">
+            @color/white
+        </item>
     </style>
 </resources>

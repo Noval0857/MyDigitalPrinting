@@ -2,28 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/keranjang"
-        android:title="Keranjang"
-        android:icon="@drawable/ic_keranjang"
-        app:showAsAction="always"/>
+        android:id="@+id/Bhome"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
 
     <item
-        android:id="@+id/Tolprofile"
+        android:id="@+id/Bpesanan"
+        android:title="Pesanan"
+        android:icon="@drawable/ic_pesanan" />
+
+    <item
+        android:id="@+id/Bkeranjang"
+        android:title="Keranjang"
+        android:icon="@drawable/ic_cart" />
+
+    <item
+        android:id="@+id/Bprofile"
         android:title="Profile"
         android:icon="@drawable/ic_person"
-        app:showAsAction="always"
         />
 
-    <item
-        android:id="@+id/Tolsetting"
-        android:title="Setting"
-        android:icon="@drawable/setting"
-        app:showAsAction="ifRoom"
-        />
-
-    <item
-        android:id="@+id/Tolpesanan"
-        android:title="Pesanan"
-        app:showAsAction="never"
-        />
 </menu>

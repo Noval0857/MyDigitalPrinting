@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name"><b>MDP</b></string>
     <string name="empty_field_error">empty_field_error</string>
     <string name="password_mismatch_error">password_mismatch_error</string>
     <!-- TODO: Remove or change this placeholder text -->
