@@ -7,6 +7,7 @@ import android.view.View
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityProfilBinding
 import umbjm.ft.inf.mydigitalprinting.login.ChangepasswordActivity
 import umbjm.ft.inf.mydigitalprinting.login.LoginActivity
@@ -22,6 +23,20 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfilBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        // Untuk pindah halaman ke MyProfile
+        binding.imageUser.setOnClickListener {
+            val intent = Intent(this, MyprofileActivity::class.java)
+            startActivity(intent)
+            return@setOnClickListener
+        }
+
+        // Untuk kembali ke halaman Home
+        binding.backprofil.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            return@setOnClickListener
+        }
 
         shp = SharedPreferences(this)
 
@@ -40,6 +55,13 @@ class ProfileActivity : AppCompatActivity() {
 
         if (intent.getBooleanExtra("logout", false)){
             finish()
+        }
+
+        // Pindah halaman ke MyProfileActivity
+        binding.myprofil.setOnClickListener {
+            val intent = Intent(this, MyprofileActivity::class.java)
+            startActivity(intent)
+            return@setOnClickListener
         }
     }
 
