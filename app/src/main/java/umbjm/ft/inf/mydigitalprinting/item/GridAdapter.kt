@@ -38,6 +38,7 @@ class GridAdapter(private val gridList:ArrayList<GridItem>) : RecyclerView.Adapt
             .load(grid.image)
             // loading gambar
             .placeholder(R.drawable.ic_loading)
+            // menyesuaikan gambar dengan bentuk handphone
             .transform(center)
             .into(holder.image_grid, object : Callback{
                 override fun onSuccess() {
