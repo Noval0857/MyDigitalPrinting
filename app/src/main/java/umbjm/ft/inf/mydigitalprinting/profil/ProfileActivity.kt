@@ -1,9 +1,9 @@
 package umbjm.ft.inf.mydigitalprinting.profil
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +23,13 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfilBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        // Untuk pindah halaman ke ContactActivity
+        binding.ContactUs.setOnClickListener {
+            val intent = Intent(this, ContactActivity::class.java)
+            startActivity(intent)
+            return@setOnClickListener
+        }
 
         // Untuk pindah halaman ke MyProfile
         binding.imageUser.setOnClickListener {

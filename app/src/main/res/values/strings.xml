@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name"><b>MDP</b></string>
     <string name="empty_field_error">empty_field_error</string>
-    <string name="password_mismatch_error">password_mismatch_error</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="contact_Us">Contact US</string>
+    <string name="NoHp">+62815-4931-0752</string>
+    <string name="Email">MydigitalPrinting@gmail.com</string>
 </resources>

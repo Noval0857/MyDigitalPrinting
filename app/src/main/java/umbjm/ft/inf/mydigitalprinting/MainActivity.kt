@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -75,6 +74,7 @@ class MainActivity : AppCompatActivity() {
 
         BottomNavigationView = findViewById(R.id.bNavigation)
 
+        // Animation untuk Bottom Navigation bar
         val slideUp =
             AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_slide_in_bottom)
         val slideDown =
@@ -100,6 +100,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        // Untuk fungsi button pada Bottom Navigation Bar
         BottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.Bkeranjang -> {
