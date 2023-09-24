@@ -1,13 +1,11 @@
 package umbjm.ft.inf.mydigitalprinting.item
 
 import android.view.LayoutInflater
-import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import umbjm.ft.inf.mydigitalprinting.R
@@ -31,9 +29,28 @@ class GridAdapter(private val gridList:ArrayList<GridItem>) : RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: GridViewHolder, position: Int) {
         val grid = gridList[position]
-        Picasso.get().load(grid.image).into(holder.image_grid)
+        // Untuk animasi di bagian Picasso
+        val fadeIn =
+            android.view.animation.AnimationUtils.loadAnimation(holder.itemView.context, androidx.appcompat.R.anim.abc_grow_fade_in_from_bottom)
+        val center = CenterCropTransformation()
+        Picasso.get()
+            // load gambar
+            .load(grid.image)
+            // loading gambar
+            .placeholder(R.drawable.ic_loading)
+            .transform(center)
+            .into(holder.image_grid, object : Callback{
+                override fun onSuccess() {
+                    holder.image_grid.startAnimation(fadeIn)
+                }
+
+                override fun onError(e: java.lang.Exception?) {
+                    // Error Handler
+                }
+            })
         holder.text_grid.text = grid.name
     }
+
 }
 
 //        holder.itemView.setOnClickListener {
