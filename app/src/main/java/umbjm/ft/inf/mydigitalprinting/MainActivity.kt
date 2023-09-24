@@ -2,12 +2,15 @@ package umbjm.ft.inf.mydigitalprinting
 
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
@@ -31,6 +34,7 @@ import umbjm.ft.inf.mydigitalprinting.produk.sertifikat.SertifikatActivity
 import umbjm.ft.inf.mydigitalprinting.produk.stiker.StickerActivity
 import umbjm.ft.inf.mydigitalprinting.produk.undangan.UndanganActivity
 import umbjm.ft.inf.mydigitalprinting.profil.ProfileActivity
+import java.sql.Connection
 
 class MainActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
@@ -133,6 +137,31 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
+        // Check Internet
+        if(!isNetworkAvailable()){
+            showNoInternetAlert()
+        }
+
+    }
+
+    // Untuk menampilkan pesan jika tidak ada internet
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        val activeNetwork = connectivityManager.activeNetwork
+        if (activeNetwork != null){
+            val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
+            return networkCapabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) ?: false
+        }
+        return false
+    }
+
+    private fun showNoInternetAlert(){
+        SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE)
+            .setTitleText("Loading")
+            .setContentText("Periksa internet anda")
+            .show()
     }
 
     // Mengambil data yang ada pada loginactivity
