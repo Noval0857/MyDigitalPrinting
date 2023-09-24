@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -37,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var gridList: ArrayList<GridItem>
     private lateinit var database: DatabaseReference
     private lateinit var BottomNavigationView: BottomNavigationView
+    private var isBottomNavVisible = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -47,16 +50,16 @@ class MainActivity : AppCompatActivity() {
         val nightMode = sharedPreferences.getBoolean("night", false)
         val switch = findViewById<SwitchCompat>(R.id.ModeTheme)
 
-        if (nightMode){
+        if (nightMode) {
             switch.isChecked = true
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
 
         switch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (!isChecked){
+            if (!isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 editor.putBoolean("Night Mode Turn Off", false)
-            }else{
+            } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 editor.putBoolean("Night Mode Turn On", true)
                 editor.apply()
@@ -64,20 +67,47 @@ class MainActivity : AppCompatActivity() {
         }
 
         // ActionBar agar dapat di konfigurasi di halaman Activity_Main
-        fun refershActivity(){
+        fun refershActivity() {
             val intent = intent
             finish()
             startActivity(intent)
         }
 
         BottomNavigationView = findViewById(R.id.bNavigation)
+
+        val slideUp =
+            AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_slide_in_bottom)
+        val slideDown =
+            AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_slide_out_bottom)
+
+        recyclerView = findViewById(R.id.recylerView)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+
+        gridList = arrayListOf<GridItem>()
+
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (dy > 0 && isBottomNavVisible) {
+                    BottomNavigationView.startAnimation(slideDown)
+                    BottomNavigationView.visibility = View.GONE
+                    isBottomNavVisible = false
+                } else if (dy < 0 && !isBottomNavVisible) {
+                    BottomNavigationView.startAnimation(slideUp)
+                    BottomNavigationView.visibility = View.VISIBLE
+                    isBottomNavVisible = true
+                }
+            }
+        })
+
         BottomNavigationView.setOnItemSelectedListener { menuItem ->
-            when(menuItem.itemId){
+            when (menuItem.itemId) {
                 R.id.Bkeranjang -> {
                     val intent = Intent(this, KeranjangActivity::class.java)
                     startActivity(intent)
                     true
                 }
+
                 R.id.Bprofile -> {
                     val intent = Intent(this, ProfileActivity::class.java)
                     startActivity(intent)
@@ -88,6 +118,7 @@ class MainActivity : AppCompatActivity() {
                     refershActivity()
                     true
                 }
+
                 else -> false
             }
         }
@@ -110,7 +141,7 @@ class MainActivity : AppCompatActivity() {
         // menampung data yang ada pada login_status didalam variable loginstatus
         val loginstatus = intent.getStringExtra("login_status")
         // jika sukses mengambil data maka akan menampilkan sebuah alert
-        if (loginstatus == "success"){
+        if (loginstatus == "success") {
             SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
                 .setContentText("Berhasil Login")
                 .show()
@@ -126,12 +157,12 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-//     Fungsi toolbar jika diclick
+    //     Fungsi toolbar jika diclick
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
             R.id.Bkeranjang -> {
-            // Konfigurasikan jika ingin pindah halaman
+                // Konfigurasikan jika ingin pindah halaman
                 val intent = Intent(this, KeranjangActivity::class.java)
                 startActivity(intent)
                 return true
@@ -144,7 +175,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.Bpesanan -> {
-            // Konfigurasikan jika ingin pindah halaman
+                // Konfigurasikan jika ingin pindah halaman
 
             }
         }
@@ -162,7 +193,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.addOnItemClickListener(object : OnItemClickListener {
             override fun onItemClicked(position: Int, view: View) {
                 val selectedProduct = gridList[position]
-                when (selectedProduct.name){
+                when (selectedProduct.name) {
                     "Banner" -> {
                         val intent = Intent(this@MainActivity, BannerActivity::class.java)
                         intent.putExtra("id", selectedProduct.id)
@@ -174,6 +205,7 @@ class MainActivity : AppCompatActivity() {
                         intent.putExtra("id", selectedProduct.id)
                         startActivity(intent)
                     }
+
                     "Brosur" -> {
                         val intent = Intent(this@MainActivity, BrosurActivity::class.java)
                         intent.putExtra("id", selectedProduct.id)
@@ -197,32 +229,36 @@ class MainActivity : AppCompatActivity() {
                         intent.putExtra("id", selectedProduct.id)
                         startActivity(intent)
                     }
-                        }
+                }
             }
         })
     }
+
     interface OnItemClickListener {
         fun onItemClicked(position: Int, view: View)
     }
 
     private fun getData() {
-        database = FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Products")
-        database.child("produk").orderByChild("id").addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    gridList.clear()  // Membersihkan list terlebih dahulu
-                    for (itemProduk in snapshot.children) {
-                        val item = itemProduk.getValue(GridItem::class.java)
-                        gridList.add(item!!)
+        database =
+            FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("Products")
+        database.child("produk").orderByChild("id")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        gridList.clear()  // Membersihkan list terlebih dahulu
+                        for (itemProduk in snapshot.children) {
+                            val item = itemProduk.getValue(GridItem::class.java)
+                            gridList.add(item!!)
+                        }
+                        recyclerView.adapter = GridAdapter(gridList)
                     }
-                    recyclerView.adapter = GridAdapter(gridList)
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                // Error handling
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    // Error handling
+                }
+            })
     }
 
 //    private fun addDataToList() {

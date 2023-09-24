@@ -68,15 +68,27 @@ class RegistrasiActivity : AppCompatActivity() {
             }
 
             // Mengambil fungsi
-            RegisterFirebase(Regisemail, Regispassword)
+            RegisterFirebase(Regisemail, Regispassword, Regisnama)
         }
     }
 
     // Membuat fungsi untuk menyimpan data ke database Firebase
-    private fun RegisterFirebase(email: String, password: String) {
+    private fun RegisterFirebase(email: String, password: String, username:String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
+                    val user = auth.currentUser
+                    val userId = user?.uid
+
+                    // Simpan data Username
+                    userId?.let {
+                        database = FirebaseDatabase.getInstance().reference
+                        val userRef = database.child("Users").child(it)
+                        val userData = HashMap<String, Any>()
+                        userData["Username"] = username
+                        userRef.setValue(userData)
+                    }
+
                     val intent = Intent(this, LoginActivity::class.java)
                     intent.putExtra("data_regis", "success")
                     startActivity(intent)
@@ -89,86 +101,3 @@ class RegistrasiActivity : AppCompatActivity() {
     }
 
 }
-//        val namaUser = binding.Rnama.text.toString()
-//        val emailUser = binding.Remail.text.toString()
-//        val passwordUser = binding.Rpassword.text.toString()
-//        database = FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("User")
-//        val idUser = database.push().key!!
-//        val user = User(idUser, namaUser, passwordUser, emailUser)
-//        database.child(idUser).setValue(user).addOnCompleteListener { databaseTask ->
-//            if (databaseTask.isSuccessful) {
-//                Toast.makeText(this, "Uploaded Successfully", Toast.LENGTH_SHORT).show()
-//                val intent = Intent(this, LoginActivity::class.java)
-//                startActivity(intent)
-//                finish()
-//            } else {
-//                Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
-//            }
-//            binding.Rnama.text?.clear()
-//            binding.Remail.text?.clear()
-//            binding.Rpassword.text?.clear()
-//
-//        }
-
-
-//import android.annotation.SuppressLint
-//import android.content.Intent
-//import androidx.appcompat.app.AppCompatActivity
-//import android.os.Bundle
-//import com.google.android.material.button.MaterialButton
-//import com.google.android.material.textfield.TextInputEditText
-//import retrofit2.Call
-//import retrofit2.Callback
-//import retrofit2.Response
-//import umbjm.ft.inf.mydigitalprinting.R
-//import umbjm.ft.inf.mydigitalprinting.SubmitModel
-//import umbjm.ft.inf.mydigitalprinting.api.ApiRetrofit
-//import umbjm.ft.inf.mydigitalprinting.utils.SessionRegister
-//
-//class RegistrasiActivity : AppCompatActivity() {
-//
-//    private lateinit var btnRegistrasi: MaterialButton
-//    private lateinit var inputNama: TextInputEditText
-//    private lateinit var inputEmail: TextInputEditText
-//    private lateinit var inputAddress: TextInputEditText
-//    private lateinit var inputPassword: TextInputEditText
-//    private lateinit var inputConfirmPassword: TextInputEditText
-//    private lateinit var SessionRegister: SessionRegister
-//
-//    @SuppressLint("MissingInflatedId")
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_registrasi)
-//
-//        btnRegistrasi = findViewById(R.id.btnR)
-//        inputNama = findViewById(R.id.nama)
-//        inputEmail = findViewById(R.id.email)
-//        inputAddress = findViewById(R.id.address)
-//        inputPassword = findViewById(R.id.password)
-//        inputConfirmPassword = findViewById(R.id.confirmpassword)
-//        SessionRegister = SessionRegister(this)
-//
-//        btnRegistrasi.setOnClickListener {
-//            register()
-//        }
-//    }
-//
-//    private fun register() {
-//        val nama = inputNama.text.toString()
-//        val email = inputEmail.text.toString()
-//        val password = inputPassword.text.toString()
-//        ApiRetrofit().endpoint.register(nama, email, password)
-//            .enqueue(object : Callback<SubmitModel>{
-//                override fun onResponse(call: Call<SubmitModel>, response: Response<SubmitModel>) {
-//
-//                }
-//
-//                override fun onFailure(call: Call<SubmitModel>, t: Throwable) {
-//
-//                }
-//            })
-//        val intent = Intent(this, LoginActivity::class.java)
-//        startActivity(intent)
-//        finish()
-//    }
-//}
