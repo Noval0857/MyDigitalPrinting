@@ -10,6 +10,7 @@ data class SpecDesain(
     val teksLainnya: String?= null,
     val keterangan: String? = null,
     val panjang: String? = null,
-    val image: String? = ""
+    val image: String? = "",
+    val status: String? = "Belum Dibayar"
 )
 

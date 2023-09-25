@@ -1,8 +1,9 @@
 package umbjm.ft.inf.mydigitalprinting.keranjang
 
-class KeranjangItem(
+data class KeranjangItem(
     val namaProject: String?= null,
     val harga: String? = null,
-    val image: String? = ""
+    val image: String? = "",
+    val status: String? = null
 
 )
