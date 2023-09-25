@@ -46,16 +46,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/user" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:text="Username"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <LinearLayout
             style="@style/ScreenBackground"
@@ -140,7 +130,7 @@
                 app:startIconDrawable="@drawable/ic_location">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ConfirmNewPasswordEdit"
+                    android:id="@+id/AlamatEdit"
                     style="@style/textView_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -157,7 +147,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/SavePassowrd"
+                android:id="@+id/SaveProfil"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"

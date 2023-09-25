@@ -15,6 +15,7 @@ class KeranjangAdapter(private val keranjangItems: ArrayList<KeranjangItem>) : R
         val outImage: ImageView = itemView.findViewById(R.id.imageView)
         val outJenis: TextView = itemView.findViewById(R.id.jenisView)
         val outHarga: TextView = itemView.findViewById(R.id.hargaView)
+        val outStatus: TextView = itemView.findViewById(R.id.statusView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KeranjangHolder {
@@ -30,6 +31,7 @@ class KeranjangAdapter(private val keranjangItems: ArrayList<KeranjangItem>) : R
         val currentitem = keranjangItems[position]
         holder.outJenis.text = currentitem.namaProject
         holder.outHarga.text = currentitem.harga
+        holder.outStatus.text = currentitem.status
         Picasso.get().load(currentitem.image).into(holder.outImage)
     }
 

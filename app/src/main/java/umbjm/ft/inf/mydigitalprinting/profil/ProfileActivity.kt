@@ -3,11 +3,19 @@ package umbjm.ft.inf.mydigitalprinting.profil
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 import umbjm.ft.inf.mydigitalprinting.MainActivity
+import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityProfilBinding
 import umbjm.ft.inf.mydigitalprinting.login.ChangepasswordActivity
 import umbjm.ft.inf.mydigitalprinting.login.LoginActivity
@@ -19,6 +27,7 @@ class ProfileActivity : AppCompatActivity() {
     lateinit var binding: ActivityProfilBinding
     lateinit var auth: FirebaseAuth
     lateinit var shp : SharedPreferences
+    private lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityProfilBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -70,6 +79,8 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(intent)
             return@setOnClickListener
         }
+
+        getUser()
     }
 
     // mengambil data yang ada pada change password
@@ -133,6 +144,38 @@ class ProfileActivity : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         finish()
+    }
+
+    private fun getUser(){
+        val user = FirebaseAuth.getInstance().currentUser
+        val userID = user?.uid
+        database =
+            FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("User")
+        database.child(userID!!).child("Profil").addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    val userData = snapshot.getValue(ProfilUser::class.java)
+                    val username = userData?.nama
+                    val image = userData?.image
+
+                    val usernameTextView = findViewById<TextView>(R.id.Username)
+                    usernameTextView.text = username
+
+                    if (image != null) {
+                        // Tampilkan gambar menggunakan Picasso atau library lainnya
+                        Picasso.get().load(image).into(binding.imageUser)
+                    } else {
+                        // Handle jika tidak ada gambar
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
     }
 
 }
