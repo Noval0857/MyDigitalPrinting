@@ -13,30 +13,6 @@
         android:src="@drawable/logo3"
         android:scaleX="3"
         android:scaleY="2"/>
-    <ImageView
-        android:layout_width="31dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
-        android:src="@drawable/ic_wa"/>
 
-    <ImageView
-        android:layout_width="31dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:src="@drawable/ic_keranjang"/>
-
-    <ImageView
-        android:id="@+id/Setprofile"
-        android:layout_width="31dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:src="@drawable/ic_person"/>
-
-    <ImageView
-        android:layout_width="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_height="32dp"
-        android:layout_marginLeft="10dp"
-        android:src="@drawable/ic_t3"/>
 
 </LinearLayout>

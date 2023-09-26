@@ -61,7 +61,7 @@
                     app:boxCornerRadiusTopEnd="20dp"
                     app:boxCornerRadiusTopStart="20dp"
                     app:boxStrokeColor="@color/black"
-                    app:helperText="Username"
+                    app:helperText="Email"
                     app:helperTextTextColor="@color/black"
                     app:hintTextColor="@color/black">
 
@@ -70,7 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:hint="Masukan Username"
+                        android:hint="Masukan Email"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"

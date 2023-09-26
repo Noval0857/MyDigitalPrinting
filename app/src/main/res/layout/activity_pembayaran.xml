@@ -46,7 +46,7 @@
                 android:id="@+id/txt1"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:text="SILAHKAN LAKUKAN PEMBAYARAN (ISI TEXT)"
+                android:text="SILAHKAN LAKUKAN PEMBAYARAN"
                 android:textSize="17dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
@@ -60,153 +60,18 @@
                 android:layout_marginLeft="200dp"/>
         </FrameLayout>
 
-        <RelativeLayout
-            android:layout_width="375dp"
-            android:layout_height="64dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="230dp"
-            android:background="@drawable/sudut2">
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_gravity="left"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/mandiri" />
-            <LinearLayout
-                android:layout_width="310dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="85dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/sudut">
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="NO REKENING\nNAMA PEMILIK REKENING"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp">
-        </TextView>
-
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="375dp"
-            android:layout_height="64dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="310dp"
-            android:background="@drawable/sudut2">
+            android:layout_height="300dp"
+            android:gravity="center"
+            android:layout_marginTop="230dp">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_gravity="left"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/bri" />
-            <LinearLayout
-                android:layout_width="310dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="85dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/sudut">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="NO REKENING\nNAMA PEMILIK REKENING"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="15dp">
-                </TextView>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_dana"/>
 
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="375dp"
-            android:layout_height="64dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="390dp"
-            android:background="@drawable/sudut2">
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_gravity="left"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/dana" />
-            <LinearLayout
-                android:layout_width="310dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="85dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/sudut">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="NO REKENING\nNAMA PEMILIK REKENING"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="15dp">
-                </TextView>
-
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="375dp"
-            android:layout_height="64dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="470dp"
-            android:background="@drawable/sudut2">
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_gravity="left"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/shopeepay" />
-            <LinearLayout
-                android:layout_width="310dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="85dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/sudut">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="NO REKENING\nNAMA PEMILIK REKENING"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="15dp">
-                </TextView>
-
-            </LinearLayout>
-        </RelativeLayout>
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
