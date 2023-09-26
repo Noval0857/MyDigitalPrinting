@@ -33,6 +33,13 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        // Untuk pindah ke halaman AboutUS
+        binding.aboutUs.setOnClickListener {
+            val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
+            return@setOnClickListener
+        }
+
         // Untuk pindah halaman ke ContactActivity
         binding.ContactUs.setOnClickListener {
             val intent = Intent(this, ContactActivity::class.java)
@@ -51,7 +58,7 @@ class ProfileActivity : AppCompatActivity() {
         binding.backprofil.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            return@setOnClickListener
+            finishAffinity()
         }
 
         shp = SharedPreferences(this)
@@ -80,7 +87,7 @@ class ProfileActivity : AppCompatActivity() {
             return@setOnClickListener
         }
 
-        getUser()
+//        getUser()
     }
 
     // mengambil data yang ada pada change password
@@ -143,39 +150,42 @@ class ProfileActivity : AppCompatActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
-        finish()
+        finishAffinity()
     }
 
-    private fun getUser(){
-        val user = FirebaseAuth.getInstance().currentUser
-        val userID = user?.uid
-        database =
-            FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                .getReference("User")
-        database.child(userID!!).child("Profil").addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    val userData = snapshot.getValue(ProfilUser::class.java)
-                    val username = userData?.nama
-                    val image = userData?.image
-
-                    val usernameTextView = findViewById<TextView>(R.id.Username)
-                    usernameTextView.text = username
-
-                    if (image != null) {
-                        // Tampilkan gambar menggunakan Picasso atau library lainnya
-                        Picasso.get().load(image).into(binding.imageUser)
-                    } else {
-                        // Handle jika tidak ada gambar
-                    }
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-        })
-    }
+//    private fun getUser(){
+//        val user = FirebaseAuth.getInstance().currentUser
+//        val userID = user?.uid
+//        database =
+//            FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
+//                .getReference("User")
+//        database.child(userID!!).child("Profil").addValueEventListener(object : ValueEventListener{
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                if (snapshot.exists()) {
+//                    val userData = snapshot.getValue(ProfilUser::class.java)
+//                    val username = userData?.nama
+//                    val image = userData?.image
+//
+//                    val usernameTextView = findViewById<TextView>(R.id.Username)
+//                    usernameTextView.text = username
+//
+//                    if (image != null) {
+//                        // Tampilkan gambar menggunakan Picasso atau library lainnya
+//                        Picasso.get()
+//                            .load(image)
+//                            .into(binding.imageUser)
+//                    } else {
+//                        // Handle jika tidak ada gambar
+//                        Picasso.get().load(R.drawable.user).into(binding.imageUser)
+//                    }
+//                }
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//
+//            }
+//
+//        })
+//    }
 
 }

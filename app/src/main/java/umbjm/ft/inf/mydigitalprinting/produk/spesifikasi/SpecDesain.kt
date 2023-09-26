@@ -11,6 +11,5 @@ data class SpecDesain(
     val keterangan: String? = null,
     val panjang: String? = null,
     val image: String? = "",
-    val status: String? = "Belum Dibayar"
 )
 

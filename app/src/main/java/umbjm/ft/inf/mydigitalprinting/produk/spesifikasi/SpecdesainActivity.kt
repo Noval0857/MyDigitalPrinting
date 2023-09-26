@@ -98,7 +98,6 @@ class SpecdesainActivity : AppCompatActivity() {
                                 keterangan,
                                 panjang,
                                 imageUrl,
-                                "Belum Dibayar"
                             )
                             database.child(userID!!).child("Pesanan").child(idPesanan).setValue(sD)
                                 .addOnCompleteListener { databaseTask ->
