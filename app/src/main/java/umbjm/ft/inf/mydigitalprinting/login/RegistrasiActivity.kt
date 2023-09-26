@@ -3,11 +3,11 @@ package umbjm.ft.inf.mydigitalprinting.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityRegistrasiBinding
 
 class RegistrasiActivity : AppCompatActivity() {
@@ -35,16 +35,8 @@ class RegistrasiActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener {
 
             // Membuat Variabel untuk menampung data
-            val Regisnama = binding.Rnama.text.toString()
             val Regisemail = binding.Remail.text.toString()
             val Regispassword = binding.Rpassword.text.toString()
-
-            // Pengkondisian (Jika variabel Regisnama kosong atau data nama kosong tidak akan bisa digunakan)
-            if (Regisnama.isEmpty()) {
-                binding.Rnama.error = "Nama tidak boleh kosong"
-                binding.Rnama.requestFocus()
-                return@setOnClickListener
-            }
 
             // Pengkondisian (Jika variabel Regismail kosong atau data email tidak ada maka akan tidak bisa digunakan)
             if (Regisemail.isEmpty()) {
@@ -68,36 +60,32 @@ class RegistrasiActivity : AppCompatActivity() {
             }
 
             // Mengambil fungsi
-            RegisterFirebase(Regisemail, Regispassword, Regisnama)
+            RegisterFirebase(Regisemail, Regispassword)
         }
     }
 
     // Membuat fungsi untuk menyimpan data ke database Firebase
-    private fun RegisterFirebase(email: String, password: String, username:String) {
+    private fun RegisterFirebase(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    val user = auth.currentUser
-                    val userId = user?.uid
-
-                    // Simpan data Username
-                    userId?.let {
-                        database = FirebaseDatabase.getInstance().reference
-                        val userRef = database.child("Users").child(it)
-                        val userData = HashMap<String, Any>()
-                        userData["Username"] = username
-                        userRef.setValue(userData)
-                    }
-
                     val intent = Intent(this, LoginActivity::class.java)
                     intent.putExtra("data_regis", "success")
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, "Data anda tidak berhasil disimpan", Toast.LENGTH_LONG)
-                        .show()
+                    val exception = it.exception
+                    if (exception is FirebaseAuthUserCollisionException) {
+                        SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("Warning")
+                            .setContentText("Email yang anda gunakan sudah di daftarkan")
+                            .show()
+                    } else {
+                        SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("Gagal")
+                            .setContentText("Silahkan cek internet anda")
+                            .show()
+                    }
                 }
             }
-
+        }
     }
-
-}
