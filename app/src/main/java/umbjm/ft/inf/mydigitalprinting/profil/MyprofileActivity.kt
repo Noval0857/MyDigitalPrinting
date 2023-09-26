@@ -190,12 +190,12 @@ class MyprofileActivity : AppCompatActivity() {
             }
         }
 
+        // Referensi Firebase Storage
+        val storageRef = FirebaseStorage.getInstance().reference.child("User")
+            .child(System.currentTimeMillis().toString())
+
         // Jika ada gambar yang dipilih, unggah gambar baru ke Firebase Storage
         imageUri?.let { uri ->
-            val storageRef = FirebaseStorage.getInstance().reference.child("User")
-                .child(userID)
-                .child("profile_picture.jpg")
-
             storageRef.putFile(uri).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Dapatkan URL gambar yang baru diunggah
