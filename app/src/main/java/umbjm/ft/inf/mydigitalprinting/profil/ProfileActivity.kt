@@ -3,6 +3,7 @@ package umbjm.ft.inf.mydigitalprinting.profil
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
@@ -87,7 +88,7 @@ class ProfileActivity : AppCompatActivity() {
             return@setOnClickListener
         }
 
-//        getUser()
+        getUser()
     }
 
     // mengambil data yang ada pada change password
@@ -153,39 +154,43 @@ class ProfileActivity : AppCompatActivity() {
         finishAffinity()
     }
 
-//    private fun getUser(){
-//        val user = FirebaseAuth.getInstance().currentUser
-//        val userID = user?.uid
-//        database =
-//            FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
-//                .getReference("User")
-//        database.child(userID!!).child("Profil").addValueEventListener(object : ValueEventListener{
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                if (snapshot.exists()) {
-//                    val userData = snapshot.getValue(ProfilUser::class.java)
-//                    val username = userData?.nama
-//                    val image = userData?.image
-//
-//                    val usernameTextView = findViewById<TextView>(R.id.Username)
-//                    usernameTextView.text = username
-//
-//                    if (image != null) {
-//                        // Tampilkan gambar menggunakan Picasso atau library lainnya
-//                        Picasso.get()
-//                            .load(image)
-//                            .into(binding.imageUser)
-//                    } else {
-//                        // Handle jika tidak ada gambar
-//                        Picasso.get().load(R.drawable.user).into(binding.imageUser)
-//                    }
-//                }
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//
-//            }
-//
-//        })
-//    }
+    private fun getUser(){
+        val user = FirebaseAuth.getInstance().currentUser
+        val userID = user?.uid
+        database =
+            FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("User")
+        database.child(userID!!).child("Profil").addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    val userData = snapshot.getValue(ProfilUser::class.java)
+                    val username = userData?.nama
+                    val image = userData?.image
+
+                    val usernameTextView = findViewById<TextView>(R.id.Username)
+                    usernameTextView.text = username
+
+
+
+                    if (image != null && image.isNotEmpty()) {
+                        // Tampilkan gambar menggunakan Picasso atau library lainnya
+                        Picasso.get()
+                            .load(image)
+                            .placeholder(R.drawable.person)
+                            .error(R.drawable.person)
+                            .into(binding.imageUser)
+                    } else {
+                        // Handle jika tidak ada gambar
+                        binding.imageUser.visibility = View.GONE
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+    }
 
 }
