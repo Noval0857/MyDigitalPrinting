@@ -34,9 +34,6 @@
             android:name=".profil.ContactActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.brosur.Specbrosur"
-            android:exported="false" />
-        <activity
             android:name=".produk.cetak.CetakbrosurActivity"
             android:exported="false" />
         <activity
@@ -68,9 +65,7 @@
             android:exported="false" />
         <activity
             android:name=".profil.AlamatActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".produk.PembayaranActivity" -->
-        <!-- android:exported="false" /> -->
+            android:exported="false" />
         <activity
             android:name=".login.NewPassword"
             android:exported="false" />
@@ -158,6 +153,7 @@
         <activity
             android:name=".produk.undangan.UndanganActivity"
             android:exported="false" />
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">
