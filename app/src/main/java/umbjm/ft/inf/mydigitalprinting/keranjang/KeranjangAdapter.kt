@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -14,7 +15,7 @@ import umbjm.ft.inf.mydigitalprinting.R
 class KeranjangAdapter(private val keranjangItems: ArrayList<KeranjangItem>) : RecyclerView.Adapter<KeranjangAdapter.KeranjangHolder>(){
 
     inner class KeranjangHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val outImage: ImageView = itemView.findViewById(R.id.imageView)
+        val outImages: RecyclerView = itemView.findViewById(R.id.imagesRecyclerView)
         val outJenis: TextView = itemView.findViewById(R.id.jenisView)
         val outHarga: TextView = itemView.findViewById(R.id.hargaView)
         val batal: TextView = itemView.findViewById(R.id.BtnBatal)
@@ -30,12 +31,17 @@ class KeranjangAdapter(private val keranjangItems: ArrayList<KeranjangItem>) : R
     }
 
     override fun onBindViewHolder(holder: KeranjangHolder, position: Int) {
-        val currentitem = keranjangItems[position]
-        holder.outJenis.text = currentitem.namaProject
-        holder.outHarga.text = currentitem.harga
-        Picasso.get().load(currentitem.image).into(holder.outImage)
+        val currentItem = keranjangItems[position]
+        holder.outJenis.text = currentItem.namaProject
+        holder.outHarga.text = currentItem.harga
+
+        // Set up RecyclerView for images
+        val imagesAdapter = ImagesAdapter(currentItem.image ?: emptyList())
+        holder.outImages.adapter = imagesAdapter
+        holder.outImages.layoutManager = LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
+
         holder.batal.setOnClickListener {
-            val idKeranjang = currentitem.idKeranjang
+            val idKeranjang = currentItem.idKeranjang
             deleteItemFromDatabase(idKeranjang!!)
         }
     }
