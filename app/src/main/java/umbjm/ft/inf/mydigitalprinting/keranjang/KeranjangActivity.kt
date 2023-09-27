@@ -1,7 +1,10 @@
 package umbjm.ft.inf.mydigitalprinting.keranjang
 
 import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
@@ -29,6 +32,7 @@ class KeranjangActivity : AppCompatActivity() {
     private var totalHarga: Double = 0.0
     private lateinit var tv_total: TextView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_keranjang)
@@ -47,7 +51,8 @@ class KeranjangActivity : AppCompatActivity() {
             startActivity(intent)
             return@setOnClickListener
         }
-          
+
+
         // Periksa apakah pengguna sudah login sebelum mencoba mengambil data
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
@@ -58,19 +63,16 @@ class KeranjangActivity : AppCompatActivity() {
 
 
         } else {
-            // Handle jika pengguna belum login
-            // Contoh: Redirect pengguna ke halaman login
-            // atau tampilkan pesan bahwa pengguna harus login terlebih dahulu
+
         }
     }
 
     private fun bayar() {
         BtnCheckout.setOnClickListener {
-            // Lakukan pembayaran dengan totalHarga
-            // Misalnya, Anda dapat menampilkan dialog konfirmasi pembayaran di sini
-            // atau mengarahkan pengguna ke layar pembayaran
-            // Anda juga dapat mengirim totalHarga ke layar pembayaran jika diperlukan
+
             val intent = Intent(this, PembayaranActivity::class.java)
+            val itemKeranjang: ArrayList<KeranjangItem> = ArrayList()
+
             intent.putExtra("totalHarga", totalHarga)
             startActivity(intent)
         }
@@ -86,7 +88,7 @@ class KeranjangActivity : AppCompatActivity() {
     }
 
     private fun getDataFirebase(userID: String) {
-        database.child(userID).child("Pesanan").orderByChild("idPesanan")
+        database.child(userID).child("Keranjang").orderByChild("idKeranjang")
             .addValueEventListener(object : ValueEventListener {
             @SuppressLint("SetTextI18n")
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -95,15 +97,16 @@ class KeranjangActivity : AppCompatActivity() {
                     totalHarga = 0.0
                     for (itemProduk in snapshot.children) {
                         val item = itemProduk.getValue(KeranjangItem::class.java)
-                        keranjangItem.add(item!!)
+                        item?.let {
+                            keranjangItem.add(it)
 
-                        val hargaItem = item.harga?.replace(".","")?.toDoubleOrNull() ?: 0.0
-                        totalHarga += hargaItem
+                            val hargaItem = it.harga?.replace(".","")?.toDoubleOrNull() ?: 0.0
+                            totalHarga += hargaItem
+                        }
+
                     }
                     recyclerView.adapter = KeranjangAdapter(keranjangItem)
-
-                    val formattedTotalHarga = DecimalFormat("Rp #,###.##").format(totalHarga)
-                    tv_total.text = formattedTotalHarga
+                    updateTotalHarga()
                 }
             }
 
@@ -113,6 +116,12 @@ class KeranjangActivity : AppCompatActivity() {
             }
         })
     }
+
+    private fun updateTotalHarga(){
+        val formattedTotalHarga = DecimalFormat("Rp #,###.##").format(totalHarga)
+        tv_total.text = formattedTotalHarga
+    }
+
 }
 
 
