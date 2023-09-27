@@ -73,7 +73,7 @@ class SpecdesainActivity : AppCompatActivity() {
 
 
             // Referensi Firebase Storage
-            val storageRef = FirebaseStorage.getInstance().reference.child("Pesanan")
+            val storageRef = FirebaseStorage.getInstance().reference.child("Keranjang")
                 .child(System.currentTimeMillis().toString())
 
             // Mengunggah gambar ke Firebase Storage
@@ -86,9 +86,9 @@ class SpecdesainActivity : AppCompatActivity() {
                             val imageUrl = uri.toString()
                             database =
                                 FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("User")
-                            val idPesanan = database.push().key!!
+                            val idKeranjang = database.push().key!!
                             val sD = SpecDesain(
-                                idPesanan,
+                                idKeranjang,
                                 userID,
                                 idBanner,
                                 harga,
@@ -99,7 +99,7 @@ class SpecdesainActivity : AppCompatActivity() {
                                 panjang,
                                 imageUrl,
                             )
-                            database.child(userID!!).child("Pesanan").child(idPesanan).setValue(sD)
+                            database.child(userID!!).child("Keranjang").child(idKeranjang).setValue(sD)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
                                         Toast.makeText(

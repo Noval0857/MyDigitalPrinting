@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 import umbjm.ft.inf.mydigitalprinting.R
 
@@ -15,6 +17,7 @@ class KeranjangAdapter(private val keranjangItems: ArrayList<KeranjangItem>) : R
         val outImage: ImageView = itemView.findViewById(R.id.imageView)
         val outJenis: TextView = itemView.findViewById(R.id.jenisView)
         val outHarga: TextView = itemView.findViewById(R.id.hargaView)
+        val batal: TextView = itemView.findViewById(R.id.BtnBatal)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KeranjangHolder {
@@ -31,6 +34,35 @@ class KeranjangAdapter(private val keranjangItems: ArrayList<KeranjangItem>) : R
         holder.outJenis.text = currentitem.namaProject
         holder.outHarga.text = currentitem.harga
         Picasso.get().load(currentitem.image).into(holder.outImage)
+        holder.batal.setOnClickListener {
+            val idKeranjang = currentitem.idKeranjang
+            deleteItemFromDatabase(idKeranjang!!)
+        }
+    }
+
+    private fun deleteItemFromDatabase(idKeranjang: String) {
+        val user = FirebaseAuth.getInstance().currentUser
+        val userID = user?.uid
+
+        val database = FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
+            .getReference("User").child(userID!!).child("Keranjang")
+        val itemReference = database.child(idKeranjang)
+
+        itemReference.removeValue()
+            .addOnSuccessListener {
+                // Item berhasil dihapus dari database
+                // Hapus item dari daftar lokal juga
+                val removedItem = keranjangItems.firstOrNull { it.idKeranjang == idKeranjang }
+                removedItem?.let {
+                    val position = keranjangItems.indexOf(it)
+                    keranjangItems.removeAt(position)
+                    notifyItemRemoved(position)
+                    notifyDataSetChanged()
+                }
+            }
+            .addOnFailureListener { e ->
+                // Error handling jika gagal menghapus item
+            }
     }
 
 }

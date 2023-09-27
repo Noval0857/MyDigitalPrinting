@@ -1,7 +1,7 @@
 package umbjm.ft.inf.mydigitalprinting.produk.spesifikasi
 
 data class SpecDesain(
-    val idPesanan: String?= null,
+    val idKeranjang: String?= null,
     val userID: String? = null,
     val idBanner: String? = null,
     val harga: String? = null,
