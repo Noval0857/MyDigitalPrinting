@@ -93,6 +93,7 @@
 
                 <!--Bagian Ukuran B1-->
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/B1"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="5dp"
@@ -100,12 +101,14 @@
 
                 <!--Bagian Ukuran B2-->
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/B2"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:text="B2" />
 
                 <!--Ukuran B3-->
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/B3"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="150dp"
@@ -114,6 +117,7 @@
 
                 <!--Ukuran B4-->
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/B4"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="150dp"

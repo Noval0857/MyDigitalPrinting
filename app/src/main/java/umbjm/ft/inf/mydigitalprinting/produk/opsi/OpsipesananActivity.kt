@@ -12,6 +12,7 @@ class OpsipesananActivity : AppCompatActivity() {
 
     private lateinit var jasadesain: ImageView
     private lateinit var kirimdesain: ImageView
+    private var jasaHarga = 25000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_opsipesanan)
@@ -21,16 +22,19 @@ class OpsipesananActivity : AppCompatActivity() {
 
         val idBanner = intent.getStringExtra("idBanner")
         val harga = intent.getStringExtra("harga")
+        val biayaDesain = jasaHarga.toString()
 
         jasadesain.setOnClickListener {
             val intent = Intent(this, SpecdesainActivity::class.java)
             intent.putExtra("idBanner", idBanner)
-            intent.putExtra("harga", harga)
+            intent.putExtra("biayaDesain", biayaDesain)
             startActivity(intent)
         }
 
         kirimdesain.setOnClickListener {
             val intent = Intent(this, CetakdesainActivity::class.java)
+            intent.putExtra("idBanner", idBanner)
+            intent.putExtra("harga", harga)
             startActivity(intent)
         }
 

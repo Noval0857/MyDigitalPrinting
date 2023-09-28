@@ -13,11 +13,13 @@ import com.google.firebase.storage.FirebaseStorage
 import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityPembayaranBinding
 import umbjm.ft.inf.mydigitalprinting.keranjang.KeranjangItem
+import umbjm.ft.inf.mydigitalprinting.pesanan.DataPesanan
 import umbjm.ft.inf.mydigitalprinting.pesanan.PesananActivity
 
 class PembayaranActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private var imageUri: Uri? = null
+    private var totalHarga: Double = 0.0
     private lateinit var binding: ActivityPembayaranBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +52,7 @@ class PembayaranActivity : AppCompatActivity() {
             val totalHarga = intent.getDoubleExtra("totalHarga", 0.0)
             val ttotalHarga = totalHarga.toString()
 
-            val itemKeranjang = intent.getSerializableExtra("itemKeranjang")
+            val idKeranjang = intent.getStringExtra("idKeranjang")
 
             val storageRef = FirebaseStorage.getInstance().reference.child("Pembayaran")
                 .child(System.currentTimeMillis().toString())
@@ -65,6 +67,7 @@ class PembayaranActivity : AppCompatActivity() {
                             val idPembayaran = database.push().key!!
                             val pembayaran = Pembayaran(
                                 idPembayaran,
+                                idKeranjang,
                                 userID,
                                 ttotalHarga,
                                 imageUrl
@@ -78,7 +81,12 @@ class PembayaranActivity : AppCompatActivity() {
                                             "Uploaded Successfully",
                                             Toast.LENGTH_SHORT
                                         ).show()
-                                        val intent = Intent(this, MainActivity::class.java)
+//                                        sendDataToPesanan()
+
+                                        intent.putExtra("totalHarga", ttotalHarga)
+                                        intent.putExtra("idKeranjang", idKeranjang)
+                                        intent.putExtra("idPembayaran", idPembayaran)
+                                        val intent = Intent(this, PesananActivity::class.java)
                                         startActivity(intent)
                                         finish()
                                     } else {
@@ -93,4 +101,15 @@ class PembayaranActivity : AppCompatActivity() {
             }
         }
     }
+
+//    private fun sendDataToPesanan() {
+//
+//        val user = FirebaseAuth.getInstance().currentUser
+//        val userID = user?.uid // Mendapatkan ID pengguna saat ini
+//
+//        val totalHarga = intent.getDoubleExtra("totalHarga", 0.0)
+//        val ttotalHarga = totalHarga.toString()
+//
+//
+//    }
 }
