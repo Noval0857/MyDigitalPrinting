@@ -1,11 +1,15 @@
 package umbjm.ft.inf.mydigitalprinting.pembayaran
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.media.Image
 import android.net.Uri
 import android.os.Bundle
+import android.os.Message
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -44,6 +48,20 @@ class PembayaranActivity : AppCompatActivity() {
         binding.imageButton.setImageURI(uri)
     }
 
+    private fun openWhatsApp(phoneNumber: String, message: String){
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse("https://api.whatsapp.com/send?phone=$phoneNumber&text=$message")
+
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException){
+            SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Warning")
+                .setContentText("Anda gagal ke whatsApp")
+                .show()
+        }
+    }
+
     private fun bayar() {
         binding.kirim.setOnClickListener {
             val user = FirebaseAuth.getInstance().currentUser
@@ -76,26 +94,46 @@ class PembayaranActivity : AppCompatActivity() {
                                 .setValue(pembayaran)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
-                                        Toast.makeText(
-                                            this,
-                                            "Uploaded Successfully",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-//                                        sendDataToPesanan()
+//                                         Toast.makeText(
+//                                             this,
+//                                             "Uploaded Successfully",
+//                                             Toast.LENGTH_SHORT
+//                                         ).show()
+// //                                        sendDataToPesanan()
 
-                                        intent.putExtra("totalHarga", ttotalHarga)
-                                        intent.putExtra("idKeranjang", idKeranjang)
-                                        intent.putExtra("idPembayaran", idPembayaran)
+//                                         intent.putExtra("totalHarga", ttotalHarga)
+//                                         intent.putExtra("idKeranjang", idKeranjang)
+//                                         intent.putExtra("idPembayaran", idPembayaran)
                                         val intent = Intent(this, PesananActivity::class.java)
+                                        SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                                            .setTitleText("Success")
+                                            .setContentText("Berhasil Upload")
+                                        val intent = Intent(this, MainActivity::class.java)
                                         startActivity(intent)
                                         finish()
                                     } else {
-                                        Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                                        SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                                            .setTitleText("Warning")
+                                            .setContentText("Upload Anda Gagal")
+                                            .show()
                                     }
                                 }
-                            }
+
+                            val phoneNumber = "+6281549310752"
+                            val message = "NAMA : \n" +
+                                    "Pesanan : \n" +
+                                    "Alamat : \n" +
+                                    "No Hp : \n" +
+                                    "Harga : \n" +
+                                    "Keterangan : "
+
+                            openWhatsApp(phoneNumber, message)
+                        }
                     } else {
-                        Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                        SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("Warning")
+                            .setContentText("Upload Anda Gagal")
+                            .show()
                     }
                 }
             }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produk.sertifikat.SertifikatActivity">
+    tools:context=".produk.sertifikat.SertifikatActivity"
+    style="@style/ScreenBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,18 +19,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingTop="68dp">
-
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/search_view_bg"
-                android:elevation="4dp"
-                app:iconifiedByDefault="false"
-                app:queryHint="Search Here...">
-
-            </androidx.appcompat.widget.SearchView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSertifikat"

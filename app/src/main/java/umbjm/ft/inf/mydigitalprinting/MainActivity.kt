@@ -215,10 +215,6 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
 
-            R.id.Bpesanan -> {
-                // Konfigurasikan jika ingin pindah halaman
-
-            }
         }
         return super.onOptionsItemSelected(item)
     }

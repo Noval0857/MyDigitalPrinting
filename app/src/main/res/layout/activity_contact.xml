@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profil.ContactActivity">
+    tools:context=".profil.ContactActivity"
+    style="@style/ScreenBackground">
 
     <ImageView
         android:id="@+id/bg_img"
@@ -35,13 +36,15 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         app:cardCornerRadius="12dp"
-        android:elevation="12dp">
+        android:elevation="12dp"
+        style="@style/ScreenBackground">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
-            android:paddingBottom="16dp">
+            android:paddingBottom="16dp"
+            style="@style/ScreenBackground">
 
             <TextView
                 android:textStyle="bold"

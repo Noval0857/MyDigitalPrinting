@@ -2,6 +2,7 @@
 <resources>
     <style name="BoldText">
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="ItalicText">

@@ -5,14 +5,16 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".keranjang.KeranjangActivity">
+    tools:context=".keranjang.KeranjangActivity"
+    style="@style/ScreenBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/darkRed"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="10dp"
+        style="@style/ScreenBackground">
 
         <ImageButton
             android:id="@+id/HomeBack"
@@ -35,7 +37,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        style="@style/ScreenBackground">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_keranjang"
