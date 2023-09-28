@@ -22,8 +22,7 @@
             android:text="MyDigital Printing"
             android:textSize="24dp"
             android:textStyle="bold"
-            style="@style/ScreenBackground"/>
-
+            style="@style/textView_style"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +31,7 @@
             android:layout_marginTop="5dp"
             android:text="Version 1.1.0"
             android:textSize="17dp"
-            style="@style/ScreenBackground"/>
+            style="@style/textView_style"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
@@ -52,7 +51,7 @@
             android:layout_marginTop="10dp"
             android:text="©2023 MyDigitalPrinting"
             android:textSize="17dp"
-            style="@style/ScreenBackground"/>
+            style="@style/textView_style"/>
 
         <Button
             android:id="@+id/tvcontact"
@@ -63,8 +62,7 @@
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:background="@drawable/radiusprofile"
-            android:layout_marginTop="20dp"
-            style="@style/ScreenBackground"/>
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
 
 </RelativeLayout>

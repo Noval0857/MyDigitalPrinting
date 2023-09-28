@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityForgot1Binding
@@ -46,7 +47,10 @@ class NewPassword : AppCompatActivity() {
                     intent.putExtra("New_password", "success")
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, "Reset email tidak berhasil dikirim", Toast.LENGTH_SHORT).show()
+                    SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Warning")
+                        .setContentText("Reset Password Gagal Dikirim")
+                        .show()
                 }
             }
         }
