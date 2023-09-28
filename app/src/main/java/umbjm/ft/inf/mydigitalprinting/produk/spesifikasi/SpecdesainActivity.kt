@@ -58,7 +58,7 @@ class SpecdesainActivity : AppCompatActivity() {
             val userID = user?.uid
 
             val idBanner = intent.getStringExtra("idBanner")
-            val harga = intent.getStringExtra("harga")
+            val harga = intent.getStringExtra("biayaDesain")
 
             val namaProject = binding.UploadJenis.text.toString()
             val teksUtama = binding.UploadteksUtama.text.toString()

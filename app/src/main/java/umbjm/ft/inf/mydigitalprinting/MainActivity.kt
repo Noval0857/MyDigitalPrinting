@@ -29,6 +29,8 @@ import com.google.firebase.database.ValueEventListener
 import umbjm.ft.inf.mydigitalprinting.item.GridAdapter
 import umbjm.ft.inf.mydigitalprinting.item.GridItem
 import umbjm.ft.inf.mydigitalprinting.keranjang.KeranjangActivity
+import umbjm.ft.inf.mydigitalprinting.pesanan.PesananActivity
+import umbjm.ft.inf.mydigitalprinting.pesanan.PilihanPesanan
 import umbjm.ft.inf.mydigitalprinting.produk.banner.BannerActivity
 import umbjm.ft.inf.mydigitalprinting.produk.brosur.BrosurActivity
 import umbjm.ft.inf.mydigitalprinting.produk.idcard.IdCardActivity
@@ -124,6 +126,11 @@ class MainActivity : AppCompatActivity() {
                 // jika kembali menekan home maka kan refresh halaman
                 R.id.Bhome -> {
                     refershActivity()
+                    true
+                }
+                R.id.Bpesanan -> {
+                    val intent = Intent(this, PilihanPesanan::class.java)
+                    startActivity(intent)
                     true
                 }
 
@@ -264,9 +271,28 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    // Buat sebuah interface OnItemClickListener
     interface OnItemClickListener {
         fun onItemClicked(position: Int, view: View)
     }
+
+    // Tambahkan ekstensi untuk RecyclerView untuk menambahkan onItemClickListener
+    fun RecyclerView.addOnItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.addOnChildAttachStateChangeListener(object :
+            RecyclerView.OnChildAttachStateChangeListener {
+            override fun onChildViewAttachedToWindow(view: View) {
+                view.setOnClickListener {
+                    val holder = getChildViewHolder(view)
+                    onItemClickListener.onItemClicked(holder.adapterPosition, view)
+                }
+            }
+
+            override fun onChildViewDetachedFromWindow(view: View) {
+                // Tidak ada tindakan yang perlu diambil saat view dilepas dari window
+            }
+        })
+    }
+
 
     private fun getData() {
         database =
@@ -290,16 +316,4 @@ class MainActivity : AppCompatActivity() {
                 }
             })
     }
-
-//    private fun addDataToList() {
-//        gridList.add(GridItem(R.drawable.banner, "Banner"))
-//        gridList.add(GridItem(R.drawable.id_card, "Id Card"))
-//        gridList.add(GridItem(R.drawable.brosur, "Brosur"))
-//        gridList.add(GridItem(R.drawable.sticker, "Sticker"))
-//        gridList.add(GridItem(R.drawable.banner, "Undangan"))
-//        gridList.add(GridItem(R.drawable.id_card, "Sertifikat"))
-//        gridList.add(GridItem(R.drawable.brosur, "Kalender"))
-//        gridList.add(GridItem(R.drawable.sticker, "Poster"))
-//        gridList.add(GridItem(R.drawable.sticker, "Spanduk"))
-//    }
 }

@@ -25,6 +25,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".pesanan.PilihanPesanan"
+            android:exported="false" />
+        <activity
             android:name=".pesanan.PesananActivity"
             android:exported="false" />
         <activity
@@ -61,7 +64,7 @@
             android:name=".produk.DikemasActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.RevisiActivity"
+            android:name=".pesanan.RevisiActivity"
             android:exported="false" />
         <activity
             android:name=".profil.AlamatActivity"
@@ -153,7 +156,6 @@
         <activity
             android:name=".produk.undangan.UndanganActivity"
             android:exported="false" />
-
         <activity
             android:name=".SplashActivity"
             android:exported="true">

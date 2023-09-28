@@ -1,9 +1,10 @@
-package umbjm.ft.inf.mydigitalprinting.pembayaran
+package umbjm.ft.inf.mydigitalprinting.pesanan
 
-data class Pembayaran(
+data class DataPesanan(
+    val idPesanan: String? = null,
     val idPembayaran: String? = null,
     val idKeranjang: String? = null,
     val userID: String? = null,
     val ttotalHarga: String? = null,
-    val imageBukti: String? = null
+    val imageBukti: String? = ""
 )

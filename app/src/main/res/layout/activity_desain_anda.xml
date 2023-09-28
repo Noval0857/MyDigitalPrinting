@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produk.opsi.OpsipesananActivity">
+    tools:context=".pesanan.DesainAnda">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -74,7 +74,7 @@
                 android:src="@android:drawable/ic_menu_camera" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnS1"
+                android:id="@+id/btnRevisi"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
@@ -92,7 +92,7 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnS2"
+                android:id="@+id/btnDownload"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
@@ -110,7 +110,7 @@
                 app:elevation="5dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnS3"
+                android:id="@+id/btnCetakd"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
