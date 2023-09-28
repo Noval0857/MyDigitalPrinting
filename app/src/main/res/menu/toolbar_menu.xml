@@ -6,10 +6,6 @@
         android:title="Home"
         android:icon="@drawable/ic_home"/>
 
-    <item
-        android:id="@+id/Bpesanan"
-        android:title="Pesanan"
-        android:icon="@drawable/ic_pesanan" />
 
     <item
         android:id="@+id/Bkeranjang"

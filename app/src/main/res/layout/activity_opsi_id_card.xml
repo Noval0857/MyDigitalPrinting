@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="produk.opsi.OpsiidcardActivity">
+    tools:context="produk.opsi.OpsiidcardActivity"
+    style="@style/ScreenBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -53,7 +54,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="316dp"
+                    android:layout_width="307dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textidcrd"
                     android:layout_marginLeft="45dp"
@@ -66,7 +67,7 @@
 
 
             <RelativeLayout
-                android:layout_width="527dp"
+                android:layout_width="match_parent"
                 android:layout_height="100dp">
 
                 <Button

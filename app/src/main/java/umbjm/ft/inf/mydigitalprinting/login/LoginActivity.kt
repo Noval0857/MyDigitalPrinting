@@ -148,11 +148,10 @@ class LoginActivity : AppCompatActivity() {
                     shp.put(Constant.PREF_LOGIN, true)
                     moveIntent()
                 } else {
-                    Toast.makeText(
-                        this,
-                        "Email atau Password salah, silahkan cek ulang",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Warning")
+                        .setContentText("Password atau Email yang anda masukkan salah")
+                        .show()
                 }
             }
     }

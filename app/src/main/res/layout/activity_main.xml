@@ -35,7 +35,7 @@
                 android:elevation="4dp"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
-                style="@style/ScreenBackground">
+                style="@style/ScreenBackground2">
 
                 <TextView
                     android:layout_width="wrap_content"

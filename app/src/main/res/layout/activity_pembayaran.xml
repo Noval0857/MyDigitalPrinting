@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pembayaran.PembayaranActivity">
+    tools:context=".pembayaran.PembayaranActivity"
+    style="@style/ScreenBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,7 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="Payment Profil"
-            android:textSize="16sp">
+            android:textSize="16sp"
+            style="@style/BoldText">
         </TextView>
 
     </LinearLayout>
@@ -46,8 +48,8 @@
                 android:id="@+id/txt1"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:text="SILAHKAN LAKUKAN PEMBAYARAN"
-                android:textSize="17dp"
+                android:text="SILAHKAN LAKUKAN PEMBAYARAN \n SESUAIKAN PEMBAYARAN DENGAN PESANAN ANDA"
+                android:textSize="15dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_marginLeft="50dp"
@@ -76,11 +78,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bukti Pembayaran"
+            android:text="Kirim Bukti Pembayaran"
             android:textSize="16dp"
             android:textStyle="italic"
             android:layout_marginTop="540dp"
-            android:layout_marginStart="15dp">
+            android:layout_marginStart="15dp"
+            style="@style/textView_style">
         </TextView>
 
         <ImageButton
