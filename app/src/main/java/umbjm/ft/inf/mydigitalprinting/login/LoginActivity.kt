@@ -13,6 +13,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.R
+import umbjm.ft.inf.mydigitalprinting.admin.AdminActivity
 import umbjm.ft.inf.mydigitalprinting.preferen.Constant
 import umbjm.ft.inf.mydigitalprinting.preferen.SharedPreferences
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityLoginBinding
@@ -82,6 +83,7 @@ class LoginActivity : AppCompatActivity() {
                 binding.inputEmail.requestFocus()
                 return@setOnClickListener
             }
+
             // Fungsi mengecek apakah sesuai dengan format email
             if (!Patterns.EMAIL_ADDRESS.matcher(inpEmail).matches()) {
                 binding.inputEmail.error = "Email tidak sesuai"
@@ -145,8 +147,17 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    shp.put(Constant.PREF_LOGIN, true)
-                    moveIntent()
+                    val user = auth.currentUser
+                    if (user != null) {
+                        val isAdmin = user.email == "mydigitalumbjm@gmail.com" // Gantilah dengan alamat email "admin" yang sesuai
+                        if (isAdmin) {
+                            shp.put(Constant.PREF_LOGIN, true)
+                            moveAdminIntent()
+                        } else {
+                            shp.put(Constant.PREF_LOGIN, true)
+                            moveIntent()
+                        }
+                    }
                 } else {
                     SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
                         .setTitleText("Warning")
@@ -154,6 +165,13 @@ class LoginActivity : AppCompatActivity() {
                         .show()
                 }
             }
+    }
+
+    private fun moveAdminIntent() {
+        val intent = Intent(this, AdminActivity::class.java)
+        intent.putExtra("login_status", "success")
+        startActivity(intent)
+        finish()
     }
 
     private fun moveIntent() {

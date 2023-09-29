@@ -1,5 +1,6 @@
 package umbjm.ft.inf.mydigitalprinting.produk.brosur
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsibrosurActivity
-import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecdesainActivity
 
 class BrosurActivity : AppCompatActivity(), BrosurAdapter.BrosurItemClickListener {
 
@@ -24,6 +24,7 @@ class BrosurActivity : AppCompatActivity(), BrosurAdapter.BrosurItemClickListene
     val brosurItemClickListener = this  // Menyimpan referensi ke BannerActivity sebagai BannerItemClickListener
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_brosur)
