@@ -94,20 +94,20 @@ class PembayaranActivity : AppCompatActivity() {
                                 .setValue(pembayaran)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
-//                                         Toast.makeText(
-//                                             this,
-//                                             "Uploaded Successfully",
-//                                             Toast.LENGTH_SHORT
-//                                         ).show()
-// //                                        sendDataToPesanan()
-
-//                                         intent.putExtra("totalHarga", ttotalHarga)
-//                                         intent.putExtra("idKeranjang", idKeranjang)
-//                                         intent.putExtra("idPembayaran", idPembayaran)
-                                        val intent = Intent(this, PesananActivity::class.java)
-                                        SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-                                            .setTitleText("Success")
-                                            .setContentText("Berhasil Upload")
+////                                         Toast.makeText(
+////                                             this,
+////                                             "Uploaded Successfully",
+////                                             Toast.LENGTH_SHORT
+////                                         ).show()
+//// //                                        sendDataToPesanan()
+//
+////                                         intent.putExtra("totalHarga", ttotalHarga)
+////                                         intent.putExtra("idKeranjang", idKeranjang)
+////                                         intent.putExtra("idPembayaran", idPembayaran)
+//                                        val intent = Intent(this, PesananActivity::class.java)
+//                                        SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+//                                            .setTitleText("Success")
+//                                            .setContentText("Berhasil Upload")
                                         val intent = Intent(this, MainActivity::class.java)
                                         startActivity(intent)
                                         finish()

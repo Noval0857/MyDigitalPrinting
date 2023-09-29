@@ -1,4 +1,4 @@
-package umbjm.ft.inf.mydigitalprinting.produk
+package umbjm.ft.inf.mydigitalprinting.produk.poster
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -128,11 +128,6 @@ class MainActivity : AppCompatActivity() {
                     refershActivity()
                     true
                 }
-                R.id.Bpesanan -> {
-                    val intent = Intent(this, PilihanPesanan::class.java)
-                    startActivity(intent)
-                    true
-                }
 
                 else -> false
             }
