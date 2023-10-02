@@ -1,12 +1,10 @@
-package umbjm.ft.inf.mydigitalprinting.produk.opsi
+package umbjm.ft.inf.mydigitalprinting.produk.brosur
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.produk.brosur.SpecbrosurActivity
-import umbjm.ft.inf.mydigitalprinting.produk.cetak.CetakbrosurActivity
 
 class OpsibrosurActivity : AppCompatActivity() {
 
@@ -33,6 +31,7 @@ class OpsibrosurActivity : AppCompatActivity() {
         cetakbrosur = findViewById(R.id.cetakbrosur)
         cetakbrosur.setOnClickListener {
             val intent = Intent(this, CetakbrosurActivity::class.java)
+            intent.putExtra("idBrosur", idBrosur)
             startActivity(intent)
             return@setOnClickListener
         }

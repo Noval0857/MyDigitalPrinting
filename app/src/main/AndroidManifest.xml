@@ -85,10 +85,10 @@
             android:name=".profil.ContactActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.cetak.CetakbrosurActivity"
+            android:name=".produk.brosur.CetakbrosurActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.opsi.OpsibrosurActivity"
+            android:name=".produk.brosur.OpsibrosurActivity"
             android:exported="false" />
         <activity
             android:name=".pembayaran.PembayaranActivity"

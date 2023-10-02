@@ -12,7 +12,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsibrosurActivity
 
 class BrosurActivity : AppCompatActivity(), BrosurAdapter.BrosurItemClickListener {
 

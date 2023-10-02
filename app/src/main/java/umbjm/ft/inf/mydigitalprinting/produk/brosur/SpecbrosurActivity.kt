@@ -14,7 +14,6 @@ import com.google.firebase.storage.FirebaseStorage
 import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivitySpesifikasibrosurBinding
-import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsibrosurActivity
 
 class SpecbrosurActivity : AppCompatActivity() {
 
@@ -85,9 +84,9 @@ class SpecbrosurActivity : AppCompatActivity() {
                             database =
                                 FirebaseDatabase.getInstance("https://mydigitalprinting-60323-default-rtdb.asia-southeast1.firebasedatabase.app/")
                                     .getReference("User")
-                            val idPesanan = database.push().key!!
+                            val idKeranjang = database.push().key!!
                             val specbrosur = SpecBrosur(
-                                idPesanan,
+                                idKeranjang,
                                 userID,
                                 idBrosur,
                                 harga,
@@ -100,7 +99,7 @@ class SpecbrosurActivity : AppCompatActivity() {
                                 imageUrl
 
                             )
-                            database.child(userID!!).child("Pesanan").child(idPesanan)
+                            database.child(userID!!).child("Pesanan").child(idKeranjang)
                                 .setValue(specbrosur)
                                 .addOnCompleteListener { databaseTask ->
                                     if (databaseTask.isSuccessful) {
