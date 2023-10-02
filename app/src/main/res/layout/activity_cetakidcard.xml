@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    tools:context=".produk.cetak.CetakidcardActivity"
+    tools:context=".produk.idcard.CetakidcardActivity"
     android:fitsSystemWindows="true">
 
     <RelativeLayout
@@ -197,6 +197,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:inputType="number"
                         android:background="@drawable/block_pesanan"
                         android:textSize="18sp" />
 
@@ -225,38 +226,39 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:text="1000"
                         android:background="@drawable/block_pesanan"
                         android:textSize="18sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    style="@style/BoldTextItalicText"
-                    android:layout_width="160dp"
-                    android:layout_height="20dp"
-                    android:text="*Total Harga"
-                    android:textSize="13sp" />
+<!--                <TextView-->
+<!--                    style="@style/BoldTextItalicText"-->
+<!--                    android:layout_width="160dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:text="*Total Harga"-->
+<!--                    android:textSize="13sp" />-->
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    app:boxCornerRadiusBottomEnd="20dp"
-                    app:boxCornerRadiusBottomStart="20dp"
-                    app:boxCornerRadiusTopEnd="20dp"
-                    app:boxCornerRadiusTopStart="20dp"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black">
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:boxCornerRadiusBottomEnd="20dp"-->
+<!--                    app:boxCornerRadiusBottomStart="20dp"-->
+<!--                    app:boxCornerRadiusTopEnd="20dp"-->
+<!--                    app:boxCornerRadiusTopStart="20dp"-->
+<!--                    app:boxStrokeColor="@color/black"-->
+<!--                    app:hintTextColor="@color/black">-->
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/totalHarga"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/block_pesanan"
-                        android:textSize="18sp" />
+<!--&lt;!&ndash;                    <com.google.android.material.textfield.TextInputEditText&ndash;&gt;-->
+<!--                        android:id="@+id/totalHarga"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:background="@drawable/block_pesanan"-->
+<!--                        android:textSize="18sp" />-->
 
-                </com.google.android.material.textfield.TextInputLayout>
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
 
                 <!-- Button -->
                 <TextView

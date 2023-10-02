@@ -1,4 +1,4 @@
-package umbjm.ft.inf.mydigitalprinting.produk.cetak
+package umbjm.ft.inf.mydigitalprinting.produk.idcard
 
 data class CetakIdcard(
     val idKeranjang: String?= null,
@@ -12,8 +12,8 @@ data class CetakIdcard(
     val B2: Boolean? = false,
     val B3: Boolean? = false,
     val B4: Boolean? = false,
-    val hargaSatuan: String? = null,
     val keterangan: String? = null,
+    val hargaSatuan: String? = null,
     val minOrder: String? = null,
     val image: List<String>? = null
 )

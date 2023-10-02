@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.databinding.ActivityOpsiIdCardBinding
-import umbjm.ft.inf.mydigitalprinting.produk.cetak.CetakidcardActivity
+import umbjm.ft.inf.mydigitalprinting.produk.idcard.CetakidcardActivity
 import umbjm.ft.inf.mydigitalprinting.produk.idcard.SpecidcardActivity
 
 class OpsiidcardActivity : AppCompatActivity() {
@@ -33,6 +32,7 @@ class OpsiidcardActivity : AppCompatActivity() {
         cetakId = findViewById(R.id.cetakidcard)
         cetakId.setOnClickListener {
             val intent = Intent(this, CetakidcardActivity::class.java)
+            intent.putExtra("idCard", idCard)
             startActivity(intent)
             return@setOnClickListener
         }
