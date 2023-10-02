@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    tools:context=".produk.cetak.CetakbrosurActivity"
+    tools:context=".produk.brosur.CetakbrosurActivity"
     android:fitsSystemWindows="true">
 
     <RelativeLayout
@@ -88,11 +88,12 @@
                     android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="*Ukuran Id Card"
+                    android:text="*Jenis Lipatan"
                     android:textSize="13sp" />
 
                 <!--Bagian Ukuran B1-->
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/tanpaLipat"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:layout_marginTop="5dp"
@@ -100,12 +101,14 @@
 
                 <!--Bagian Ukuran B2-->
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/duaLipatan"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:text="2 Lipatan" />
 
                 <!--Ukuran B3-->
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/tigaLipatan"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="150dp"
@@ -114,6 +117,7 @@
 
                 <!--Ukuran B4-->
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/lipatanZ"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="150dp"
@@ -121,6 +125,7 @@
 
                 <!--Ukuran B4-->
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/lipatanGateFold"
                     android:layout_width="150dp"
                     android:layout_height="35dp"
                     android:text="Lipatan Gate Fold" />
