@@ -1,4 +1,4 @@
-package umbjm.ft.inf.mydigitalprinting.produk.cetak
+package umbjm.ft.inf.mydigitalprinting.produk.idcard
 
 import android.content.Intent
 import android.net.Uri
@@ -49,7 +49,6 @@ class CetakidcardActivity : AppCompatActivity() {
             val userID = user?.uid
 
             val idBanner = intent.getStringExtra("idBanner")
-            val harga = intent.getStringExtra("harga")
 
             val namaProject = binding.UploadNamaProject.text.toString()
 
@@ -67,9 +66,11 @@ class CetakidcardActivity : AppCompatActivity() {
             val B3 = ukuranB3.isChecked
             val B4 = ukuranB4.isChecked
 
-            val hargaSatuan = binding.hargaSatuan.text.toString()
-            val totalHarga = binding.totalHarga.text.toString()
-            val minOrder = binding.minOrder.text.toString()
+            val hargaSatuan = 1000
+            val minOrder = binding.minOrder.text.toString().toIntOrNull() ?: 0
+
+            val harga = (hargaSatuan * minOrder).toString()
+
             val keterangan = binding.UploadketeranganTambahan.text.toString()
 
             if (uris.isNullOrEmpty()) {
@@ -107,8 +108,8 @@ class CetakidcardActivity : AppCompatActivity() {
                                     satuSisi,
                                     duaSisi,
                                     B1, B2, B3, B4,
-                                    hargaSatuan,
-                                    keterangan, minOrder,
+                                    hargaSatuan.toString(),
+                                    keterangan, minOrder.toString(),
                                     imagesUploaded
                                 )
 
@@ -138,7 +139,6 @@ class CetakidcardActivity : AppCompatActivity() {
                                         ukuranB4.isChecked = false
                                         binding.minOrder.text?.clear()
                                         binding.hargaSatuan.text?.clear()
-                                        binding.totalHarga.text?.clear()
                                         binding.UploadketeranganTambahan.text?.clear()
                                     }
                             }

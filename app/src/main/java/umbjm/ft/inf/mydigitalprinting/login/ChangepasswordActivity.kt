@@ -12,11 +12,13 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityChangePasswordBinding
 import umbjm.ft.inf.mydigitalprinting.profil.ProfileActivity
 
-// Memanggil library dan ditampung kedalam variable
-lateinit var binding: ActivityChangePasswordBinding
-lateinit var auth: FirebaseAuth
+
 
 class ChangepasswordActivity : AppCompatActivity() {
+
+    // Memanggil library dan ditampung kedalam variable
+    lateinit var binding: ActivityChangePasswordBinding
+    lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityChangePasswordBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)

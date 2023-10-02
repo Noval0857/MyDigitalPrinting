@@ -148,7 +148,7 @@
             android:name=".produk.cetak.CetakundanganActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.cetak.CetakidcardActivity"
+            android:name=".produk.idcard.CetakidcardActivity"
             android:exported="false" />
         <activity
             android:name=".produk.opsi.OpsipesananActivity"
