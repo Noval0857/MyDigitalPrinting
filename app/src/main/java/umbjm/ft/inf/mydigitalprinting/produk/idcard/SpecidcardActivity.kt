@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.CheckBox
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -106,7 +107,10 @@ class SpecidcardActivity : AppCompatActivity() {
                                 }
                         }
                     } else {
-                        Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Gagal Upload Foto", Toast.LENGTH_SHORT).show()
+                        task.exception?.let { exception ->
+                            Log.e("UploadError", exception.message ?: "Unknown error")
+                        }
                     }
                 }
             }

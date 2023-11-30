@@ -4,4 +4,6 @@
     <string name="contact_Us">Contact US</string>
     <string name="NoHp">+62815-4931-0752</string>
     <string name="Email">mydigitalumbjm@gmail.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.admin.itembanner.ItemBannerActivity
 import umbjm.ft.inf.mydigitalprinting.admin.itembrosur.ItemBrosurActivity
 import umbjm.ft.inf.mydigitalprinting.admin.itemidcard.ItemIdcardActivity
@@ -59,6 +60,12 @@ class AdminActivity : AppCompatActivity() {
 
         binding.btnLogout.setOnClickListener {
             LogOut()
+        }
+
+        binding.kembali.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finishAffinity()
         }
     }
 

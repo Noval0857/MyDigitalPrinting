@@ -7,8 +7,11 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SENDTO" />
@@ -169,7 +172,7 @@
             android:name=".produk.idcard.SpecidcardActivity"
             android:exported="false" />
         <activity
-            android:name=".produk.spesifikasi.SpecdesainActivity"
+            android:name=".produk.banner.SpecbannerActivity"
             android:exported="false" />
         <activity
             android:name=".produk.spesifikasi.SpecundanganActivity"

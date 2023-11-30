@@ -4,11 +4,9 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -16,9 +14,7 @@ import com.google.firebase.storage.FirebaseStorage
 import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityCetakBinding
-import umbjm.ft.inf.mydigitalprinting.databinding.ActivitySpesifikasidesainBinding
 import umbjm.ft.inf.mydigitalprinting.produk.opsi.OpsipesananActivity
-import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecDesain
 
 class CetakdesainActivity : AppCompatActivity() {
 

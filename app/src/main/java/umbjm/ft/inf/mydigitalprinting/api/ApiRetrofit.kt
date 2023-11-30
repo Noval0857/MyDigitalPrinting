@@ -10,7 +10,7 @@
 //
 //class ApiRetrofit {
 //
-//    private val BASE_URL = "http://192.168.1.14/MyDigitalPrinting/"
+//    private val BASE_URL = "http://mydigitalprinting.online/phpmyadmin/index.php?route=/database/structure&server=1&db=MyDigitalPrinting"
 //
 //    private val okHttpClient = OkHttpClient.Builder()
 //        .addInterceptor (HttpLoggingInterceptor().apply {

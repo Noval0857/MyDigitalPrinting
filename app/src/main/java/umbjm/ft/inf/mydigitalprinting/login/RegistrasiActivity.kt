@@ -87,5 +87,5 @@ class RegistrasiActivity : AppCompatActivity() {
                     }
                 }
             }
-        }
     }
+}

@@ -16,7 +16,6 @@ import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.databinding.ActivityMyProfileBinding
-import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecDesain
 
 class MyprofileActivity : AppCompatActivity() {
 

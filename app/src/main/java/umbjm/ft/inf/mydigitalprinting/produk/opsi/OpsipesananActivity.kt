@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import umbjm.ft.inf.mydigitalprinting.R
 import umbjm.ft.inf.mydigitalprinting.produk.cetak.CetakdesainActivity
-import umbjm.ft.inf.mydigitalprinting.produk.spesifikasi.SpecdesainActivity
+import umbjm.ft.inf.mydigitalprinting.produk.banner.SpecbannerActivity
 
 class OpsipesananActivity : AppCompatActivity() {
 
@@ -25,7 +25,7 @@ class OpsipesananActivity : AppCompatActivity() {
         val biayaDesain = jasaHarga.toString()
 
         jasadesain.setOnClickListener {
-            val intent = Intent(this, SpecdesainActivity::class.java)
+            val intent = Intent(this, SpecbannerActivity::class.java)
             intent.putExtra("idBanner", idBanner)
             intent.putExtra("biayaDesain", biayaDesain)
             startActivity(intent)
