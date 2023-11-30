@@ -29,10 +29,6 @@ class AdminActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-//        binding.btnProduk.setOnClickListener {
-//            startActivity(Intent(this, Item::class.java))
-//        }
-
         binding.btnBanner.setOnClickListener {
             startActivity(Intent(this, ItemBannerActivity::class.java))
         }
