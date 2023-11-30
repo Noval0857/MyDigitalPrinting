@@ -149,7 +149,7 @@ class LoginActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
                     val user = auth.currentUser
                     if (user != null) {
-                        val isAdmin = user.email == "mydigitalumbjm@gmail.com" // Gantilah dengan alamat email "admin" yang sesuai
+                        val isAdmin = user.email== "ehelkuah8@gmail.com" // Gantilah dengan alamat email "admin" yang sesuai
                         if (isAdmin) {
                             shp.put(Constant.PREF_LOGIN, true)
                             moveAdminIntent()

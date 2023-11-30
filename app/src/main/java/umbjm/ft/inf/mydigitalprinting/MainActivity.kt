@@ -109,7 +109,9 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // Untuk fungsi button pada Bottom Navigation Bar
+
+
+         //Untuk fungsi button pada Bottom Navigation Bar
         BottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.Bkeranjang -> {

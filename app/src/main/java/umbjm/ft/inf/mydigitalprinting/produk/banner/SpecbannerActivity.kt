@@ -1,4 +1,4 @@
-package umbjm.ft.inf.mydigitalprinting.produk.spesifikasi
+package umbjm.ft.inf.mydigitalprinting.produk.banner
 
 import android.content.Intent
 import android.net.Uri
@@ -13,18 +13,17 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import umbjm.ft.inf.mydigitalprinting.MainActivity
 import umbjm.ft.inf.mydigitalprinting.R
-import umbjm.ft.inf.mydigitalprinting.databinding.ActivitySpesifikasidesainBinding
-import umbjm.ft.inf.mydigitalprinting.produk.banner.BannerActivity
+import umbjm.ft.inf.mydigitalprinting.databinding.ActivitySpesifikasibannerBinding
 
-class SpecdesainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySpesifikasidesainBinding
+class SpecbannerActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySpesifikasibannerBinding
     private lateinit var database: DatabaseReference
     private var uris: List<Uri>? = null
     private lateinit var BackPesanan: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySpesifikasidesainBinding.inflate(layoutInflater)
+        binding = ActivitySpesifikasibannerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // back mainActivity
@@ -94,7 +93,7 @@ class SpecdesainActivity : AppCompatActivity() {
                             // Check if all images are uploaded
                             if (imagesUploaded.size == uris!!.size) {
                                 // Save the image URLs in Firebase Realtime Database
-                                val sD = SpecDesain(
+                                val sD = SpecBanner(
                                     idKeranjang,
                                     userID,
                                     idBanner,

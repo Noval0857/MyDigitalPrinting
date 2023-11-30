@@ -1,6 +1,6 @@
-package umbjm.ft.inf.mydigitalprinting.produk.spesifikasi
+package umbjm.ft.inf.mydigitalprinting.produk.banner
 
-data class SpecDesain(
+data class SpecBanner(
     val idKeranjang: String?= null,
     val userID: String? = null,
     val idBanner: String? = null,
